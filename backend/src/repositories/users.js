@@ -47,7 +47,7 @@ const updateUser = async (userData, userId) => {
 }
 
 const deleteUser = async (userId) =>{
-    userModel.findOneAndDelete({ id: req.params.id }, {}, (error, data) => {
+    userModel.findOneAndDelete({ id: userId }, {}, (error, data) => {
         if (error) {
             res.json({ status: 500, data: error });
         }
