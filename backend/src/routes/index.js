@@ -2,7 +2,6 @@ import { Router }  from "express";
 import aboutus from "./aboutus.js"
 import posts from "./posts.js"
 
-
 const routes = Router()
 
 routes.use("/aboutus", aboutus)
