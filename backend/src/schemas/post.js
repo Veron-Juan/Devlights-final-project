@@ -26,7 +26,7 @@ const postSchema = new Schema({
     img: {
         data: Buffer,
         contentType: String
-    }
+    },
     fecha_creado: {
         type: Date,
         default: Date.now,
