@@ -6,6 +6,11 @@ const postSchema = new Schema({
         ref: 'User',
         require: true,
     },
+    post:{
+        type: mongoose.Types.ObjectId,
+        ref: 'Post',
+        require: true,
+    },
     titulo: {
         type: String,
         required: true,
@@ -21,6 +26,14 @@ const postSchema = new Schema({
     imagen_url: {
         type: String,
         required: true,
+    },
+    fecha_creado: {
+        type: Date,
+        default: Date.now,
+    },
+    fecha_editado: {
+        type: Date,
+        default: Date.now,
     },
 }, {
     versionKey: false,

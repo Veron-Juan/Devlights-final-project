@@ -1,4 +1,3 @@
-import userModel from "../schemas/user";
 import userRepository from  "../repositories/users.js"
 
 export const getAllUsers = async (req, res) => {

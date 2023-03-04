@@ -12,7 +12,7 @@ const getAllUsers = async () =>{
  };
 
 const getUserById = async (userId) => {
-    userModel.find({ id: userId }, (error, data) => {
+    userModel.find({ _id: userId }, (error, data) => {
         if (error) {
             res.json({ status: 500, data: error });
         }
@@ -32,7 +32,7 @@ const createUser = async (userData) => {
 
 const updateUser = async (userData, userId) => {
     userModel.findOneAndUpdate(
-        { id: userId}, userData, 
+        { _id: userId}, userData, 
         {
             new: true
         },
@@ -47,7 +47,7 @@ const updateUser = async (userData, userId) => {
 }
 
 const deleteUser = async (userId) =>{
-    userModel.findOneAndDelete({ id: userId }, {}, (error, data) => {
+    userModel.findOneAndDelete({ _id: userId }, {}, (error, data) => {
         if (error) {
             res.json({ status: 500, data: error });
         }
