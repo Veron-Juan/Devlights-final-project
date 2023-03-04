@@ -23,10 +23,10 @@ const postSchema = new Schema({
         type: String,
         required: true,
     },
-    imagen_url: {
-        type: String,
-        required: true,
-    },
+    img: {
+        data: Buffer,
+        contentType: String
+    }
     fecha_creado: {
         type: Date,
         default: Date.now,
