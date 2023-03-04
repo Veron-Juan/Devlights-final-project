@@ -1,5 +1,6 @@
 import { Router } from "express";
 
+
 const posts = Router();
 
 posts.get("/", (req, res) => {
@@ -8,7 +9,14 @@ posts.get("/", (req, res) => {
 });
 
 posts.post("/upload", (req, res) => {
-  res.send("subir mascota perdida");
+  // const image = new PostModel
+  // image.name = req.body.name
+  // image.contact = req.body.contact
+  // image.description = req.body.description
+  // image.filename = req.body.filename
+  // image.path = req.body.path
+  
+  res.send({data:"enviar un archivo"});
 });
 
 posts.delete("/delete:id", (req, res) => {
