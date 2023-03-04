@@ -1,10 +1,14 @@
 import { Schema, model } from "mongoose";
 const postSchema = new Schema({
     name:{
-        type: String,
-         
+        type: String, 
     },
-    
+    contact:{
+        type:Number,
+    },
+    location:{
+        type:String,
+    },
     img:
     {
         data: Buffer,
