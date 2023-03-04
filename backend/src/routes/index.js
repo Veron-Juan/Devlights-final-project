@@ -3,7 +3,6 @@ import aboutus from "./aboutus.js"
 import posts from "./posts.js"
 import userRoutes from "./users.js"
 
-
 const routes = Router()
 
 routes.use("/aboutus", aboutus)
