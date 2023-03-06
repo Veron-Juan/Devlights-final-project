@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: grey;
-}
+/* body{
+    background: linear-gradient(342deg, #defff8 0.69%, #ffffff 51.52%, #8effe6 100%);;
+} */

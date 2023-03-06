@@ -17,8 +17,6 @@ const router = Router()
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-  
-  
   router.post("/postprueba", upload.single("testImage"), async (req, res) => {
     const saveImage =  PostModel({
       name: req.body.name,
