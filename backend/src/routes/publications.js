@@ -5,15 +5,7 @@ import fs from "fs"
 
 const router = Router()
 
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//       cb(null, "uploads");
-//     },
-//     filename: (req, file, cb) => {
-//       cb(null, file.originalname);
-      
-//     },
-//   });
+
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
@@ -33,12 +25,6 @@ const upload = multer({ storage: storage });
     const image = saveImage.img.data.toString("base64")
     const contentType = saveImage.contentType;
     res.json({ image, contentType });
-    //   .then((res) => {
-    //     console.log("image is saved");
-    //   })
-    //   .catch((err) => {
-    //     console.log(err, "error has occur");
-    //   });
     
   });
 
