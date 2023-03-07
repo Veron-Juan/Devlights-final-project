@@ -7,6 +7,3 @@ body{
   background-color: grey;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

@@ -21,11 +21,7 @@ const urlPost = "https://estaticos-cdn.prensaiberica.es/clip/823f515c-8143-4044-
 
 const Card =(props) => {
     const [showModal, setShowModal] = useState(false);
-    const location = {
-      address: '1600 Amphitheatre Parkway, Mountain View, california.',
-      lat: 37.42216,
-      lng: -122.08427,
-    };  
+    
     return(
     <>
         <div className="container flex flex-col bg-white rounded-md max-w-sm h-auto w-72 mx-2">
