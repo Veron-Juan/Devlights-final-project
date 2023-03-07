@@ -6,7 +6,7 @@ import { HomeHero } from '../../components/Home/HomeHero'
 export default function Home() {
   return (
     <div>
-      <div className='min-h-full w-screen flex'>
+      <div className='min-h-full max-w-full lg:px-14 mx-auto flex '>
         <HomeBody />
         <HomeHero/>
       </div>
