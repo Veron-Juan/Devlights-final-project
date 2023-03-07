@@ -21,6 +21,12 @@ const urlPost = "https://estaticos-cdn.prensaiberica.es/clip/823f515c-8143-4044-
 
 const Card =(props) => {
     const [showModal, setShowModal] = useState(false);
+    //get lat and lng  and ubicacionPost from props and put it in const location
+    const location = {
+      address: props.ubicacionPost,
+      lat: -27.460374137170163, 
+      lng: -58.828945125378276,
+    }  
     
     return(
     <>
@@ -46,8 +52,24 @@ const Card =(props) => {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-row w-full  outline-none focus:outline-none">
                 {/* Parte izquierda */}
                 <div className="flex flex-col">
-                  asdaaaaaaaaaaaaaaaaaa
+                  asdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                     <Map location={location} zoomLevel={17}/>
+                    <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b bg-green">
+                    <button
+                      className="text-black text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={() => setShowModal(false)}
+                    >
+                      Close
+                    </button>
+                    <button
+                      className="bg-emerald-500 text-black active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={() => setShowModal(false)}
+                    >
+                      Save Changes
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
