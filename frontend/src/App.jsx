@@ -1,8 +1,8 @@
 import "./App.css";
 import Navbar from "../src/components/Navbar/Navbar";
-import Register from "./pages/register/Register";
-import CardComponent from './components/Card'
-import Map from './components/MapComponent'
+
+import CardComponent from './components/CardComponent/Card'
+
 
 
 function App() {
