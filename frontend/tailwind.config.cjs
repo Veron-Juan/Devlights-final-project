@@ -13,7 +13,8 @@ module.exports = {
       gray: "#8492a6",
       "gray-light": "#d3dce6",
       black: "#000000",
-      white: "#ffffff"
+      white: "#FBFBFB",
+      "white-black": "#F7F7F7"
     },
   },
   plugins: [],
