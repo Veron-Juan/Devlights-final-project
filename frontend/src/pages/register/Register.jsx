@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addUser } from "../../redux/states.js/user";
 // Formulario de registro que solicita: Nombre y apellido, email y contraseña
 
 function Register() {
-  //seteamos los valores iniciales de los form's inputs
-  const [inputValues, setInputValue] = useState({
-    fName: "",
-    lName: "",
+
+  const initialState= {
+    name: "",
+    lastname: "",
     email: "",
     password: "",
-    confirmPassword: "",
-  });
+  }
+
+  //seteamos los valores iniciales de los form's inputs
+  const [inputValues, setInputValue] = useState(initialState);
 
   const [validation, setValidation] = useState({
     fName: "",
@@ -21,9 +25,8 @@ function Register() {
   });
 
   //handle submit updates
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setInputValue({ ...inputValues, [name]: value });
+  function handleChange(e) {
+    setInputValue({ ...inputValues, [e.target.name]: e.target.value });
   }
 
   const checkValidation = () => {
@@ -86,13 +89,35 @@ function Register() {
     return setValidation(errors);
   };
 
-  useEffect(() => {
-    checkValidation();
-  }, [inputValues]);
+  // useEffect(() => {
+  //   checkValidation();
+  // }, [inputValues]);
 
-  const handleSubmit = (e) => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
+      const res = await fetch("http://localhost:4000/api/auth/register", {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(inputValues)
+        });
+        try{
+          console.log(res)
+          dispatch(addUser({ ...inputValues}));
+          navigate(`/`, {replace: true})
+
+        } catch(error){
+          console.log(error)
+        }
+      
   };
+
+  
 
   // Return del componente main Registro
 
@@ -108,24 +133,24 @@ function Register() {
         <h1 className="flex justify-center text-3xl font-bold  border-b-4 pb-[7px] border-b-yellow-400  ">
           Únete a nosotros!
         </h1>
-        <div className="flex justify-left text-1xl font-bold  border-b-4 border-b-yellow-200 focus-within:border-yellow-400 ">
-          <label htmlFor="fName" className="font-[Monserrat] mt-[8px]">
+        <div className="relative flex flex-col ml-[150px] justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400 w-[60%]">
+          <label htmlFor="name" className="font-[Monserrat] mt-[8px]">
             Nombre
             <input
               type="text"
-              name="fName"
-              id="fName"
+              name="name"
+              id="name"
               placeholder="Ej:Devlights"
-              className="block appearance-none focus:outline-none bg-transparent "
-              onChange={(e) => handleChange(e)}
-              value={inputValues.fName}
+              className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full"
+              onChange={handleChange}
+              value={inputValues.name}
             />
-            {validation.fName && (
-              <p className="text-red-200 font-[Monserrat]">
-                {validation.fName}
+            {validation.name && (
+              <p className="text-red-600 font-[Monserrat]">
+                {validation.name}
               </p>
             )}
-            {validation.fName && console.log(validation)}
+            {validation.name && console.log(validation)}
           </label>
         </div>
         <div className="flex justify-left text-1xl font-bold  border-b-4 border-b-yellow-200 focus-within:border-yellow-400 ">
@@ -133,16 +158,16 @@ function Register() {
             Apellido
             <input
               type="text"
-              name="lName"
-              id="lName"
+              name="lastname"
+              id="lastname"
               placeholder="Ej:Bootcamps"
               className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full"
-              onChange={(e) => handleChange(e)}
-              value={inputValues.lName}
+              onChange={handleChange}
+              value={inputValues.lastname}
             />
-            {validation.lName && (
+            {validation.lastname && (
               <p className="text-red-600 font-[Monserrat]">
-                {validation.lName}
+                {validation.lastname}
               </p>
             )}
           </label>
@@ -155,7 +180,7 @@ function Register() {
               name="email"
               placeholder="Email"
               className="block w-full appearance-none focus:outline-none bg-transparent pl-[5px]"
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
               value={inputValues.email}
             />
             {validation.email && (
@@ -173,7 +198,7 @@ function Register() {
               name="password"
               placeholder="Contraseña"
               className="block w-full appearance-none focus:outline-none bg-transparent pl-[5px]"
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
               value={inputValues.password}
               required
             />

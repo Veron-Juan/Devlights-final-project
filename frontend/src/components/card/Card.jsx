@@ -2,7 +2,7 @@ import React from 'react'
 import Phone from "../../assets/Phone.svg"
 import Location from "../../assets/Location.svg"
 
-export default function Card() {
+export default function Card(props) {
   return (
     <div>
       
@@ -11,17 +11,17 @@ export default function Card() {
             <b>De: Maria Angeles</b>
             <p className='font-light text-sm'>Publicado hace 1 día</p>
         </div>
-        <img className="w-full  h-[225px]" src="https://t1.ea.ltmcdn.com/es/posts/5/6/2/10_caracteristicas_de_los_perros_24265_600_square.jpg" alt="" />
+        <img className="w-full  h-[225px] object-cover" src={props.image} alt="" />
     
     <div className=" flex flex-col align-middle relative">
-        <b>Name</b>
+        <b>Nombre: {props.name}</b>
         <span className='flex justify-start align-middle p-1 gap-3'>
         <img width="30px" src={Phone}/>
-        <h3>Contact</h3>
+        <h3>Contacto: {props.contact}</h3>
         </span>
         <span className='flex justify-start align-middle p-1 gap-3'>
         <img width="30px" src={Location}/>
-        <h3>Location</h3>
+        <h3>Ciudad: {props.location}</h3>
         </span>
         <a className='w-[95px] absolute bottom-[-20px] right-2 h-6 rounded-md  bg-yellow'>Description</a>
         

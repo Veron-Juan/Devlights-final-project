@@ -1,9 +1,17 @@
 import { Fragment, useState } from "react";
-import Barra from "../../assets/menu.png";
+import { clearLocalStorageUser } from "../../redux/states.js/user";
+
 // Menú dropdown para accesibilidad en Navbar
 
 function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
+
+  
+
+  const cerrarSesion = ()=>{
+    clearLocalStorageUser()
+    location.reload()
+  }
 
   return (
     <div >
@@ -51,8 +59,8 @@ function Dropdown() {
               Cuenta
             </a>
             <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 no-underline"
+              onClick={cerrarSesion}
+              className="block px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 no-underline"
             >
               Cerrar Sesión
             </a>

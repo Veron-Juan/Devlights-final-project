@@ -12,7 +12,10 @@ module.exports = {
       "gray-dark": "#273444",
       gray: "#8492a6",
       "gray-light": "#d3dce6",
-      white: "#fff"
+      "yellow-HomeButtton": "#F7C105",
+      black: "#000000",
+      white: "#FBFBFB",
+      "white-black": "#F7F7F7"
     },
   },
   plugins: [],

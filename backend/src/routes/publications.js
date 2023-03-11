@@ -9,7 +9,7 @@ const router = Router()
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-  router.post("/postprueba", upload.single("testImage"), async (req, res) => {
+  router.post("/upload", upload.single("testImage"), async (req, res) => {
     const saveImage =  PostModel({
       name: req.body.name,
       img: {
@@ -28,7 +28,7 @@ const upload = multer({ storage: storage });
     
   });
 
-router.get('/getprueba',async (req,res)=>{
+router.get('/',async (req,res)=>{
     const allData = await PostModel.find()
     res.json(allData)
 })
