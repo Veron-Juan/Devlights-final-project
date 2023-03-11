@@ -12,6 +12,26 @@ const CardComponent =(props) => {
       setShowModal(true);
     };
 
+
+    const lista = [
+        {
+        nombreUser: 'Juan',
+        tituloPost: 'Perro perdido',
+        ubicacionPost:  'Camba Cua Park',
+        descripcionPost: 'Hola, mi perro se perdió ayer en la calle 123, si lo ven por favor contactarme al 123456789',
+        latitudPost: -27.465038847067884, 
+        longitudPost: -58.84456631035704,
+        fechaPost: '12/12/2021'},
+        {
+        nombreUser: 'Pedro',
+        tituloPost: 'Gato Perdido',
+        ubicacionPost:  'Mitre Park',
+        descripcionPost: 'Hola, mi gato se perdió ayer en la calle 123, si lo ven por favor contactarme al 123456789',
+        latitudPost: -27.460374137170163, 
+        longitudPost: -58.828945125378276,
+        fechaPost: '12/12/2021'},
+      ]
+
    
     
     return(
