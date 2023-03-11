@@ -97,18 +97,18 @@ function Register() {
   // Return del componente main Registro
 
   return (
-    <div className="flex justify-center items-center ml-[50px] mr-[50px]">
+    <div className="flex justify-center items-center ">
       <form
         id="registrationForm"
         action="/"
         method="POST"
         onSubmit={handleSubmit}
-        className="bg-white mx-auto w-[800px] h-[700px] border-none rounded-lg shadow-xl overflow-hidden p-6"
+        className="bg-white mx-auto  border-none rounded-lg shadow-xl overflow-hidden p-6"
       >
-        <h1 className="text-5xl font-bold text-center border-b-8 pb-[7px] border-b-yellow-400 mb-[50px] w-[54%] flex justify-center items-center ml-[170px]">
+        <h1 className="flex justify-center text-3xl font-bold  border-b-4 pb-[7px] border-b-yellow-400  ">
           Únete a nosotros!
         </h1>
-        <div className="relative flex flex-col ml-[150px] justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400 w-[60%]">
+        <div className="flex justify-left text-1xl font-bold  border-b-4 border-b-yellow-200 focus-within:border-yellow-400 ">
           <label htmlFor="fName" className="font-[Monserrat] mt-[8px]">
             Nombre
             <input
@@ -116,19 +116,19 @@ function Register() {
               name="fName"
               id="fName"
               placeholder="Ej:Devlights"
-              className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full"
+              className="block appearance-none focus:outline-none bg-transparent "
               onChange={(e) => handleChange(e)}
               value={inputValues.fName}
             />
             {validation.fName && (
-              <p className="text-red-600 font-[Monserrat]">
+              <p className="text-red-200 font-[Monserrat]">
                 {validation.fName}
               </p>
             )}
             {validation.fName && console.log(validation)}
           </label>
         </div>
-        <div className="relative flex flex-col ml-[150px] justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400 w-[60%]">
+        <div className="flex justify-left text-1xl font-bold  border-b-4 border-b-yellow-200 focus-within:border-yellow-400 ">
           <label htmlFor="lName" className="font-[Monserrat] mt-[10px]">
             Apellido
             <input
@@ -147,7 +147,7 @@ function Register() {
             )}
           </label>
         </div>
-        <div className="relative flex flex-col ml-[150px] justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400 w-[60%]">
+        <div className="flex justify-left text-1xl font-bold border-b-4 border-b-yellow-200 focus-within:border-yellow-400 ">
           <label htmlFor="email" className="font-[Monserrat] mt-[10px]">
             Correo electrónico
             <input
@@ -165,7 +165,7 @@ function Register() {
             )}
           </label>
         </div>
-        <div className="relative flex flex-col ml-[150px] justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400 w-[60%]">
+        <div className="flex justify-left text-1xl font-bold border-b-4 border-b-yellow-200 focus-within:border-yellow-400 ">
           <label htmlFor="password" className="font-[Monserrat] mt-[10px]">
             Contraseña
             <input
@@ -184,7 +184,7 @@ function Register() {
             )}
           </label>
         </div>
-        <div className="relative flex flex-col ml-[150px] justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400 w-[60%]">
+        <div className="flex justify-left text-1xl font-bold  border-b-4 border-b-yellow-200 focus-within:border-yellow-400 ">
           <label
             htmlFor="confirmPassword"
             className="font-[Monserrat] mt-[10px]"
@@ -206,16 +206,17 @@ function Register() {
             )}
           </label>
         </div>
-        <div className="relative flex flex-col ml-[150px] justify-center w-[60%]">
+        <br></br> <br></br>
+        <div className="flex justify-center text-2xl font-bold ">
           <button
             type="submit"
             id="submit-button"
-            className="bg-yellow h-[40px] rounded-xl w-[60%] ml-[100px] mt-[50px]"
+            className="flex justify-left  bg-yellow  rounded-xl "
           >
-            Registrarse
+            Registrar
           </button>
-          <span className="flex justify-center">
-            Ya tienes una cuenta? <a href="#">Ingresar</a>
+          <span className="flex justify-left  bg-yellow  rounded-xl ">
+            Ingresar <a href="#"></a>
           </span>
         </div>
       </form>

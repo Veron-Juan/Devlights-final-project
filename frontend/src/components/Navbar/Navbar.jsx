@@ -7,41 +7,60 @@ import Dropdown from "./Dropdown";
 
 const Navbar = () => {
   return (
+    <div class=" flex w-full flex-wrap items-center justify-between px-6">
     <nav className="w-screen sticky top-0 z-10 bg-white bg-cover backdrop-filter transparent backdrop-blur-sm bg-opacity-50">
       <div className="flex items-center text-black justify-around font-normal ">
         <div className="md:cursor-pointer -ml-10">
-          <img src={Logo} alt="navbar-logo" className="md:cursor-pointer" />
+          <img src={Logo}  
+        className="logo" />
           {/* Falta añadir href al nametag del LOGO para regresar a home */}
         </div>
-
-        <ul className="md:flex hidden uppercase items-center font-[Monserrat] text-xs gap-8 ">
-          <li>
-            {/* <Link to="" className=""> */}
-            Mascotas cercanas
-            {/* </Link>  */}
+        <div class="hidden md:flex items-center space-x-1">
+        <ul 
+        class="nav list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
+       
+        <li class="lg:pr-2" data-te-nav-item-ref>
+            <a
+              class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 hover:bg-yellow-200 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
+              href="#"
+              data-te-nav-link-ref
+              >Galeria</a
+            >
           </li>
-          <li>
-            {/* <Link to="#" className=""> */}
-            Cuidados
-            {/* </Link> */}
-          </li>
-          <li>
-            {/* <Link to="#" className=""> */}
-            Donaciones
-            {/* </Link> */}
-          </li>
-          <li>
-            {/* <Link to="#" className=""> */}
-            Galería de Mascotas
-            {/* </Link> */}
-          </li>
-        </ul>
-
+        <li class="lg:pr-2" data-te-nav-item-ref>
+          <a
+            class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 hover:bg-yellow-200 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
+            href="#"
+            data-te-nav-link-ref
+            >Mascota Cerca</a
+          >
+        </li>
+        <li class="lg:pr-2" data-te-nav-item-ref>
+          <a
+            class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 hover:bg-yellow-200 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+            href="#"
+            data-te-nav-link-ref
+            >Cuidar</a
+          >
+        </li>
+        <li class="lg:pr-2" data-te-nav-item-ref>
+          <a
+            class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 hover:bg-yellow-200 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+            href="#"
+            data-te-nav-link-ref
+            >Donar</a
+          >
+        </li>
+       
+      </ul>
+      </div>
         {/* Falta incorporar navegación entre páginas una vez estén creadas */}
-
+        <div class="row row-cols-1 row-cols-md-3 g-4">
         <Dropdown />
+        </div>
       </div>
     </nav>
+    </div>
   );
 };
 

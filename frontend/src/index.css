@@ -1,3 +1,37 @@
 html {
+  justify-content:center;
   background-image: linear-gradient(to right, #ffffff, rgb(176, 250, 234));
+}
+.logo {
+  height: 70px;
+  position: relative;
+  left: 50px;
+ 
+}
+
+.nav {
+margin-left: 90px;
+gap: 75px;
+
+font-size:medium;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.menu_lat{
+margin-right: 100px;
+gap: 3px;
+font-size:larger;
+text-align: center;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.form{
+  position: relative;
+  max-height: max-content;
+  max-width: max-content;
+
+  
+}
+.footer{
+  position:absolute;
 }

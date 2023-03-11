@@ -1,22 +1,25 @@
 import { Fragment, useState } from "react";
-
+import Barra from "../../assets/menu.png";
 // Menú dropdown para accesibilidad en Navbar
 
 function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative inline-block text-left">
-      <div>
+    <div >
+      <div Class="menu_lat"
+      className=" w-6 h-6 inline-flex pl-30 w-full hover:bg-yellow-200 items-center">
+      <img src={Barra} href='#'/> 
         <button
           type="button"
-          className="inline-flex justify-center w-full px-4 py-2 font-[Montserrat] text-xs hover:bg-yellow-200 items-center"
+          
           id="options-menu"
           aria-expanded="true"
           aria-haspopup="true"
           onClick={() => setIsOpen(!isOpen)}
+
         >
-          INICIAR SESION
+         
           <svg
             className="-mr-1 ml-2 h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -34,8 +37,8 @@ function Dropdown() {
       </div>
 
       {isOpen && (
-        <div
-          className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+        <div 
+          className=" origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="options-menu"
@@ -45,13 +48,13 @@ function Dropdown() {
               href="#" // Añadir dirección de página luego
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 no-underline"
             >
-              Perfil
+              Cuenta
             </a>
             <a
               href="#"
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 no-underline"
             >
-              Cerrar sesión
+              Cerrar Sesión
             </a>
           </div>
         </div>
