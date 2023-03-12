@@ -6,18 +6,14 @@ import { clearLocalStorageUser } from "../../redux/states.js/user";
 function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
 
-  
-
-  const cerrarSesion = ()=>{
-    clearLocalStorageUser()
-    location.reload()
-  }
+  const cerrarSesion = () => {
+    clearLocalStorageUser();
+    location.reload();
+  };
 
   return (
-    <div >
-      <div Class="menu_lat"
-      className=" w-6 h-6 inline-flex pl-30 w-full hover:bg-yellow-200 items-center">
-      <img src={Barra} href='#'/> 
+    <div className="relative inline-block">
+      <div>
         <button
           type="button"
           
@@ -45,15 +41,15 @@ function Dropdown() {
       </div>
 
       {isOpen && (
-        <div 
-          className=" origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+        <div
+          className="origin-top-right absolute right-0 mt-2 w-[154px] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="options-menu"
         >
-          <div className="py-1" role="none">
-            <a // Reemplazar por Link component luego
-              href="#" // Añadir dirección de página luego
+          <div className="py-1 text-right" role="none">
+            <a
+              href="#"
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 no-underline"
             >
               Cuenta
