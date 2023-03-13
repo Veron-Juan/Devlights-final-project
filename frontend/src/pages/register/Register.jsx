@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../../redux/states.js/user";
+import backgFormLogo from "../../assets/backgForm.png";
 // Formulario de registro que solicita: Nombre y apellido, email y contraseña
 
 function Register() {
-
-  const initialState= {
+  const initialState = {
     name: "",
     lastname: "",
     email: "",
     password: "",
-  }
+  };
 
   //seteamos los valores iniciales de los form's inputs
   const [inputValues, setInputValue] = useState(initialState);
@@ -93,75 +93,78 @@ function Register() {
   //   checkValidation();
   // }, [inputValues]);
 
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-      const res = await fetch("http://localhost:4000/api/auth/register", {
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(inputValues)
-        });
-        try{
-          console.log(res)
-          dispatch(addUser({ ...inputValues}));
-          navigate(`/`, {replace: true})
 
-        } catch(error){
-          console.log(error)
-        }
-      
+    const res = await fetch("http://localhost:4000/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputValues),
+    });
+    try {
+      console.log(res);
+      dispatch(addUser({ ...inputValues }));
+      navigate(`/`, { replace: true });
+    } catch (error) {
+      console.log(error);
+    }
   };
-
-  
 
   // Return del componente main Registro
 
   return (
-    <div className="flex justify-center items-center ml-[50px] mr-[50px]">
+    <div className="flex justify-center items-center h-screen">
+      <img
+        src={backgFormLogo}
+        alt="Background Form's Logo"
+        className="absolute left-10 bottom-10 sm:hidden max-md:hidden lg:inline-block"
+      />
+
       <form
         id="registrationForm"
         action="/"
         method="POST"
         onSubmit={handleSubmit}
-        className="bg-white mx-auto w-[800px] h-[700px] border-none rounded-lg shadow-xl overflow-hidden p-6"
+        className="lg:w-[500px] bg-white w-[400px] h-[600px] border-none rounded-lg shadow-xl p-6 mt-[30px] items-center ml-[8px] mr-[8px] z-[2]"
       >
-        <h1 className="text-5xl font-bold text-center border-b-8 pb-[7px] border-b-yellow-400 mb-[50px] w-[54%] flex justify-center items-center ml-[170px]">
+        <h1 className="flex flex-row justify-center items-center text-5xl font-bold text-center mb-[30px] w-auto">
           Únete a nosotros!
         </h1>
-        <div className="relative flex flex-col ml-[150px] justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400 w-[60%]">
-          <label htmlFor="name" className="font-[Monserrat] mt-[8px]">
+        <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
+          <label htmlFor="name" className="font-[Monserrat] mt-[8px] font-bold">
             Nombre
             <input
               type="text"
               name="name"
               id="name"
               placeholder="Ej:Devlights"
-              className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full"
+              className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full font-normal"
               onChange={handleChange}
               value={inputValues.name}
             />
             {validation.name && (
-              <p className="text-red-600 font-[Monserrat]">
-                {validation.name}
-              </p>
+              <p className="text-red-600 font-[Monserrat]">{validation.name}</p>
             )}
             {validation.name && console.log(validation)}
           </label>
         </div>
-        <div className="relative flex flex-col ml-[150px] justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400 w-[60%]">
-          <label htmlFor="lName" className="font-[Monserrat] mt-[10px]">
+        <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
+          <label
+            htmlFor="lName"
+            className="font-[Monserrat] mt-[8px] font-bold"
+          >
             Apellido
             <input
               type="text"
               name="lastname"
               id="lastname"
               placeholder="Ej:Bootcamps"
-              className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full"
+              className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full font-normal"
               onChange={handleChange}
               value={inputValues.lastname}
             />
@@ -172,14 +175,17 @@ function Register() {
             )}
           </label>
         </div>
-        <div className="relative flex flex-col ml-[150px] justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400 w-[60%]">
-          <label htmlFor="email" className="font-[Monserrat] mt-[10px]">
+        <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
+          <label
+            htmlFor="email"
+            className="font-[Monserrat] mt-[8px] font-bold"
+          >
             Correo electrónico
             <input
               type="text"
               name="email"
               placeholder="Email"
-              className="block w-full appearance-none focus:outline-none bg-transparent pl-[5px]"
+              className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full font-normal"
               onChange={handleChange}
               value={inputValues.email}
             />
@@ -190,14 +196,17 @@ function Register() {
             )}
           </label>
         </div>
-        <div className="relative flex flex-col ml-[150px] justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400 w-[60%]">
-          <label htmlFor="password" className="font-[Monserrat] mt-[10px]">
+        <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
+          <label
+            htmlFor="password"
+            className="font-[Monserrat] mt-[8px] font-bold"
+          >
             Contraseña
             <input
               type="password"
               name="password"
               placeholder="Contraseña"
-              className="block w-full appearance-none focus:outline-none bg-transparent pl-[5px]"
+              className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full font-normal"
               onChange={handleChange}
               value={inputValues.password}
               required
@@ -209,38 +218,41 @@ function Register() {
             )}
           </label>
         </div>
-        <div className="relative flex flex-col ml-[150px] justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400 w-[60%]">
+        <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
           <label
             htmlFor="confirmPassword"
-            className="font-[Monserrat] mt-[10px]"
+            className="font-[Monserrat] mt-[8px] font-bold"
           >
             Confirmar contraseña
             <input
               type="password"
               name="confirmPassword"
               placeholder="Confirmar contraseña"
-              className="block w-full appearance-none focus:outline-none bg-transparent pl-[5px]"
+              className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full  font-normal"
               onChange={(e) => handleChange(e)}
               value={inputValues.confirmPassword}
               required
             />
             {validation.confirmPassword && (
-              <p className="text-red-600 font-[Monserrat]">
+              <p className="text-red-600 font-[Monserrat] uppercase">
                 {validation.confirmPassword}
               </p>
             )}
           </label>
         </div>
-        <div className="relative flex flex-col ml-[150px] justify-center w-[60%]">
+        <div className="md:flex flex flex-col mt-[10px] justify-center items-center">
           <button
             type="submit"
             id="submit-button"
-            className="bg-yellow h-[40px] rounded-xl w-[60%] ml-[100px] mt-[50px]"
+            className="bg-yellow h-[40px] rounded-xl w-[50%] mt-[20px]"
           >
             Registrarse
           </button>
-          <span className="flex justify-center">
-            Ya tienes una cuenta? <a href="#">Ingresar</a>
+          <span className="flex justify-center gap-[4px]">
+            Ya tienes una cuenta?{" "}
+            <a href="/login" className="hover:text-amber-300">
+              Ingresar
+            </a>
           </span>
         </div>
       </form>
