@@ -20,7 +20,7 @@ function Map({ location, zoomLevel }) {
   return (
     <div className="map">
       <div className="rounded-md google-map">
-        <GoogleMapReact
+        {/* <GoogleMapReact
           bootstrapURLKeys={{ key:''}}
           defaultCenter={location}
           defaultZoom={zoomLevel}
@@ -30,7 +30,7 @@ function Map({ location, zoomLevel }) {
             lat={location.lat}
             lng={location.lng}
             text={location.address} />
-        </GoogleMapReact>
+        </GoogleMapReact> */}
       </div>
     </div>
   )

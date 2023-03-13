@@ -10,6 +10,7 @@ const CardComponent =(props) => {
    
     const handleOpenModal = () => {
       setShowModal(true);
+      console.log("se cambio")
     };
 
 
@@ -50,14 +51,14 @@ const CardComponent =(props) => {
         </div>
         {showModal &&
           <ModalCard 
-          nombreUser={props.nombreUser} 
-          imgUser={urlImage} 
-          tituloPost={props.tituloPost} 
-          descripcionPost={props.descripcionPost} 
-          imgPost={urlPost} ubicacionPost={props.ubicacionPost} 
-          fechaPost={props.fechaPost} 
-          latitudPost={props.latitudPost} 
-          longitudPost={props.longitudPost}          
+          // nombreUser={props.nombreUser} 
+          // imgUser={urlImage} 
+          // tituloPost={props.tituloPost} 
+          // descripcionPost={props.descripcionPost} 
+          // imgPost={urlPost} ubicacionPost={props.ubicacionPost} 
+          // fechaPost={props.fechaPost} 
+          // latitudPost={props.latitudPost} 
+          // longitudPost={props.longitudPost}          
           handleCloseModal={() => setShowModal(false)}
           />
       }

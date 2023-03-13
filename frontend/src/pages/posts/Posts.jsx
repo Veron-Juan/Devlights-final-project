@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../../components/card/Card";
+import CardComponent from "../../components/CardComponent/Card";
+import SearchInput from "../../components/searchInput/SearchInput";
 import LoaderPosts from "./LoaderPosts";
 
 export default function Posts() {
@@ -37,22 +39,30 @@ export default function Posts() {
 
   return (
     <>
-    {loading && <LoaderPosts/>}
+    {/* {loading && <LoaderPosts/>} */}
+    <SearchInput/>
     <div  
     className="flex  py-20  justify-center  ">
 
     <div className="mr-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 lg:grid-cols-4">
-    {data.map((i)=>{
+    
+    <Card/>
+    <Card/>
+    <Card/>
+    <Card/>
+    {/* {data.map((i)=>{
       return(
-        <Card
+        
+
+        // <Card
        
-        name={i.name}
-        contact={i.contact}
-        image={`data:image/png;base64,${toBase64(i.img.data.data)}`}
-        location={i.location}
-        />
+        // name={i.name}
+        // contact={i.contact}
+        // image={`data:image/png;base64,${toBase64(i.img.data.data)}`}
+        // location={i.location}
+        // />
       )
-    })}
+    })} */}
     </div>
     
     </div>
