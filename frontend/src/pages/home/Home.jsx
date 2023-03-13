@@ -8,7 +8,7 @@ export default function Home() {
 
   const {name} = useSelector((state)=> state.user)
   return (
-    <div>
+    <div className='mt-20'>
       <p className='text-5xl text-center'>Bienvenido {name} </p>
       <div className=' mx-auto max-w-7xl flex justify-center   text-black '>
         
