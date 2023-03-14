@@ -128,13 +128,12 @@ function Register() {
         action="/"
         method="POST"
         onSubmit={handleSubmit}
-        className="bg-white mx-auto  border-none rounded-lg shadow-xl overflow-hidden p-6"
-      >
+        className="bg-white mx-auto  border-none rounded-lg shadow-xl overflow-hidden p-6">
         <h1 className="flex justify-center text-3xl font-bold  border-b-4 pb-[7px] border-b-yellow-400  ">
           Únete a nosotros!
         </h1>
-        <div className="relative flex flex-col ml-[150px] justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400 w-[60%]">
-          <label htmlFor="name" className="font-[Monserrat] mt-[8px]">
+        <div className="flex justify-left  border-b-4 border-b-yellow-200 focus-within:border-yellow-400 ">
+          <label htmlFor="name" className="font-[Monserrat] mt-[10px]">
             Nombre
             <input
               type="text"
@@ -232,17 +231,18 @@ function Register() {
           </label>
         </div>
         <br></br> <br></br>
-        <div className="flex justify-center text-2xl font-bold ">
+        <div className="flex justify-center text-x font-bold ">
           <button
             type="submit"
             id="submit-button"
-            className="flex justify-left  bg-yellow  rounded-xl "
-          >
+             className="bg-yellow flex justify-left rounded-xl py-2">
             Registrar
           </button>
-          <span className="flex justify-left  bg-yellow  rounded-xl ">
+
+          <button
+           className="bg-yellow flex justify-right rounded-xl py-2">
             Ingresar <a href="#"></a>
-          </span>
+          </button>
         </div>
       </form>
     </div>

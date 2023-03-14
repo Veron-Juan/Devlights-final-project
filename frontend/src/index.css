@@ -2,3 +2,16 @@ html {
   justify-content:center;
   background-image: linear-gradient(to right, #ffffff, rgb(176, 250, 234));
 }
+.logo_footer{
+  width: 120px;
+  height: 120px;
+  margin-top: 15px;
+}
+
+.text_footer{
+ 
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: medium;
+  margin-top: 35px;
+  
+}
