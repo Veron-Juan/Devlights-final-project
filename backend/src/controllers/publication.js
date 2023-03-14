@@ -1,63 +1,58 @@
-import * as service from "../services/publication.service.js";
+import postRepository from "../repositories/publications.js"
 
 
 
-const getPublications = async (req, res) => {
+export const getPublications = async (req, res) => {
   try {
     res.send("holaaaaaaaaa")
     console.log("holaaaa")
-    const response = await service.getPostsService();
-    res.send(response);
+    const response = await postRepository.getAllPosts();
+    res.json({response});
   } catch (error) {
     console.error(error);
   }
 };
 
-// const getPublication = async ({ params }, res) => {
-//   try {
-//     const { id } = params;
-//     const response = await service.getPostService(id);
-//     const data = response ? response : "NOT_FOUND";
-//     res.send(data);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
+export const getPublication = async (req, res) => {
+  try{
+    const publication = await postRepository.getPostById(req.params.id);
+    res.json({ publication });
+  } catch(error){
+    console.log(error)
+  }
+};
 
-const updatePublication = async ({ params, body }, res) => {
+export const updatePublication = async (req, res) => {
   try {
-    const { id } = params;
-    const response = await service.updateservice(id, body);
-    res.send(response);
-  } catch (error) {
-    console.error(error);
+    const publication = await postRepository.updatePost(req.body, req.params.userId);
+
+    res.json({ publication })
+  }catch (error) {
+    res.status(500).json({ error });
   }
+}
+
+
+export const postPublication = async (req, res) => {
+  const {body} = req
+  const publication = await postRepository.newPost(body);
+  res.send(publication);
 };
 
-
-const postPublication = async ({ body }, res) => {
+export const deletePublication = async ({ params }, res) => {
   try {
-    const response = await service.createPublicationService(body);
-    res.send(response);
+    const publication = postRepository.deletePost(req.params.userId)
+
+    res.json({ publication });
   } catch (error) {
-    console.error(error);
+    res.status(500).json({ error })
   }
 };
 
-const deletePublication = async ({ params }, res) => {
-  try {
-    const { id } = params;
-    const responseVideo = await service.deletePublicationService(id);
-    res.send(responseVideo);
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-export {
+// export {
   
-  getPublications,
-  deletePublication,
-  postPublication,
-  updatePublication,
-};
+//   getPublications,
+//   deletePublication,
+//   postPublication,
+//   updatePublication,
+// };

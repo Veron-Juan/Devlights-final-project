@@ -2,9 +2,9 @@ import { HomeButton } from "./HomeButton";
 
 export function HomeBody(){
     return(
-        <div className="mt-[150px] lg:mt-[200px] flex-1 flex flex-col max-w-lg">
+        <div className=" lg:flex-1 flex flex-col max-w-lg">
             <h1 className="text-5xl font-['Montserrat'] font-extrabold not-italic text-black 
-            w-auto h-97 left-[147px] top-[30px] leading-[49px]">
+            w-auto h-97  ">
                 Encuentra tu mascota fácil y rápido con nuestra app reformular!!
             </h1>
             <p className=" mt-[25px] font-['Montserrat'] not-italic w-592 h-206 left-147 top-401 font-normal

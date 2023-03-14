@@ -1,12 +1,18 @@
 import { Fragment, useState } from "react";
+import { clearLocalStorageUser } from "../../redux/states.js/user";
 
 // Menú dropdown para accesibilidad en Navbar
 
 function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const cerrarSesion = () => {
+    clearLocalStorageUser();
+    location.reload();
+  };
+
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative inline-block">
       <div>
         <button
           type="button"
@@ -35,21 +41,21 @@ function Dropdown() {
 
       {isOpen && (
         <div
-          className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+          className="origin-top-right absolute right-0 mt-2 w-[154px] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="options-menu"
         >
-          <div className="py-1" role="none">
-            <a // Reemplazar por Link component luego
-              href="#" // Añadir dirección de página luego
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 no-underline"
-            >
-              Perfil
-            </a>
+          <div className="py-1 text-right" role="none">
             <a
               href="#"
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 no-underline"
+            >
+              Cuenta
+            </a>
+            <a
+              onClick={cerrarSesion}
+              className="block px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 no-underline"
             >
               Cerrar sesión
             </a>
