@@ -6,6 +6,7 @@ import Home from "./pages/home/Home";
 import { Route, Routes } from "react-router-dom";
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import { PostForm } from "./components/Post/PostForm";
 
 function App() {
   return (
