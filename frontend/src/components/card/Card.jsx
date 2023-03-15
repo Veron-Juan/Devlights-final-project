@@ -43,12 +43,13 @@ export default function Card(props) {
       </div>
       {showModal &&
           <ModalCard 
-          // nombreUser={props.nombreUser} 
-          // imgUser={urlImage} 
-          // tituloPost={props.tituloPost} 
-          // descripcionPost={props.descripcionPost} 
-          // imgPost={urlPost} ubicacionPost={props.ubicacionPost} 
-          // fechaPost={props.fechaPost} 
+          nombreUser={props.nombreUser}  
+          tituloPost={props.name} 
+          descripcionPost={props.description} 
+          imgPost={props.image} 
+          contacto={props.contact}
+          ubicacionPost={props.location} 
+          fechaPost={props.fechaPost} 
           // latitudPost={props.latitudPost} 
           // longitudPost={props.longitudPost}          
           handleCloseModal={() => setShowModal(false)}

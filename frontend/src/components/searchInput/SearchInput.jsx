@@ -3,17 +3,23 @@ import { Icon } from '@iconify/react'
 
 export default function SearchInput() {
   return (
-    <div className='flex items-center justify-evenly rounded-lg  h-12 mx-auto bg-yellowButton sm: w-[320px] md:w-[600px]'>
-        <input type="text" placeholder='  Ingresa etc' className='border rounded-md py-[3px] sm: w-[160px] md: w-80 ' />
+    <div className='flex items-center justify-evenly rounded-lg shadow-lg  h-16 mx-auto bg-yellowButton w-full max-w-[650px]  '>
+        
+        <div className='flex items-center relative  '>
+        <input type="text" placeholder='  Ingresa etc' className='border rounded-md  py-[8px] min-w-[100px] sm:w-[320px] ' />
+        <div className='cursor-pointer   rounded-md bg-yellow flex items-center justify-center absolute right-[3px] w-8 h-9'>
+        <Icon className='text-[27px] opacity-60' icon="ic:outline-search" />
+        </div>
+        </div>
+            
+        
         <select className='py-[3px] border rounded-md'>
         <option value="localidad"  selected>Localidad</option>
             <option value="resistencia">Resistencia</option>
             <option value="corrientes">Corrientes</option>
             
         </select>
-        <div className='w-[30px] h-7 rounded-md bg-yellow flex items-center justify-center'>
-        <Icon className='text-[27px] opacity-60' icon="ic:outline-search" />
-        </div>
+        
       {/* <div className=" flex justify-center items-center">
 	<div className="container mx-auto max-w-[1200px] rounded-lg p-6">
 		<form>

@@ -30,6 +30,8 @@ export default function Posts() {
       .catch((err) => console.log(err));
   }, []);
 
+  console.log(data)
+
   function toBase64(arr) {
     //arr = new Uint8Array(arr) if it's an ArrayBuffer
     return btoa(
@@ -39,30 +41,28 @@ export default function Posts() {
 
   return (
     <>
-    {/* {loading && <LoaderPosts/>} */}
     <SearchInput/>
+    {loading && <LoaderPosts/>}
     <div  
     className="flex  py-20  justify-center  ">
 
     <div className="mr-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 lg:grid-cols-4">
     
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    {/* {data.map((i)=>{
+    
+    {data.map((i)=>{
       return(
         
 
-        // <Card
+        <Card
        
-        // name={i.name}
-        // contact={i.contact}
-        // image={`data:image/png;base64,${toBase64(i.img.data.data)}`}
-        // location={i.location}
-        // />
+        name={i.name}
+        contact={i.contact}
+        image={`data:image/png;base64,${toBase64(i.img.data.data)}`}
+        location={i.location}
+        description={i.description}
+        />
       )
-    })} */}
+    })}
     </div>
     
     </div>
