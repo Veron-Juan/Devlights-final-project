@@ -26,7 +26,8 @@ const newPost =  async  (req,  res) =>{
           contentType: req.file.mimetype
         },
         contact: req.body.contact,
-        location: req.body.location
+        location: req.body.location,
+        description: req.body.description
       });
   
       await saveImage.save()

@@ -9,6 +9,9 @@ const postSchema = new Schema({
     location:{
         type:String,
     },
+    description:{
+        type:String,
+    },
     img:
     {
         data: Buffer,
