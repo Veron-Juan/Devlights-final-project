@@ -9,10 +9,10 @@ import { Provider } from "react-redux";
 
 function App() {
   return (
-    <div className="App bg-gradient-to-r from-yellow-100 via-white to-teal-200">
+    <div id="home-bg" className="App h-full">
       <Provider store={store}>
         <Navbar />
-        {/* <Register />
+        {/* <Register /> 
       <Posts/> */}
         <Routes>
           <Route path="/" element={<Home />} />

@@ -5,9 +5,9 @@ import { useSelector } from "react-redux";
 export default function Home() {
   const { name } = useSelector((state) => state.user);
   return (
-    <div className="mt-[90px] w-full">
-      <p className="text-5xl text-center">Bienvenido {name} </p>
-      <div className="mx-auto max-w-7xl flex justify-center text-black ">
+    <div className="h-[calc(100vh-90px)] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p className="text-4xl text-center">Bienvenido {name} </p>
+      <div className="grid grid-cols-2 gap-3 text-black ">
         <HomeBody />
         <HomeHero />
       </div>

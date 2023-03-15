@@ -1,3 +1,7 @@
-html {
-  background-image: linear-gradient(to right, #ffffff, rgb(176, 250, 234));
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#home-bg {
+  background-image: linear-gradient(72.44deg, #DEFFF8 0.69%, #FFF 51.52%, #8EFFE6 100%);
 }
