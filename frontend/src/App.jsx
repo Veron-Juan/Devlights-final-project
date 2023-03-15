@@ -6,28 +6,21 @@ import Home from "./pages/home/Home";
 import { Route, Routes } from "react-router-dom";
 import store from "./redux/store";
 import { Provider } from "react-redux";
-
-
+import { PostForm } from "./components/Post/PostForm";
 
 function App() {
-  
-
-  
-        
-
   return (
     <div className="App bg-gradient-to-r from-yellow-100 via-white to-teal-200">
-      <Provider store={store} >
-      <Navbar />
-      {/* <Register />
+      <Provider store={store}>
+        <Navbar />
+        {/* <Register />
       <Posts/> */}
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/register" element={<Register/>}/>
-        <Route path="/posts" element={<Posts/>}/>
-        <Route path="/*" element={<h2>NOT FOUND</h2>}/>
-      </Routes>
-
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/posts" element={<Posts />} />
+          <Route path="/*" element={<h2>NOT FOUND</h2>} />
+        </Routes>
       </Provider>
     </div>
   );
