@@ -17,7 +17,7 @@ function MapComponent(props) {
   }
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyA1ofebywFeNyw5epc6EhtUOWUrJ0I41iw",
+    googleMapsApiKey: "",
   });
 
   return isLoaded ? (
