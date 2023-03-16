@@ -1,16 +1,23 @@
 import React from "react";
 import { Icon } from '@iconify/react';
 import closeIcon from '@iconify/icons-mdi/close';
-import Map from './MapComponent';
+import MapComponent from '../MapComponent/MapComponent';
 
 // Componente modal que se muestra al seleccionar ver mas sobre una carta
 const ModalCard =(props) => {
 
-    const location = {
-        address: props.ubicacionPost,
-        lat: Number(props.latitudPost), 
-        lng: Number(props.longitudPost)
-      }  
+    const marcador =[{
+        id: 1,
+        position: {
+          lat: Number(props.latitudPost),
+          lng: Number(props.longitudPost),
+}}]
+
+    const center = {
+        lat: Number(props.latitudPost),
+        lng: Number(props.longitudPost)}    
+      
+
     
   return(
 <>
@@ -51,8 +58,7 @@ const ModalCard =(props) => {
                   </div>
                 {/* Mapa y contacto */}
                   <div className="flex flex-col w-1/2 ml-1  ">
-                    
-                    <Map location={location} zoomLevel={15} />
+                    <MapComponent Marcadores={marcador} Center={center}  />
                     <div className="flex flex-row justify-between mt-2 bg-orange rounded-md px-1 ">
                     <p className="font-semibold text-black text-l ">
                       Ultima vez visto en {props.ubicacionPost}
