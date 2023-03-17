@@ -1,4 +1,3 @@
-import "./App.css";
 import Navbar from "../src/components/Navbar/Navbar";
 import Register from "./pages/register/Register";
 import Posts from "./pages/posts/Posts";
@@ -9,7 +8,7 @@ import { Provider } from "react-redux";
 
 function App() {
   return (
-    <div id="home-bg" className="App h-full">
+    <header className="h-screen home-bg">
       <Provider store={store}>
         <Navbar />
         {/* <Register /> 
@@ -21,7 +20,7 @@ function App() {
           <Route path="/*" element={<h2>NOT FOUND</h2>} />
         </Routes>
       </Provider>
-    </div>
+    </header>
   );
 }
 
