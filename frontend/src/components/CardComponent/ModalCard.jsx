@@ -16,16 +16,16 @@ const ModalCard = (props) => {
   return (
     <>
       <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ">
-        <div className="relative w-auto max-w-3xl ">
+        <div className="relative w-auto max-w-3xl items-center ">
           {/*content*/}
-          <div className="border-0 rounded-lg h-[500px] shadow-lg relative flex flex-col min-w-[310px] sm:w-[500px]  outline-none focus:outline-none bg-white">
+          <div className="border-0 rounded-lg  shadow-lg relative flex flex-col   min-w-[310px] sm:w-[500px]  outline-none focus:outline-none bg-white">
             {/* Info del Post */}
 
             <div className="flex flex-row  justify-between my-2 mx-2.5 pb-2 border-b">
               <div className="flex flex-row h-auto  ">
                 <img src={user} className="h-8 w-8 rounded-full   " />
                 <p className="font-semibold text-xl text-black ml-2">
-                  {props.nombreUser}
+                  {props.nameUser} {props.lastnameUser}
                 </p>
               </div>
 
@@ -37,7 +37,7 @@ const ModalCard = (props) => {
                 <Icon icon={closeIcon} className="w-5 h-8 " />{" "}
               </button>
             </div>
-            <div className="flex flex-row mb-2 mx-2 ">
+            <div className="flex flex-row mb-2 mx-2 items-center ">
               <div className="flex flex-col w-1/2  mr-1 gap-4 ">
                 <div>
                   <img src={props.imgPost} className="rounded-md" />

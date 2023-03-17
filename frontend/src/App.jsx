@@ -19,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/posts" element={<Posts />} />
+          <Route path="/upload" element={<PostForm />} />
           <Route path="/*" element={<h2>NOT FOUND</h2>} />
         </Routes>
       </Provider>

@@ -16,8 +16,9 @@ export default function Card(props) {
     <div>
       <div className="h-[400px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800  text-center  w-[230px]   ">
         <div className="h-12 text-left ml-2">
-          <b>De: Maria Angeles</b>
-          <p className="font-light text-sm">Publicado hace 1 día</p>
+          <b>De:{props.nameUser} {props.lastnameUser}  </b>
+          <p className="font-light text-sm">Publicado el {new Date (props.createdAt).toLocaleString()}</p>
+          {/* new Date (props.date).toDateString() */}
         </div>
         <img
           className="w-full  h-[225px] object-cover"
@@ -43,7 +44,8 @@ export default function Card(props) {
       </div>
       {showModal &&
           <ModalCard 
-          nombreUser={props.nombreUser}  
+          nameUser={props.nameUser} 
+          lastnameUser={props.lastnameUser} 
           tituloPost={props.name} 
           descripcionPost={props.description} 
           imgPost={props.image} 

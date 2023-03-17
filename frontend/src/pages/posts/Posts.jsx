@@ -60,6 +60,10 @@ export default function Posts() {
         image={`data:image/png;base64,${toBase64(i.img.data.data)}`}
         location={i.location}
         description={i.description}
+        nameUser={i.nameUser}
+        lastnameUser={i.lastnameUser}
+        createdAt={i.createdAt}
+
         />
       )
     })}

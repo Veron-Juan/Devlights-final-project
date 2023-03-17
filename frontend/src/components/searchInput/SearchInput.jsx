@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react'
 
 export default function SearchInput() {
   return (
-    <div className='flex items-center justify-evenly rounded-lg shadow-lg  h-16 mx-auto bg-yellowButton w-full max-w-[650px]  '>
+    <div className='flex items-center justify-evenly rounded-lg shadow-lg  h-16 mx-auto mt-[95px] bg-yellowButton w-full max-w-[650px]  '>
         
         <div className='flex items-center relative  '>
         <input type="text" placeholder='  Ingresa etc' className='border rounded-md  py-[8px] min-w-[100px] sm:w-[320px] ' />
