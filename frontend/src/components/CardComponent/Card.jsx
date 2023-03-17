@@ -5,7 +5,7 @@ const urlImage = "https://img.freepik.com/vector-premium/perfil-hombre-dibujos-a
 const urlPost = "https://estaticos-cdn.prensaiberica.es/clip/823f515c-8143-4044-8f13-85ea1ef58f3a_16-9-discover-aspect-ratio_default_0.jpg"
 
 
-const CardComponent =(props) => {
+const CardComponent = (props) => {
     const [showModal, setShowModal] = useState(false);
    
     const handleOpenModal = () => {
@@ -37,7 +37,7 @@ const CardComponent =(props) => {
     
     return(
     <>
-        <div className="container flex flex-col bg-white rounded-md max-w-sm h-auto w-72 mx-2">
+        <div className="container flex flex-col bg-white rounded-md max-w-sm h-fit w-72 mx-2">
             <div className="flex flex-row h-auto">
                 <img src={urlImage} className="h-5 w-5 rounded-full my-2 mx-1 "/>
                 <p className="font-semibold text-black my-1.5">{props.nombreUser}</p>
@@ -46,7 +46,7 @@ const CardComponent =(props) => {
             <div>
                 <p className="font-bold text-black my-2 mx-1">{props.tituloPost}</p>
                 <p className="text-black my-2 mx-1 text-sm">{props.ubicacionPost}</p>
-                <button className="text-black bg-orange rounded-md p-1" onClick={handleOpenModal}>Ver mas</button>
+                <button className="text-black bg-yellow-HomeButtton rounded-md p-1" onClick={handleOpenModal}>Ver mas</button>
             </div>
         </div>
         {showModal &&
