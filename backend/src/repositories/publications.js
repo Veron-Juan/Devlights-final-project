@@ -27,7 +27,10 @@ const newPost =  async  (req,  res) =>{
         },
         contact: req.body.contact,
         location: req.body.location,
-        description: req.body.description
+        description: req.body.description,
+        nameUser: req.body.nameUser,
+        lastnameUser: req.body.lastnameUser,
+
       });
   
       await saveImage.save()

@@ -16,8 +16,23 @@ const postSchema = new Schema({
     {
         data: Buffer,
         contentType: String
-    }
-})
+    },
+    nameUser:
+    {
+        type: String,
+    },
+    lastnameUser:
+    {
+        type: String,
+    },
+    
+
+},
+{
+    timestamps:true,
+    versionKey:false
+}
+)
 const PostModel = model('posts', postSchema);
 export default PostModel
 
