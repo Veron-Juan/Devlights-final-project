@@ -5,7 +5,7 @@ import {PostForm} from "../../components/Post/PostForm"
 export default function Post() {
   return (
     <div>
-      <div className='min-h-full max-w-ful flex  justify-center'>
+      <div className='max-h-full max-w-full flex  justify-center'>
         <PostForm/>
       </div>
 

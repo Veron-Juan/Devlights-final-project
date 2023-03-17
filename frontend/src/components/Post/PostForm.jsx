@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import iconoFoto from "../../assets/iconoFoto.png"
 import imagenPrev from "../../assets/imgPreview.png"
 import { PostButton } from "./PostButton";
@@ -9,6 +11,10 @@ export function PostForm(){
    
     function onFormSubmit(event){
         event.preventDefault();
+
+        if(imagenPrev === imgPreview){
+            alert("Debe enviar una foto de la mascota");
+        }
 
     }
 
@@ -31,30 +37,30 @@ export function PostForm(){
     
 
     return(
-        <form  className="mt-[50px] flex-col font-['Montserrat'] not-italic " onChange={onFormSubmit}>
-            <h1 className="mb-[10px] font-extrabold text-4xl min-w-full">Publicar un aviso</h1>
-            <hr className=" mb-[50px] bg"></hr>
-            <label className="font-extrabold  text-4xl">Nombre de la mascota</label><br/>
-            <div className="mb-[10px] border-b-4 pb-[7px] border-b-yellow-200 focus-within:border-yellow-400 
+        <form  className="flex mt-[150px] flex-col font-['Montserrat'] not-italic " onSubmit={onFormSubmit}>
+            <h1 className=" flex mb-[10px] font-extrabold text-4xl">Publicar un aviso</h1>
+            <hr className=" mb-[50px]"></hr>
+            <label className="font-extrabold  text-4xl">Nombre de la mascota</label>
+            <div className="mb-[20px] border-b-4 pb-[7px] border-b-yellow-200 focus-within:border-yellow-400 
             py-2  w-[49%] ">
-                <input className="mt-[10px] bg-white rounded-md" type="text" id="name" name="name"></input><br/>
+                <input className="mt-[10px] bg-white rounded-md" type="text" id="name" name="name"></input>
             </div>
-            
-            <label className="font-medium text-xl items-end">Numero de contacto:</label><br/>
-            <div className="mb-[10px] border-b-4 pb-[7px] border-b-yellow-200 focus-within:border-yellow-400
+            <label className="font-medium text-xl items-end">Numero de contacto:</label>
+            <div className="mb-[20px] border-b-4 pb-[7px] border-b-yellow-200 focus-within:border-yellow-400
             py-2  w-[49%] ">
-                <input className="mt-[10px] bg-white rounded-md" type="text" id="contact" name="contact"></input><br/>
+                <input className="mt-[10px] bg-white rounded-md" type="text" id="contact" name="contact"></input>
             </div>
             <label className=" font-medium text-xl items-end">Descripcion detallada:</label><br/>
-            <div className="mb-[10px] border-b-4 pb-[7px] border-b-yellow-200 focus-within:border-yellow-400 
-            py-2  w-[93%] ">
-                <textarea className=" min-h-[200px] min-w-[400px] mt-[10px] bg-white rounded-md" type="text"
+            <div className="mb-[30px] border-b-4 pb-[7px] border-b-yellow-200 focus-within:border-yellow-400 
+            py-2  lg:w-[93%] lg:w-[89%] md:w-[89%] sm:w-[72%] w-[75%] ">
+                <textarea className=" mt-[10px] min-h-[100px] w-[310px] lg:min-h-[200px] md:min-w-[385px] 
+                lg:min-w-[400px] bg-white rounded-md" type="text"
                  id="description" name="description"></textarea><br/>
             </div>
-            <label className="font-medium text-xl items-end ">Zona donde fue visto por ultima vez:</label><br/>
-            <div className="mb-[10px] border-b-4 pb-[7px] border-b-yellow-200 focus-within:border-yellow-400 
+            <label className="font-medium text-xl items-end ">Zona donde fue visto por ultima vez:</label>
+            <div className="mb-[20px] border-b-4 pb-[7px] border-b-yellow-200 focus-within:border-yellow-400 
             py-2  w-[49%] ">
-                <input className="mt-[10px] bg-white rounded-md" type="text" id="location" name="location"></input><br/>
+                <input className="mt-[10px] bg-white rounded-md" type="text" id="location" name="location"></input>
             </div>
             <div className=" mt-[30px] flex">
                 <div className="p-4 max-w-[100px] max-h-[100px ] flex items-center flex-col">
@@ -70,7 +76,7 @@ export function PostForm(){
                     </div>
                 </div>
                 <img src={imgPreview} alt="imagen" className=" ml-12 rounded-md border-4 border-yellow-200
-                 w-[150px] "></img>
+                 w-[120px] h-[120px] "></img>
             </div>
             <PostButton/>
         </form>
