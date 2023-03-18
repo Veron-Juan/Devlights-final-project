@@ -13,21 +13,21 @@ export default function Login() {
        <h2 className="flex justify-center text-3xl font-bold border-b-4 pb-[7px] border-b-yellow-200 py-2 w-[80%]">SIGN IN</h2>
        
        <div className="border-b-4 pb-[7px] border-b-yellow-200 focus-within:border-yellow-400 py-2 w-[80%]">
-       <label htmlFor="name" className="font-[Monserrat] mt-[10px]">User Name</label>
-       <input className="block appearance-none focus:outline-none bg-transparent pl-[5px] py-2 w-[80%] ">
+       <label htmlFor="name" className="font-[Monserrat] mt-[10px]">Email</label>
+       <input name="email" id="email" className="block appearance-none focus:outline-none bg-transparent pl-[5px] py-2 w-[80%] ">
        </input>
        </div>
        <div className="border-b-4 pb-[7px] border-b-yellow-200 focus-within:border-yellow-400 py-2  w-[80%] ">
         <label htmlFor="password" className="font-[Monserrat] mt-[10px]">Password</label>
-        <input className="block appearance-none focus:outline-none bg-transparent pl-[5px] py-2 w-[80%]">
+        <input name="password" id="password" className="block appearance-none focus:outline-none bg-transparent pl-[5px] py-2 w-[80%]">
         </input>       
         </div>
 
-        <div className='flex justify-between text-gray-400 py-2 w-[80%]'>
+        {/* <div className='flex justify-between text-gray-400 py-2 w-[80%]'>
         <p className='flex items center'> 
         <input className='mr-2' type="checkbox" />Remember Me</p>
         <p >Forgot Password</p>
-        </div>
+        </div> */}
         
        
         <div>
