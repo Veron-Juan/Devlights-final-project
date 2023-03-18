@@ -1,30 +1,32 @@
 import React, { useState } from "react";
-import Logo from "../../assets/logo.svg";
-// import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
 import Dropdown from "./Dropdown";
+import Logo from "../../assets/logo.svg";
 
-// Component Navbar momentáneamente estático, con propiedad blur-effect
+const Nav = () => {
+  let [open, setOpen] = useState(false);
 
-const Navbar = () => {
+  let Links = [
+    { name: "MASCOTAS CERCANAS", link: "/" },
+    { name: "CUIDADOS", link: "/" },
+    { name: "DONACIONES", link: "/" },
+  ];
+
   return (
-
     <nav className="w-screen fixed z-10 bg-opacity-50 top-0 backdrop-filter transparent bg-cover backdrop-blur-sm bg-white">
       <div className="shadow-md mx-auto h-[90px]">
         <div className="md:flex items-center justify-between py-4 md:px-10 px-7 transparent">
           <div
             className="font-bold text-2xl cursor-pointer flex items-center
       text-gray-800"
-
           >
-        </li>
-        <li class="lg:pr-2" data-te-nav-item-ref>
-          <a
-            class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 hover:bg-yellow-200 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-            href="#"
-            data-te-nav-link-ref
-            >Cuidar</a
-          >
+            <img src={Logo} alt="Mascotas logo" className="w-[150px]" />
+          </div>
 
+          <div
+            onClick={() => setOpen(!open)}
+            className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
+          >
             <Icon icon={open ? "mdi:window-close" : "mdi:menu"}></Icon>
           </div>
 
@@ -47,12 +49,13 @@ const Navbar = () => {
               <Dropdown />
             </div>
           </ul>
-
         </div>
       </div>
     </nav>
-    </div>
   );
 };
 
-export default Navbar;
+export default Nav;
+
+
+

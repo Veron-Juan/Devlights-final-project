@@ -5,7 +5,7 @@ export default function Login() {
     
 
     
-    <div className='flex justify-center bg-cover backdrop-filter transparent backdrop-blur-sm bg-opacity-30 p-8 px-8 ' >  
+    <div className='flex justify-center bg-cover backdrop-filter transparent backdrop-blur-sm bg-opacity-30 mt-20 p-8 px-8 ' >  
      <div className='grid grid-cols-1 sm:grid-cols-2' >
        <img className='w-full h-full object-cover flex justify-center' src={Log2} alt="" />
      <form className='w-[80%] mx-auto bg-white rounded-lg'>
