@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 const postSchema = new Schema({
+    //nombre de mascota
     name:{
         type: String, 
     },
