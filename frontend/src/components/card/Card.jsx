@@ -12,6 +12,25 @@ export default function Card(props) {
     console.log("se cambio");
   };
 
+
+  const lista = [{
+    nombreUser: 'Juan',
+    tituloPost: 'Perro perdido',
+    ubicacionPost:  'Camba Cua Park',
+    descripcionPost: 'Hola, mi perro se perdió ayer en la calle 123, si lo ven por favor contactarme al 123456789',
+    latitudPost: -27.465038847067884, 
+    longitudPost: -58.84456631035704,
+    fechaPost: '12/12/2021'}]
+    
+  const Marcadores = [
+    {id:1,position: {lat: -28.465038847067884, lng: -58.84456631035704}},
+    {id:2,position: {lat: -27.460374137170163, lng: -58.828945125378276}},
+    {id:3,position: {lat: -26.460374137170163, lng: -58.828945125378276}},
+    ]   
+
+
+
+
   return (
     <div>
       <div className="h-[400px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800  text-center  w-[230px]   ">
@@ -45,13 +64,20 @@ export default function Card(props) {
       {showModal &&
           <ModalCard 
           nameUser={props.nameUser} 
-          lastnameUser={props.lastnameUser} 
+          lastnameUser={props.lastnameUser}
+          //nombre perro 
           tituloPost={props.name} 
           descripcionPost={props.description} 
           imgPost={props.image} 
           contacto={props.contact}
-          ubicacionPost={props.location} 
-          fechaPost={props.fechaPost} 
+          // ubicacionPost={props.location}
+          
+          //
+          ubicacionPost={props.location}
+          fechaPost={lista[0].fechaPost}
+          latitudPost={lista[0].latitudPost}
+          longitudPost={lista[0].longitudPost}
+          
           // latitudPost={props.latitudPost} 
           // longitudPost={props.longitudPost}          
           handleCloseModal={() => setShowModal(false)}

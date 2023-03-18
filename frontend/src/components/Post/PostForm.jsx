@@ -2,34 +2,30 @@ import { useState } from "react";
 import iconoFoto from "../../assets/iconoFoto.png";
 import imagenPrev from "../../assets/imgPreview.png";
 import { PostButton } from "./PostButton";
-import axios from "axios"
 import { useNavigate } from "react-router-dom";
-import { useSelector } from 'react-redux';
-import * as postService from "../../services/postService"
-
+import { useSelector } from "react-redux";
+import * as servicePosts from "../../services/postService";
 
 export function PostForm() {
-
-  const {name, lastname, createdAt} = useSelector((state)=> state.user)
-
+  const { name, lastname, createdAt } = useSelector((state) => state.user);
 
   const [imgFile, setImgFile] = useState();
   const [imgPreview, setImgPreview] = useState(imagenPrev);
 
   const navigate = useNavigate();
-  
+
   const initialState = {
     name: "",
     testImage: null,
     contact: "",
     location: "",
     description: "",
-    nameUser:name,
-    lastnameUser:lastname,
-    createdAt:createdAt
-  }
+    nameUser: name,
+    lastnameUser: lastname,
+    createdAt: createdAt,
+  };
 
-  const [inputs, setInputs] = useState(initialState)
+  const [inputs, setInputs] = useState(initialState);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -55,15 +51,6 @@ export function PostForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    // try{
-    //   const res = await postService.createPost(inputs);
-    //   console.log(res)
-    //   navigate(`/posts`, { replace: true });
-    // } catch(error) {
-    //   console.log(error)
-    // }
-
     const formData = new FormData();
     formData.append("name", inputs.name);
     formData.append("testImage", inputs.testImage);
@@ -74,16 +61,17 @@ export function PostForm() {
     formData.append("lastnameUser", inputs.lastnameUser);
     formData.append("createdAt", inputs.createdAt);
 
-    try{
-      const response = await axios.post('http://localhost:4000/api/posts/upload', formData);
-      console.log(response.data);
-      //modal o page que desee suerte en su búsqueda
-      navigate(`/posts`, { replace: true });
-
-    } catch(error){
-      console.log(error)
-    }
-    
+    const uploadPost = async () => {
+      const res = await servicePosts.createPost(formData);
+      try {
+        console.log(res.data);
+        //modal o page que desee suerte en su búsqueda
+        navigate(`/posts`, { replace: true });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    uploadPost();
   };
 
   return (
@@ -175,7 +163,9 @@ export function PostForm() {
               type="file"
               id="img"
               name="testImage"
-              onChange={(event) => setInputs({ ...inputs, testImage: event.target.files[0] })}
+              onChange={(event) =>
+                setInputs({ ...inputs, testImage: event.target.files[0] })
+              }
             ></input>
             <button
               className="absolute flex top-0 left-0 w-full h-full z-[1] justify-center 

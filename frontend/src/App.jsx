@@ -3,6 +3,7 @@ import Navbar from "../src/components/Navbar/Navbar";
 import Register from "./pages/register/Register";
 import Posts from "./pages/posts/Posts";
 import Home from "./pages/home/Home";
+import Test from "./pages/test/Test";
 import { Route, Routes } from "react-router-dom";
 import store from "./redux/store";
 import { Provider } from "react-redux";
@@ -21,6 +22,7 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/upload" element={<PostForm />} />
           <Route path="/*" element={<h2>NOT FOUND</h2>} />
+          <Route path="/Test" element={<Test />} />
         </Routes>
       </Provider>
     </div>

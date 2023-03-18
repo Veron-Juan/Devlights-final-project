@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../../redux/states.js/user";
 import backgFormLogo from "../../assets/backgForm.png";
+import * as servicePosts from "../../services/postService";
+
 // Formulario de registro que solicita: Nombre y apellido, email y contraseña
 
 function Register() {
@@ -98,21 +100,33 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const res = await fetch("http://localhost:4000/api/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(inputValues),
-    });
-    try {
-      console.log(res);
-      dispatch(addUser({ ...inputValues }));
-      navigate(`/`, { replace: true });
-    } catch (error) {
-      console.log(error);
+    const register = async () => {
+      const res = await servicePosts.registerUser(inputValues);
+      try{
+        console.log(res.data);
+        dispatch(addUser({ ...inputValues }));
+        navigate(`/`, { replace: true });
+      } catch(error){
+        console.log(error)
+      }
     }
+    register()
+
+
+    // const res = await fetch("http://localhost:4000/api/auth/register", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(inputValues),
+    // });
+    // try {
+    //   console.log(res);
+    //   dispatch(addUser({ ...inputValues }));
+    //   navigate(`/`, { replace: true });
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   // Return del componente main Registro
