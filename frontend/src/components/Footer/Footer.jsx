@@ -16,11 +16,11 @@ const Footer = () => {
         </div>
         
         <div Class="text_footer text-gray-600 text-center " >
-        © +Cotas 2023 - All Rights Reserved
+        © +Cotas 2023 - All Rights Reserved   Siguinos!
         </div>
         
         <div class="items-center">
-        Siguinos!
+      
         <td><img src={Face} href='#'/>  
           <img src={Tutter} href='#' />  
           </td>
