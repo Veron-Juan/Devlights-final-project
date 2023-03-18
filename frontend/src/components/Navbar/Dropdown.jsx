@@ -16,13 +16,14 @@ function Dropdown() {
       <div>
         <button
           type="button"
-          className="inline-flex justify-center w-full px-4 py-2 font-[Montserrat] text-xs hover:bg-yellow-200 items-center"
+          
           id="options-menu"
           aria-expanded="true"
           aria-haspopup="true"
           onClick={() => setIsOpen(!isOpen)}
+
         >
-          INICIAR SESION
+         
           <svg
             className="-mr-1 ml-2 h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +58,7 @@ function Dropdown() {
               onClick={cerrarSesion}
               className="block px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 no-underline"
             >
-              Cerrar sesión
+              Cerrar Sesión
             </a>
           </div>
         </div>

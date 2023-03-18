@@ -132,6 +132,7 @@ function Register() {
   // Return del componente main Registro
 
   return (
+
     <div className="flex justify-center items-center h-screen">
       <img
         src={backgFormLogo}
@@ -139,11 +140,13 @@ function Register() {
         className="absolute left-10 bottom-10 sm:hidden max-md:hidden lg:inline-block"
       />
 
+
       <form
         id="registrationForm"
         action="/"
         method="POST"
         onSubmit={handleSubmit}
+
         className="lg:w-[500px] bg-white w-[400px] h-[600px] border-none rounded-lg shadow-xl p-6 mt-[30px] items-center ml-[8px] mr-[8px] z-[2]"
       >
         <h1 className="flex flex-row justify-center items-center text-5xl font-bold text-center mb-[30px] w-auto">
@@ -151,6 +154,7 @@ function Register() {
         </h1>
         <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
           <label htmlFor="name" className="font-[Monserrat] mt-[8px] font-bold">
+
             Nombre
             <input
               type="text"
@@ -167,11 +171,13 @@ function Register() {
             {validation.name && console.log(validation)}
           </label>
         </div>
+
         <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
           <label
             htmlFor="lName"
             className="font-[Monserrat] mt-[8px] font-bold"
           >
+
             Apellido
             <input
               type="text"
@@ -189,11 +195,13 @@ function Register() {
             )}
           </label>
         </div>
+
         <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
           <label
             htmlFor="email"
             className="font-[Monserrat] mt-[8px] font-bold"
           >
+
             Correo electrónico
             <input
               type="text"
@@ -210,11 +218,13 @@ function Register() {
             )}
           </label>
         </div>
+
         <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
           <label
             htmlFor="password"
             className="font-[Monserrat] mt-[8px] font-bold"
           >
+
             Contraseña
             <input
               type="password"
@@ -232,7 +242,9 @@ function Register() {
             )}
           </label>
         </div>
+
         <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
+
           <label
             htmlFor="confirmPassword"
             className="font-[Monserrat] mt-[8px] font-bold"
@@ -254,6 +266,7 @@ function Register() {
             )}
           </label>
         </div>
+
         <div className="md:flex flex flex-col mt-[10px] justify-center items-center">
           <button
             type="submit"
@@ -268,6 +281,7 @@ function Register() {
               Ingresar
             </a>
           </span>
+
         </div>
       </form>
     </div>
