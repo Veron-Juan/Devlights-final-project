@@ -13,13 +13,8 @@ const Nav = () => {
   ];
 
   return (
-<<<<<<< HEAD
-    <nav className="w-screen fixed z-10 bg-opacity-50 top-0 backdrop-filter transparent bg-cover backdrop-blur-sm bg-white">
-      <div className="shadow-md max-w-[1300px] mx-auto h-[90px]">
-=======
     <nav className="w-screen fixed z-10 bg-opacity-50 top-0 backdrop-filter transparent bg-cover backdrop-blur-sm  bg-white">
       <div className="shadow-md mx-auto h-[90px]">
->>>>>>> 491e8b41596c17d474320f424ae2af33dc88061b
         <div className="md:flex items-center justify-between py-4 md:px-10 px-7 transparent">
           <div
             className="font-bold text-2xl cursor-pointer flex items-center
