@@ -94,7 +94,7 @@ export default function Home() {
         />
       </div>
       <div className="w-1/3 h-100% ">
-      <MapComponent Marcadores={Marcadores} Center={Center} />
+      <MapComponent Marcadores={Marcadores} Center={Center} selecionMarcador={false}/>
       </div>
       </div>
       <div className="mx-auto max-w-7xl flex justify-center h-11 text-black "/> 

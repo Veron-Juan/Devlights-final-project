@@ -36,7 +36,7 @@ const CardComponent = (props) => {
     
     return(
     <>
-        <div className="container flex flex-col bg-white rounded-md max-w-sm h-fit w-72 mx-2">
+        <div className="container flex flex-col bg-white rounded-md mx-2 h-72 w-60    sm:h-80 sm:w-72 ">
             <div className="flex flex-row h-auto">
                 <img src={urlImage} className="h-5 w-5 rounded-full my-2 mx-1 "/>
                 <p className="font-semibold text-black my-1.5">{props.nombreUser}</p>
@@ -54,7 +54,8 @@ const CardComponent = (props) => {
           imgUser={urlImage} 
           tituloPost={props.tituloPost} 
           descripcionPost={props.descripcionPost} 
-          imgPost={urlPost} ubicacionPost={props.ubicacionPost} 
+          imgPost={urlPost} 
+          ubicacionPost={props.ubicacionPost} 
           fechaPost={props.fechaPost} 
           latitudPost={props.latitudPost} 
           longitudPost={props.longitudPost}          
