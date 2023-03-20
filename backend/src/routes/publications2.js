@@ -1,7 +1,7 @@
 import {Router} from "express";
 import {deletePublication,getPublication,getPublications,postPublication,updatePublication } from "../controllers/publication.js"
 import multer from "multer";
-
+//aca estan todas las rutas menos la POST y get
 
 const postRoutes = Router();
 const storage = multer.memoryStorage();

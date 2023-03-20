@@ -2,7 +2,7 @@ import { Router } from "express";
 import PostModel from "../schema/publication/publication.js";
 import multer from "multer";
 import fs from "fs"
-
+/////////////////////////////////////////////////////////////////this
 const router = Router()
 
 
@@ -17,7 +17,10 @@ const upload = multer({ storage: storage });
         contentType: req.file.mimetype
       },
       contact: req.body.contact,
-      location: req.body.location
+      location: req.body.location,
+      description: req.body.description,
+      nameUser: req.body.nameUser,
+      lastnameUser: req.body.lastnameUser,
     });
 
     await saveImage.save()

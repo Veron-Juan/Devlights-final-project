@@ -5,11 +5,16 @@ const urlImage = "https://img.freepik.com/vector-premium/perfil-hombre-dibujos-a
 const urlPost = "https://estaticos-cdn.prensaiberica.es/clip/823f515c-8143-4044-8f13-85ea1ef58f3a_16-9-discover-aspect-ratio_default_0.jpg"
 
 
+// CARDS DE INICIO
+
+
+
 const CardComponent = (props) => {
     const [showModal, setShowModal] = useState(false);
    
     const handleOpenModal = () => {
       setShowModal(true);
+      console.log("se cambio")
     };
 
 
@@ -50,13 +55,12 @@ const CardComponent = (props) => {
         </div>
         {showModal &&
           <ModalCard 
-          nombreUser={props.nombreUser} 
-          imgUser={urlImage} 
-          tituloPost={props.tituloPost} 
-          descripcionPost={props.descripcionPost} 
-          imgPost={urlPost} 
-          ubicacionPost={props.ubicacionPost} 
-          fechaPost={props.fechaPost} 
+          // nombreUser={props.nombreUser} 
+          // imgUser={urlImage} 
+          // tituloPost={props.tituloPost} 
+          // descripcionPost={props.descripcionPost} 
+          // imgPost={urlPost} ubicacionPost={props.ubicacionPost} 
+          // fechaPost={props.fechaPost} 
           latitudPost={props.latitudPost} 
           longitudPost={props.longitudPost}          
           handleCloseModal={() => setShowModal(false)}
