@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { addUser } from "../../redux/states.js/user";
 import axios from "axios";
 
+//TODO: ARREGLAR VISUALMENTE, CAMBIAR FOTO POR UNA DE BUENA CALIDAD 
 
 export default function Login() {
 

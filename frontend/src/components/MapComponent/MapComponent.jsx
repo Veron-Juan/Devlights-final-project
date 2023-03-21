@@ -8,7 +8,7 @@ import {GoogleMap,useJsApiLoader,MarkerF} from '@react-google-maps/api'
 function MapComponent(props) {
        
   const Marcadores = (props.Marcadores)
-  const Center = props.post ? props.Marcadores : props.Center      
+  const Center =  (props.Center)      
     
   const mapContainerStyle = {
     width: "100%",
@@ -21,10 +21,7 @@ function MapComponent(props) {
 
   const onMarkerDragEnd = (coord) => {
     const { latLng } = coord;
-    const lat = latLng.lat();
-    const lng = latLng.lng();
-
-    console.log(lat, lng);
+    props.setMark({id:1, position:{ lat: latLng.lat(), lng: latLng.lng() }});
   };
 
   return isLoaded ? (
