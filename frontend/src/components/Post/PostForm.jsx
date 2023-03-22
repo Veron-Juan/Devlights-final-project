@@ -127,7 +127,8 @@ export function PostForm() {
             py-2  w-[93%] "
       >
         <textarea
-          className=" min-h-[200px] min-w-[400px] mt-[10px] bg-white rounded-md"
+          className=" mt-[10px] min-h-[100px] w-[310px] lg:min-h-[200px] md:min-w-[385px] 
+          lg:min-w-[400px] bg-white rounded-md"
           type="text"
           id="description"
           name="description"
