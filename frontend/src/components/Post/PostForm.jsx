@@ -182,7 +182,7 @@ export function PostForm() {
           src={imgPreview}
           alt="imagen"
           className=" ml-12 rounded-md border-4 border-yellow-200
-                 w-[150px] "
+          w-[120px] h-[120px] "
         ></img>
       </div>
       <PostButton />
