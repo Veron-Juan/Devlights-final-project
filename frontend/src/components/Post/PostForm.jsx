@@ -123,8 +123,8 @@ export function PostForm() {
       </label>
       <br />
       <div
-        className="mb-[10px] border-b-4 pb-[7px] border-b-yellow-200 focus-within:border-yellow-400 
-            py-2  w-[93%] "
+        className=" mb-[30px] border-b-4 pb-[7px] border-b-yellow-200 focus-within:border-yellow-400 
+        py-2 lg:w-[89%] md:w-[89%] sm:w-[72%] w-[75%]"
       >
         <textarea
           className=" mt-[10px] min-h-[100px] w-[310px] lg:min-h-[200px] md:min-w-[385px] 
