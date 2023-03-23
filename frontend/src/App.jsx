@@ -1,4 +1,3 @@
-import "./App.css";
 import Navbar from "../src/components/Navbar/Navbar";
 import Login from "./components/Login/Login";
 import Register from "./pages/register/Register";
@@ -42,7 +41,7 @@ function App() {
       
      
       </Provider>
-    </div>
+    </header>
   );
 }
 

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { HomeBody } from "../../components/home/HomeBody";
 import { HomeHero } from "../../components/Home/HomeHero";
+import { HomeContent } from "../../components/Home/HomeContent";
 import { useSelector } from "react-redux";
 import  CardComponent from "../../components/CardComponent/Card";
 import  MapComponent  from "../../components/MapComponent/MapComponent";
+
 
 
 
@@ -46,10 +47,10 @@ export default function Home() {
   const Center = {lat:-27.4546446,lng:-58.9011161}  
   
   return (
-    <div className="mt-[90px] w-full">
-      <p className="text-5xl text-center">Bienvenido {name} </p>
-      <div className="mx-auto max-w-7xl flex justify-center text-black ">
-        <HomeBody />
+    <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-[calc(100%_-_90px)]">
+      <p className="text-lg md:text-4xl text-center">Bienvenido {name} </p>
+      <div className="grid  grid-cols-1 md:grid-cols-2 gap-3 text-black ">
+        <HomeContent />
         <HomeHero />
       </div>
       <div className="mx-auto max-w-7xl flex justify-between text-black mt-20  ">

@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/components/**/*.jsx",
+    "./src/pages/**/*.jsx",
+    "./src/**/*.jsx",
+  ],
   theme: {
     colors: {
       blue: "#1fb6ff",
@@ -16,7 +21,7 @@ module.exports = {
       "yellow-HomeButtton": "#F7C105",
       black: "#000000",
       white: "#FBFBFB",
-      "white-black": "#F7F7F7"
+      "white-black": "#F7F7F7",
     },
   },
   plugins: [],
