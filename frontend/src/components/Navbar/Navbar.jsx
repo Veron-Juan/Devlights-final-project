@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import { Icon } from "@iconify/react";
-import Dropdown from "./Dropdown";
 import Logo from "../../assets/logo.svg";
 import UserImg from "../../assets/user.svg";
+import { clearLocalStorageUser } from "../../redux/states.js/user";
+
 
 const Nav = () => {
   let [open, setOpen] = useState(false);
   const [userOpen, setUserOpen] = useState(false);
+  
+  const cerrarSesion = () => {
+    clearLocalStorageUser();
+    location.reload();
+  };
 
   let Links = [
     { name: "MASCOTAS CERCANAS", link: "/" },
@@ -39,7 +44,7 @@ const Nav = () => {
                 <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cuenta</a>
               </li>
               <li>
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cerrar sesion</a>
+                <a onClick={cerrarSesion} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cerrar sesion</a>
               </li>
             </ul>
           </div>
