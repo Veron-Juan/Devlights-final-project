@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Log2 from "../../assets/perro.jpg";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addUser } from "../../redux/states.js/user";
+import { addUser } from "../../redux/states/user";
 import axios from "axios";
 
 
@@ -71,6 +71,7 @@ export default function Login() {
               Password
             </label>
             <input
+              type="password"
               name="password"
               id="password"
               value={state.password}

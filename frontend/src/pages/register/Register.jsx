@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addUser } from "../../redux/states.js/user";
+import { addUser } from "../../redux/states/user";
 import backgFormLogo from "../../assets/backgForm.png";
 import * as servicePosts from "../../services/postService";
 

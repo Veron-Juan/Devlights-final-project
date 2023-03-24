@@ -1,8 +1,10 @@
 import { Router } from "express";
 import PostModel from "../schema/publication/publication.js";
 import multer from "multer";
-import fs from "fs"
-/////////////////////////////////////////////////////////////////this
+
+/////////////////////////////////////////////////////////////////
+//acá se encuentran las rutas para hacer la petición POST de la publicació, a travez de multer
+//también se puede encontrar la de obtencion de post
 const router = Router()
 
 
@@ -19,6 +21,7 @@ const upload = multer({ storage: storage });
       contact: req.body.contact,
       location: req.body.location,
       description: req.body.description,
+      petType: req.body.petType,
       nameUser: req.body.nameUser,
       lastnameUser: req.body.lastnameUser,
     });

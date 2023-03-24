@@ -18,6 +18,9 @@ const postSchema = new Schema({
         data: Buffer,
         contentType: String
     },
+    petType:{
+        type: String,
+    },
     nameUser:
     {
         type: String,

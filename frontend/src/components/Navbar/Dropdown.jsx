@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import { clearLocalStorageUser } from "../../redux/states.js/user";
+import { clearLocalStorageUser } from "../../redux/states/user";
 
 // Menú dropdown para accesibilidad en Navbar
 
