@@ -239,6 +239,9 @@ export function PostForm() {
         ></img>
       </div>
       <PostButton />
+      <div className="w-[30vw] h-[50vh]">
+        <MapComponent Center={Center} Marcadores={Marcadores} selecionMarcador={true} setInputs={setInputs}/>
+      </div>
     </form>
   );
 }
