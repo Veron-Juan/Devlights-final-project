@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  justify-content:center;
-  height: 100%;
-}
-
 *,
 ::after,
 ::before {
@@ -29,20 +23,9 @@ body {
 .hero-home {
   border-radius: 22% 48% 37% 63% / 20% 41% 59% 80%;
 }
-.logo_footer{
+
+.logo_footer {
   width: 120px;
   height: 120px;
   margin-top: 15px;
-}
-
-.items-center{
-  margin-top: 25px;
-}
-
-.text_footer{
- 
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: medium;
-  margin-top: 35px;
-  
 }

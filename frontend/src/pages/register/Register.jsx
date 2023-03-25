@@ -132,158 +132,166 @@ function Register() {
   // Return del componente main Registro
 
   return (
+    <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <form
+          id="registrationForm"
+          action="/"
+          method="POST"
+          onSubmit={handleSubmit}
+          className="container max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 bg-white border-none rounded-2xl shadow-xl py-5 lg:w-[32rem]"
+        >
+          <h1 className="flex flex-row justify-center items-center text-xl md:text-3xl font-bold text-center mb-[30px] w-auto">
+            Únete a nosotros!
+          </h1>
 
-    <div className="flex justify-center items-center h-screen">
-      <img
-        src={backgFormLogo}
-        alt="Background Form's Logo"
-        className="absolute left-10 bottom-10 sm:hidden max-md:hidden lg:inline-block"
-      />
-
-
-      <form
-        id="registrationForm"
-        action="/"
-        method="POST"
-        onSubmit={handleSubmit}
-
-        className="lg:w-[500px] bg-white w-[400px] h-[600px] border-none rounded-lg shadow-xl p-6 mt-[30px] items-center ml-[8px] mr-[8px] z-[2]"
-      >
-        <h1 className="flex flex-row justify-center items-center text-5xl font-bold text-center mb-[30px] w-auto">
-          Únete a nosotros!
-        </h1>
-        <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
-          <label htmlFor="name" className="font-[Monserrat] mt-[8px] font-bold">
-
-            Nombre
-            <input
+          {/* Nombre */}
+          <div class="relative z-0 w-full mb-6 group">
+            <input 
               type="text"
               name="name"
-              id="name"
-              placeholder="Ej:Devlights"
-              className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full font-normal"
+              id="name" 
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-yellow-200 appearance-none dark:text-dark dark:border-yellow-200 dark:focus:border-yellow-300 focus:outline-none focus:ring-0 focus:border-yellow-300 peer" 
+              placeholder="" 
+              required 
               onChange={handleChange}
               value={inputValues.name}
             />
+            <label 
+              htmlFor="name" 
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Nombre
+            </label>
             {validation.name && (
-              <p className="text-red-600 font-[Monserrat]">{validation.name}</p>
-            )}
+                <p className="text-red-600 font-[Monserrat]">{validation.name}</p>
+              )}
             {validation.name && console.log(validation)}
-          </label>
-        </div>
+          </div>
 
-        <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
-          <label
-            htmlFor="lName"
-            className="font-[Monserrat] mt-[8px] font-bold"
-          >
-
-            Apellido
-            <input
+          {/* Apellido */}
+          <div class="relative z-0 w-full mb-6 group">
+            <input 
               type="text"
-              name="lastname"
-              id="lastname"
-              placeholder="Ej:Bootcamps"
-              className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full font-normal"
+              name="lName"
+              id="lName" 
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-yellow-200 appearance-none dark:text-dark dark:border-yellow-200 dark:focus:border-yellow-300 focus:outline-none focus:ring-0 focus:border-yellow-300 peer" 
+              placeholder="" 
+              required 
               onChange={handleChange}
-              value={inputValues.lastname}
+                value={inputValues.lastname}
             />
+            <label 
+              htmlFor="lName" 
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Apellido
+            </label>
             {validation.lastname && (
               <p className="text-red-600 font-[Monserrat]">
                 {validation.lastname}
               </p>
             )}
-          </label>
-        </div>
-
-        <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
-          <label
-            htmlFor="email"
-            className="font-[Monserrat] mt-[8px] font-bold"
-          >
-
-            Correo electrónico
-            <input
-              type="text"
+          </div>
+      
+          {/* Correo */}
+          <div class="relative z-0 w-full mb-6 group">
+            <input 
+              type="email"
               name="email"
-              placeholder="Email"
-              className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full font-normal"
+              id="email" 
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-yellow-200 appearance-none dark:text-dark dark:border-yellow-200 dark:focus:border-yellow-300 focus:outline-none focus:ring-0 focus:border-yellow-300 peer"
+              placeholder="" 
+              required 
               onChange={handleChange}
               value={inputValues.email}
             />
+            <label 
+              htmlFor="email" 
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Correo electrónico
+            </label>
             {validation.email && (
               <p className="text-red-600 font-[Monserrat]">
                 {validation.email}
               </p>
             )}
-          </label>
-        </div>
+          </div>
 
-        <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
-          <label
-            htmlFor="password"
-            className="font-[Monserrat] mt-[8px] font-bold"
-          >
-
-            Contraseña
-            <input
+          {/* Pass */}
+          <div class="relative z-0 w-full mb-6 group">
+            <input 
               type="password"
               name="password"
-              placeholder="Contraseña"
-              className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full font-normal"
+              id="password" 
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-yellow-200 appearance-none dark:text-dark dark:border-yellow-200 dark:focus:border-yellow-300 focus:outline-none focus:ring-0 focus:border-yellow-300 peer" 
+              placeholder="" 
               onChange={handleChange}
               value={inputValues.password}
               required
             />
+            <label 
+              htmlFor="password" 
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Contraseña
+            </label>
             {validation.password && (
               <p className="text-red-600 font-[Monserrat]">
                 {validation.password}
               </p>
             )}
-          </label>
-        </div>
+          </div>
 
-        <div className="flex flex-col justify-center border-b-4 border-b-yellow-200 focus-within:border-yellow-400">
-
-          <label
-            htmlFor="confirmPassword"
-            className="font-[Monserrat] mt-[8px] font-bold"
-          >
-            Confirmar contraseña
-            <input
+          {/* Re-Pass */}
+          <div class="relative z-0 w-full mb-6 group">
+            <input 
               type="password"
               name="confirmPassword"
-              placeholder="Confirmar contraseña"
-              className="block appearance-none focus:outline-none bg-transparent pl-[5px] w-full  font-normal"
+              id="confirmPassword" 
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-yellow-200 appearance-none dark:text-dark dark:border-yellow-200 dark:focus:border-yellow-300 focus:outline-none focus:ring-0 focus:border-yellow-300 peer" 
+              placeholder="" 
               onChange={(e) => handleChange(e)}
               value={inputValues.confirmPassword}
               required
             />
+            <label 
+              htmlFor="confirmPassword" 
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Repetir Contraseña
+            </label>
             {validation.confirmPassword && (
               <p className="text-red-600 font-[Monserrat] uppercase">
                 {validation.confirmPassword}
               </p>
             )}
-          </label>
-        </div>
+          </div>
 
-        <div className="md:flex flex flex-col mt-[10px] justify-center items-center">
-          <button
-            type="submit"
-            id="submit-button"
-            className="bg-yellow h-[40px] rounded-xl w-[50%] mt-[20px]"
-          >
-            Registrarse
-          </button>
-          <span className="flex justify-center gap-[4px]">
-            Ya tienes una cuenta?{" "}
-            <a href="/login" className="hover:text-amber-300">
-              Ingresar
-            </a>
-          </span>
+          <div className="flex flex-col mt-12 justify-center items-center">
+            <button
+              type="submit"
+              id="submit-button"
+              className="bg-yellow h-[40px] rounded-xl w-[50%] mb-6 font-bold"
+            >
+              Registrarse
+            </button>
+            <span className="flex justify-center">
+              Ya tienes una cuenta?{" "}
+              <a href="/login" className="hover:text-amber-300">
+                Ingresar
+              </a>
+            </span>
 
-        </div>
-      </form>
+          </div>
+        </form>
+        <img
+          src={backgFormLogo}
+          alt="Background Form's Logo"
+          className="hidden lg:block"
+        />
+      </div>
     </div>
   );
 }
