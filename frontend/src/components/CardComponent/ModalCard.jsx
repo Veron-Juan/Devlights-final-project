@@ -77,7 +77,9 @@ const ModalCard = (props) => {
                         Ultima vez visto en {props.ubicacionPost}  
                       </p>
                       <p className="font-semibold text-black  ">
+                        
                         {props.fechaPost} 
+                        
                       </p>     
                     </div>
                   </div>

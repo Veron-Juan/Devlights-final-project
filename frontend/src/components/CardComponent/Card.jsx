@@ -55,12 +55,12 @@ const CardComponent = (props) => {
         </div>
         {showModal &&
           <ModalCard 
-          // nombreUser={props.nombreUser} 
-          // imgUser={urlImage} 
-          // tituloPost={props.tituloPost} 
-          // descripcionPost={props.descripcionPost} 
-          // imgPost={urlPost} ubicacionPost={props.ubicacionPost} 
-          // fechaPost={props.fechaPost} 
+          nombreUser={props.nombreUser} 
+          imgUser={urlImage} 
+          tituloPost={props.tituloPost} 
+          descripcionPost={props.descripcionPost} 
+          imgPost={urlPost} ubicacionPost={props.ubicacionPost} 
+          fechaPost={props.fechaPost} 
           latitudPost={props.latitudPost} 
           longitudPost={props.longitudPost}          
           handleCloseModal={() => setShowModal(false)}

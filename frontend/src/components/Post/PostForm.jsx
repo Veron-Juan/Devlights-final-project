@@ -15,6 +15,24 @@ export function PostForm() {
 
   const navigate = useNavigate();
 
+  const [ubicState, setUbicState] = useState(true);
+  
+  const [Center , setCenter] = useState({ 
+    lat: -34.603722,
+    lng: -58.381592,
+  })
+  
+  const [Marcadores, setMarcadores] = useState([
+    {
+      id: 1,
+      position: {
+        lat: -34.603722,
+        lng: -58.381592,
+      },
+    },
+  ]);
+ 
+
   const initialState = {
     name: "",
     testImage: null,
@@ -24,6 +42,8 @@ export function PostForm() {
     nameUser: name,
     lastnameUser: lastname,
     createdAt: createdAt,
+    latitude: -34.603722,
+    longitude: -58.381592,
   };
 
   const [inputs, setInputs] = useState(initialState);
@@ -62,6 +82,8 @@ export function PostForm() {
     formData.append("nameUser", inputs.nameUser);
     formData.append("lastnameUser", inputs.lastnameUser);
     formData.append("createdAt", inputs.createdAt);
+    formData.append("latitude", inputs.latitude);
+    formData.append("longitude", inputs.longitude);
 
     const uploadPost = async () => {
       const res = await servicePosts.createPost(formData);
@@ -78,25 +100,9 @@ export function PostForm() {
 
    
   //Manejo de la ubicacion del mapa
-  const [mark, setMark] = useState({id:1,position:{ lat: -34.603722, lng: -58.381592 }});
+  
 
-  const [ubicState, setUbicState] = useState(true);
-  
-  const [Center , setCenter] = useState({ 
-    lat: -34.603722,
-    lng: -58.381592,
-  })
-  
-  const [Marcadores, setMarcadores] = useState([
-    {
-      id: 1,
-      position: {
-        lat: -34.603722,
-        lng: -58.381592,
-      },
-    },
-  ]);
- 
+
   const successCallback = (position) => {
     if (ubicState) {
     const { latitude, longitude } = position.coords;
@@ -234,7 +240,7 @@ export function PostForm() {
         <PostButton />
     </div>
     <div className="w-[30vw] h-[50vh]">
-        <MapComponent Center={Center} Marcadores={Marcadores} selecionMarcador={true} setMark={setMark}/>
+        <MapComponent Center={Center} Marcadores={Marcadores} selecionMarcador={true} setInputs={setInputs}/>
     </div>
     </form>
   );

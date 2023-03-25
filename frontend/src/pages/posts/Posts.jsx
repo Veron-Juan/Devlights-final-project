@@ -27,7 +27,7 @@ export default function Posts() {
               ""
             )
           ); 
-          setPrueba(`data:image/png;base64,${base64String}`);
+      
           
         }) 
       } catch(error) {
@@ -69,6 +69,8 @@ export default function Posts() {
         nameUser={i.nameUser}
         lastnameUser={i.lastnameUser}
         createdAt={i.createdAt}
+        latitudPost={i.latitude}
+        longitudPost={i.longitude}
         
         />
       )

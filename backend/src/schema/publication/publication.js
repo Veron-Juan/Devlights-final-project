@@ -26,6 +26,12 @@ const postSchema = new Schema({
     {
         type: String,
     },
+    latitude:{
+        type: Number,
+    },
+    longitude:{
+        type: Number,
+    },
     
 
 },

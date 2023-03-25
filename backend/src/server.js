@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 
 
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect("mongodb+srv://lucas:VHNEv1rlAU5DJZr4@cluster0.3ux45gn.mongodb.net/?retryWrites=true&w=majority")
   .then(() => console.log("Conected to MongoDB Atlas"))
   .catch((error) => console.error(error));
 

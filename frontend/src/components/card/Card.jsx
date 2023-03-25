@@ -74,12 +74,10 @@ export default function Card(props) {
           
           //
           ubicacionPost={props.location}
-          fechaPost={lista[0].fechaPost}
-          latitudPost={lista[0].latitudPost}
-          longitudPost={lista[0].longitudPost}
+          fechaPost={new Date (props.createdAt).toLocaleDateString()}
           
-          // latitudPost={props.latitudPost} 
-          // longitudPost={props.longitudPost}          
+          latitudPost={props.latitudPost} 
+          longitudPost={props.longitudPost}          
           handleCloseModal={() => setShowModal(false)}
           />
       }

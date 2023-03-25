@@ -21,7 +21,10 @@ const upload = multer({ storage: storage });
       description: req.body.description,
       nameUser: req.body.nameUser,
       lastnameUser: req.body.lastnameUser,
+      latitude: req.body.latitude,
+      longitude: req.body.longitude,
     });
+    
 
     await saveImage.save()
     // const image = saveImage.img.data.toString('base64');
