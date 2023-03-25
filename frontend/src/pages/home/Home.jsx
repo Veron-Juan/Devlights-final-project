@@ -46,58 +46,57 @@ export default function Home() {
   const Center = {lat:-27.4546446,lng:-58.9011161}  
   
   return (
-    <div className="mt-[90px] w-full">
-      <p className="text-5xl text-center">Bienvenido {name} </p>
-      <div className="mx-auto max-w-7xl flex justify-center text-black ">
+    <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-[calc(100%_-_90px)]">
+      <p className="text-lg md:text-4xl text-center">Bienvenido {name} </p>
+      <div className="grid  grid-cols-1 md:grid-cols-2 gap-3 text-black ">
         <HomeBody />
         <HomeHero />
       </div>
       <div className="mx-auto max-w-7xl flex justify-between text-black mt-20  ">
-      <div className="flex ">
-      {/* {posts.map((post) => (     //Cuando se pueda cargar los posts de la base de datos, descomentar esto
-        <CardComponent
-        nombreUser={post.nombreUser}
-        tituloPost={post.tituloPost}
-        ubicacionPost={post.ubicacionPost}
-        descripcionPost={post.descripcionPost}
-        latitudPost={post.latitudPost}
-        longitudPost={post.longitudPost}
-        fechaPost={post.fechaPost}
-        />
-      ))} */}
-      <CardComponent
-        nombreUser={lista[0].nombreUser}
-        tituloPost={lista[0].tituloPost}
-        ubicacionPost={lista[0].ubicacionPost}
-        descripcionPost={lista[0].descripcionPost}
-        latitudPost={lista[0].latitudPost}
-        longitudPost={lista[0].longitudPost}
-        fechaPost={lista[0].fechaPost}
-        />
-        <CardComponent
-        nombreUser={lista[0].nombreUser}
-        tituloPost={lista[0].tituloPost}
-        ubicacionPost={lista[0].ubicacionPost}
-        descripcionPost={lista[0].descripcionPost}
-        latitudPost={lista[0].latitudPost}
-        longitudPost={lista[0].longitudPost}
-        fechaPost={lista[0].fechaPost}
-        />
-        <CardComponent
-        nombreUser={lista[0].nombreUser}
-        tituloPost={lista[0].tituloPost}
-        ubicacionPost={lista[0].ubicacionPost}
-        descripcionPost={lista[0].descripcionPost}
-        latitudPost={lista[0].latitudPost}
-        longitudPost={lista[0].longitudPost}
-        fechaPost={lista[0].fechaPost}
-        />
+        <div className="flex ">
+          {/* {posts.map((post) => (     //Cuando se pueda cargar los posts de la base de datos, descomentar esto
+            <CardComponent
+            nombreUser={post.nombreUser}
+            tituloPost={post.tituloPost}
+            ubicacionPost={post.ubicacionPost}
+            descripcionPost={post.descripcionPost}
+            latitudPost={post.latitudPost}
+            longitudPost={post.longitudPost}
+            fechaPost={post.fechaPost}
+            />
+          ))} */}
+          <CardComponent
+            nombreUser={lista[0].nombreUser}
+            tituloPost={lista[0].tituloPost}
+            ubicacionPost={lista[0].ubicacionPost}
+            descripcionPost={lista[0].descripcionPost}
+            latitudPost={lista[0].latitudPost}
+            longitudPost={lista[0].longitudPost}
+            fechaPost={lista[0].fechaPost}
+          />
+          <CardComponent
+            nombreUser={lista[0].nombreUser}
+            tituloPost={lista[0].tituloPost}
+            ubicacionPost={lista[0].ubicacionPost}
+            descripcionPost={lista[0].descripcionPost}
+            latitudPost={lista[0].latitudPost}
+            longitudPost={lista[0].longitudPost}
+            fechaPost={lista[0].fechaPost}
+          />
+          <CardComponent
+            nombreUser={lista[0].nombreUser}
+            tituloPost={lista[0].tituloPost}
+            ubicacionPost={lista[0].ubicacionPost}
+            descripcionPost={lista[0].descripcionPost}
+            latitudPost={lista[0].latitudPost}
+            longitudPost={lista[0].longitudPost}
+            fechaPost={lista[0].fechaPost}
+          />
+        </div>
+        <div className="w-1/3 h-100% ">
+        <MapComponent Marcadores={Marcadores} Center={Center} selecionMarcador={false}/>
+        </div>
       </div>
-      <div className="w-1/3 h-100% ">
-      <MapComponent Marcadores={Marcadores} Center={Center} selecionMarcador={false}/>
-      </div>
-      </div>
-      <div className="mx-auto max-w-7xl flex justify-center h-11 text-black "/> 
     </div>
   );
 }

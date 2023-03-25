@@ -7,36 +7,24 @@ import WhatsApp from "../../assets/map.png";
 import Mapa from "../../assets/whatsApp.png";
 const Footer = () => {
   return (
-  <div className="bg-white bg-cover backdrop-filter transparent backdrop-blur-sm bg-opacity-30">
-    
-    <div class="flex justify-center bg-gradient-to-r from-yellow-200 via-white to-teal-900 p-12">
+  <footer className="mt-8">
+    <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+      <div className="text-gray-600 mb-5 md:mb-0">
+        <img className="h-[80px]" src={Logo} />
+      </div>
       
-        <div Class="logo_footer">
-        <img src={Logo} href='#'/>
-        </div>
+      <div className="text-gray-600 mb-3 md:mb-0">
+        © +Cotas 2023 - All Rights Reserved
+      </div>
         
-        <div Class="text_footer text-gray-600 text-center " >
-        © +Cotas 2023 - All Rights Reserved   Siguinos!
-        </div>
-        
-        <div class="items-center">
-      
-        <td><img src={Face} href='#'/>  
-          <img src={Tutter} href='#' />  
-          </td>
-         <td><img src={Insta} href='#'/>
-          <img src={WhatsApp} href='#'/> 
-          </td>
-         
-         
-        </div>
-     
+      <div className="flex justify-between items-center mb-3 md:mb-0">
+        <img src={Face} />  
+        <img className="pl-2" src={Tutter}  />  
+        <img className="pl-2" src={Insta} />
+        <img className="pl-2" src={WhatsApp} />
+      </div>
     </div>
-    </div>
-   
-    
-     
-    
+  </footer>
   )
 }
 
