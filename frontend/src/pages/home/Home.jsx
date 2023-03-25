@@ -7,7 +7,8 @@ import  MapComponent  from "../../components/MapComponent/MapComponent";
 
 
 
-export default function Home() {
+export default function Home(props) {
+
   const { name } = useSelector((state) => state.user);
 
   const [posts, setPosts] = useState([])
@@ -46,8 +47,10 @@ export default function Home() {
   const Center = {lat:-27.4546446,lng:-58.9011161}  
   
   return (
+    //
+
     <div className="mt-[90px] w-full">
-      <p className="text-5xl text-center">Bienvenido {name} </p>
+      <p className="text-5xl text-center">Bienvenido {props.email} </p>
       <div className="mx-auto max-w-7xl flex justify-center text-black">
         <HomeBody />
         <HomeHero />

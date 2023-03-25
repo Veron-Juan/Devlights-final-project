@@ -1,4 +1,5 @@
 import userModel from "../schemas/user";
+import user from "./user";
 
 const getAllUsers = async () =>{
     const users = await userModel.find({}, (error, data) => {
@@ -56,10 +57,27 @@ const deleteUser = async (userId) =>{
     });
 }
 
+//ver
+const loginRepo = async (userData) => {
+    const user = await user.findOne({ 
+      where: {
+        email: userData.email,
+        password: userData.password
+      }
+    })
+  
+    if (user) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 export default {
     getAllUsers,
     createUser,
     getUserById,
     updateUser,
     deleteUser,
+    loginRepo
   };
