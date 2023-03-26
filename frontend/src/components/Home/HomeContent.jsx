@@ -1,16 +1,15 @@
 import { HomeButton } from "./HomeButton";
 
-export function HomeBody(){
+export function HomeContent(){
     return(
         <div className="flex flex-col justify-around">
             <div className="mb-8 md:mb-0">
                 <h1 className="text-2xl md:text-4xl font-extrabold text-black mb-6">
-                    Encuentra tu mascota fácil y rápido con nuestra app reformular!!
+                Con nuestra app, encontrar tu mascota es fácil y rápido.
                 </h1>
                 <p className="font-normal text-xl
                 md:text-2xl text-black">
-                    +Cotas es una amplia comunidad que tiene como objetivo ayudarnos a encontrar a nuestros
-                    compañeros ,,,, completar con la mision objetivo etc de la pagina
+Sabemos lo importante que son las mascotas para sus dueños y lo angustiante que puede ser no saber dónde están. Por eso, ofrecemos una plataforma digital donde se puede reportar la desaparición de una mascota o buscar entre las publicaciones de otras personas que también buscan a sus animales y contactar con ellas para facilitar el reencuentro.
                 </p>
             </div>
             <div className="flex justify-around text-center text-base md:text-xl font-extrabold text-black ">

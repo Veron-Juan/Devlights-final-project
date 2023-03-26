@@ -10,6 +10,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
   router.post("/upload", upload.single("testImage"), async (req, res) => {
+    console.log(req.file, req.body.name);
     const saveImage =  PostModel({
       name: req.body.name,
       img: {

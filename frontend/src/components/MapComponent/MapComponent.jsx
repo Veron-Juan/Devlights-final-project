@@ -21,7 +21,8 @@ function MapComponent(props) {
 
   const onMarkerDragEnd = (coord) => {
     const { latLng } = coord;
-    props.setInputs({ ...props.inputs, latitude: latLng.lat(), longitude: latLng.lng() });
+    props.setCenter({ lat: latLng.lat(), lng: latLng.lng()})
+
   };
 
   return isLoaded ? (

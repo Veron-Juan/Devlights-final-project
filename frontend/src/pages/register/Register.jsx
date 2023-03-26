@@ -173,7 +173,7 @@ function Register() {
           <div class="relative z-0 w-full mb-6 group">
             <input 
               type="text"
-              name="lName"
+              name="lastname"
               id="lName" 
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-yellow-200 appearance-none dark:text-dark dark:border-yellow-200 dark:focus:border-yellow-300 focus:outline-none focus:ring-0 focus:border-yellow-300 peer" 
               placeholder="" 
