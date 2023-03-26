@@ -37,6 +37,7 @@ export function PostForm() {
   };
 
   const OnImgChange = (event) => {
+    
     event.preventDefault();
     const image = event.target.files[0];
     if (image.type.includes("image")) {
@@ -47,7 +48,7 @@ export function PostForm() {
         setImgPreview(reader.result);
       };
       setImgFile(image);
-      setInputs({ ...inputValues, testImage: event.target.files[0] });
+      setInputs({ ...inputs, testImage: event.target.files[0] });
     } else {
       console.log("Hubo un errorcito");
     }
@@ -138,7 +139,7 @@ export function PostForm() {
         </label>
         <div className="mb-2 w-fit border-b-4 border-b-yellow-200">
         <input
-            className="mb-2 focus:border-yellow w-[50vw] bg-blue rounded-md px-1 text-lg sm:w-[30vw]"
+            className="mb-2 focus:border-yellow w-[50vw] bg-white-black rounded-md px-1 text-lg sm:w-[30vw]"
             type="text"
             id="name"
             name="name"
@@ -153,7 +154,7 @@ export function PostForm() {
         
         <div className="mb-2 w-fit border-b-4 border-b-yellow-200">
           <input
-            className="mb-2 focus:border-yellow w-[50vw] bg-blue rounded-md px-1 text-lg sm:w-[30vw]"
+            className="mb-2 focus:border-yellow w-[50vw] bg-white-black rounded-md px-1 text-lg sm:w-[30vw]"
             type="text"
             id="contact"
             name="contact"
@@ -170,7 +171,7 @@ export function PostForm() {
           className="mb-2 w-fit border-b-4 border-b-yellow-200"
         >
           <textarea
-            className=" min-h-[20vh] min-w-[85vw] mb-2 focus:border-yellow  bg-blue rounded-md p-1 text-lg sm:min-w-[40vw]"
+            className=" min-h-[20vh] min-w-[85vw] mb-2 focus:border-yellow  bg-white-black rounded-md p-1 text-lg sm:min-w-[35vw] sm:mr-5"
             type="text"
             id="description"
             name="description"
@@ -206,7 +207,7 @@ export function PostForm() {
         
         <div className="mb-2 w-fit border-b-4 border-b-yellow-200">
           <input
-            className="mb-2 focus:border-yellow w-[50vw] bg-blue rounded-md px-1 text-lg sm:w-[30vw]"
+            className="mb-2 focus:border-yellow w-[50vw] bg-white-black rounded-md px-1 text-lg sm:w-[30vw]"
             type="text"
             id="location"
             name="location"
