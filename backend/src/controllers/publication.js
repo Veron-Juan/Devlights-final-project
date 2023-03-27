@@ -4,9 +4,9 @@ import postRepository from "../repositories/publications.js"
 
 export const getPublications = async (req, res) => {
   try {
-    res.send("holaaaaaaaaa")
     console.log("holaaaa")
     const response = await postRepository.getAllPosts();
+    res.send(response)
     res.json({response});
   } catch (error) {
     console.error(error);
@@ -24,35 +24,32 @@ export const getPublication = async (req, res) => {
 
 export const updatePublication = async (req, res) => {
   try {
-    const publication = await postRepository.updatePost(req.body, req.params.userId);
-
-    res.json({ publication })
+    
+    const { id } = req.params;
+    const  { body } = req
+    const publication = await postRepository.updatePost(id, body);
+    res.send(publication)
   }catch (error) {
     res.status(500).json({ error });
   }
 }
 
-
+//no funciona por ahora
 export const postPublication = async (req, res) => {
   const {body} = req
   const publication = await postRepository.newPost(body);
   res.send(publication);
 };
 
-export const deletePublication = async ({ params }, res) => {
+export const deletePublication = async (req, res) => {
   try {
-    const publication = postRepository.deletePost(req.params.userId)
-
-    res.json({ publication });
+    const id = req.params.id
+    const publication = await postRepository.deletePost(id)
+    res.send({ publication });
+    
   } catch (error) {
     res.status(500).json({ error })
   }
 };
 
-// export {
-  
-//   getPublications,
-//   deletePublication,
-//   postPublication,
-//   updatePublication,
-// };
+

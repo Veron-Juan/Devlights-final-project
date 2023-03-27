@@ -28,4 +28,4 @@ mongoose
   .then(() => console.log("Conected to MongoDB Atlas"))
   .catch((error) => console.error(error));
 
-app.listen(4000, () => console.log("server ok"));
+app.listen(process.env.PORT, () => console.log("server ok"));
