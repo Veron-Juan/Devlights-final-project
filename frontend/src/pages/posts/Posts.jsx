@@ -11,6 +11,8 @@ export default function Posts() {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
 
+  
+
   useEffect(() => {
     const loadPosts = async ()=> {
       const res = await servicePosts.getPosts();
