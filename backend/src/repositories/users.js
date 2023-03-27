@@ -1,5 +1,8 @@
 import userModel from "../schemas/user";
 
+
+//////////////////////ELIMINAR
+
 const getAllUsers = async () =>{
     const users = await userModel.find({}, (error, data) => {
          if (error) {

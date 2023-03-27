@@ -1,3 +1,31 @@
-html {
-  background-image: linear-gradient(to right, #ffffff, rgb(176, 250, 234));
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+::after,
+::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.home-bg {
+  background-image: linear-gradient(72.44deg, #DEFFF8 0.69%, #FFF 51.52%, #8EFFE6 100%);
+}
+
+/* Hero image */
+.hero-home {
+  border-radius: 22% 48% 37% 63% / 20% 41% 59% 80%;
+}
+
+.logo_footer {
+  width: 120px;
+  height: 120px;
+  margin-top: 15px;
 }
