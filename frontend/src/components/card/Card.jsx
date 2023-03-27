@@ -65,17 +65,12 @@ export default function Card(props) {
           <ModalCard 
           nameUser={props.nameUser} 
           lastnameUser={props.lastnameUser}
-          //nombre perro 
           tituloPost={props.name} 
           descripcionPost={props.description} 
           imgPost={props.image} 
           contacto={props.contact}
-          // ubicacionPost={props.location}
-          
-          //
           ubicacionPost={props.location}
           fechaPost={new Date (props.createdAt).toLocaleDateString()}
-          
           latitudPost={props.latitudPost} 
           longitudPost={props.longitudPost}          
           handleCloseModal={() => setShowModal(false)}

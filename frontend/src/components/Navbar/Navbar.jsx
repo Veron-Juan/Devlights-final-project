@@ -14,7 +14,7 @@ const Nav = () => {
   };
 
   let Links = [
-    { name: "MASCOTAS CERCANAS", link: "/" },
+    { name: "MASCOTAS CERCANAS", link: "/posts" },
     { name: "CUIDADOS", link: "/" },
     { name: "DONACIONES", link: "/" },
   ];
@@ -24,7 +24,7 @@ const Nav = () => {
     <nav className="px-2 sm:px-4 py-2.5">
       <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center">
+        <a href="/" className="flex items-center">
             <img src={Logo} className="h-[70px]" alt="Flowbite Logo" />
         </a>
 

@@ -87,7 +87,7 @@ const ModalCard = (props) => {
           </div>
         </div>
       </div>
-      <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+      <div className="opacity-25 fixed inset-0 z-100 bg-black w-[100vw] h-[100vh]" ></div>
     </>
   );
 };
