@@ -1,64 +1,48 @@
+import Navbar from "../src/components/Navbar/Navbar";
+import Login from "./components/Login/Login";
+import Register from "./components/register/Register";
+import Posts from "./pages/posts/Posts";
+import Home from "./pages/home/Home";
+
+import Footer from "../src/components/Footer/Footer";
+
+import Test from "./pages/test/Test";
+
 import { Route, Routes } from "react-router-dom";
 import store from "./redux/store";
 import { Provider } from "react-redux";
-import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Navbar from "../src/components/Navbar/Navbar";
-import Login from "./components/Login/LoginForm";
-import Register from "./components/Register/RegisterForm";
-import Posts from "./pages/posts/Posts";
-import Home from "./pages/home/Home";
-import Footer from "../src/components/Footer/Footer";
-import Test from "./pages/test/Test";
-
-
-
-// creao rutas de navegacón que recive array de objetos
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Home />,
-//   },
-//   {
-//     path: "/login",
-//     element: <Login />,
-//   },
-//   {
-//     path: "/register",
-//     element: <Register />
-//   }
-// ]);
+import { PostForm } from "./components/Post/PostForm";
+import { AuthGuard } from "./guards/auth.guards";
 
 function App() {
-  //  return <RouterProvider router={router} />;
-   return (
-     <div className="App bg-gradient-to-r from-yellow-100 via-white to-teal-200">
+  return (
+    <div className="App bg-gradient-to-r from-yellow-100 via-white to-teal-200">
   
       <Provider store={store}>
      
-         <Navbar />
+        <Navbar />
       
         {/* <Register />
-       <Posts/> */}
-         <Routes>
-         <Route path="/Login" element={<Login/>} />
-            <Route path="/home" element={<Home />} />
-           <Route path="/" element={<Register />} />
+      <Posts/> */}
+        <Routes>
+        <Route path="/login" element={<Login />} />
+           <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/posts" element={<Posts />} />
+          <Route path="/*" element={<h2>NOT FOUND</h2>} />
+          <Route path="/Test" element={<Test />} />
+          <Route element={<AuthGuard/>} >
+              <Route path="upload" element={<PostForm/> } />
+          </Route>
 
-           <Route path="/posts" element={<Posts />} /> 
-           {/* <Route path="/*" element={<h2>NOT FOUND</h2>} /> */}
-
-           <Route path="/*" element={<h2>NOT FOUND</h2>} />
-           <Route path="/Test" element={<Test />} />
-
-         </Routes>
+        </Routes>
         
-       <Footer />
+      <Footer />
       
      
-       </Provider>
+      </Provider>
     </div>
-);
+  );
 }
 
 export default App;

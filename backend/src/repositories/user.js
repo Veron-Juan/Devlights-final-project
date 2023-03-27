@@ -26,18 +26,24 @@ const updateUser = async (id, data) => {
   }
 };
 
-const deleteUser = async (req, res) => {
-  if (req.body.userId === req.params.id) {
-    try {
-      await UserModel.findByIdAndDelete(req.params.id);
-      res.status(200).json("User has been deleted...");
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  }
+const deleteUser = async (id) => {
+  const responseUser = await UserModel.findByIdAndDelete({_id: id})
+  return responseUser;
+    // try {
+    //   await UserModel.findByIdAndDelete(req.params.id);
+    //   res.status(200).json("User has been deleted...");
+    // } catch (err) {
+    //   res.status(500);
+    // }
+  
 };
 
 
+
+// const deleteCar = async (id: string) => {
+//   const responseItem = await ItemModel.remove({ _id: id });
+//   return responseItem;
+// };
 
 export default {
   getAllUsers,

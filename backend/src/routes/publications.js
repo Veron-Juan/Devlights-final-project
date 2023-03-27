@@ -1,15 +1,15 @@
 import { Router } from "express";
 import PostModel from "../schema/publication/publication.js";
 import multer from "multer";
-import fs from "fs"
-
+/////////////////////////////////////////////////////////////////
+//acá se encuentran las rutas para hacer la petición POST de la publicació, a travez de multer
+//también se puede encontrar la de obtencion de post
 const router = Router()
-
-
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
   router.post("/upload", upload.single("testImage"), async (req, res) => {
+    console.log(req.file, req.body.name);
     const saveImage =  PostModel({
       name: req.body.name,
       img: {
@@ -17,8 +17,15 @@ const upload = multer({ storage: storage });
         contentType: req.file.mimetype
       },
       contact: req.body.contact,
-      location: req.body.location
+      location: req.body.location,
+      description: req.body.description,
+      petType: req.body.petType,
+      nameUser: req.body.nameUser,
+      lastnameUser: req.body.lastnameUser,
+      latitude: req.body.latitude,
+      longitude: req.body.longitude,
     });
+    
 
     await saveImage.save()
     // const image = saveImage.img.data.toString('base64');

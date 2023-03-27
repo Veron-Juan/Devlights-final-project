@@ -1,10 +1,22 @@
 import React from "react";
+
+
 import CardComponent from "../../components/CardComponent/Card";
 import ModalCard from "../../components/CardComponent/ModalCard";
 import MapComponent from "../../components/MapComponent/MapComponent";
+import { PostForm } from "../../components/Post/PostForm";
+
+
+
+
+
 
 
 export default function Test() {
+
+    
+    
+
   const lista = [{
     nombreUser: 'Juan',
     tituloPost: 'Perro perdido',
@@ -13,18 +25,16 @@ export default function Test() {
     latitudPost: -27.465038847067884, 
     longitudPost: -58.84456631035704,
     fechaPost: '12/12/2021'}]
-    
   const Marcadores = [
-    {id:1,position: {lat: -28.465038847067884, lng: -58.84456631035704}},
-    {id:2,position: {lat: -27.460374137170163, lng: -58.828945125378276}},
-    {id:3,position: {lat: -26.460374137170163, lng: -58.828945125378276}},
-    ]    
+      {id:1,position: {lat: -28.465038847067884, lng: -58.84456631035704}},
+      {id:2,position: {lat: -27.460374137170163, lng: -58.828945125378276}},
+      {id:3,position: {lat: -26.460374137170163, lng: -58.828945125378276}},] 
+  const Center = {lat:-27.4546446,lng:-58.9011161} 
+    
 
-      
-      const zoomLevel = 12
     return (
       <div className="mt-[90px] w-full">
-        <div className="mx-auto max-w-7xl flex justify-center text-black mt-20 bg-blue">
+        <div className='min-h-full max-w-ful flex  justify-center'>
         <CardComponent
         nombreUser={lista[0].nombreUser}
         tituloPost={lista[0].tituloPost}
@@ -33,9 +43,10 @@ export default function Test() {
         latitudPost={lista[0].latitudPost}
         longitudPost={lista[0].longitudPost}
         fechaPost={lista[0].fechaPost}
-        /> 
+        />
       </div>
       </div>
+     
     );
   }
   

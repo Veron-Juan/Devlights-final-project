@@ -29,7 +29,7 @@ const loginUser = async({email, password})=>{
     if (!checkIs) return "NOT_FOUND_USER";
     // password encriptada de la base de datos
     const passwordHash = checkIs.password
-    const isCorrect = await verified(password, passwordHash)
+    const isCorrect = await verified(password, passwordHash) //true or false
 
     if(!isCorrect) return "PASSWORD_INCORRECT"
 

@@ -29,11 +29,12 @@ export const getUserById = async (req, res) => {
     }
   }
 
-export const deleteUser = async (req, res) => {
+export const deleteUserr = async (req, res) => {
     try {
-      const user = userRepository.deleteUser(req.params.userId)
-  
-      res.json({ user });
+      const id = req.params.id
+      const user = await userRepository.deleteUser(id)
+      res.send(user)
+      // res.json({ user });
     } catch (error) {
       res.status(500).json({ error })
     }
