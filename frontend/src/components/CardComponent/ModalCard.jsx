@@ -58,14 +58,15 @@ const ModalCard = (props) => {
                     <p className="text-black text-sm mt-1 mb-2">
                     {props.descripcionPost}
                   </p>{" "}
-                </div>
                   <button
-                    className="hidden sm:block bg-white-black text-black  w-fit active:bg-orange font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150 self-end"
+                    className="sm:block bg-white-black text-black  w-fit active:bg-orange font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150 self-end"
                     type="button"
                     // Falta accion de contacto
                   >
-                    {props.contacto}
+                    Contacto: {props.contacto}
                   </button>
+                </div>
+                  
                 </div>
               {/* Mapa y contacto */}
               <div className="w-full mx-0 sm:ml-1 sm:w-1/2 flex flex-col   ">

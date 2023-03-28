@@ -1,12 +1,12 @@
 import {Router} from "express";
-import {  deleteUser, getAllUsers, getUserById, updateUser } from "../controllers/user.js";
+import {  deleteUserr, getAllUsers, getUserById, updateUser } from "../controllers/user.js";
 
 const userRoutes = Router();
 
 userRoutes.get("/",getAllUsers);
 userRoutes.get("/:id", getUserById);
 userRoutes.put("/",updateUser);
-userRoutes.delete("/:userId", deleteUser);
+userRoutes.delete("/:id", deleteUserr);
 
 
 export default userRoutes;
