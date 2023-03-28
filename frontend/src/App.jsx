@@ -12,7 +12,9 @@ import { Route, Routes } from "react-router-dom";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import { PostForm } from "./components/Post/PostForm";
+import { PostFormEditor } from "./components/Post/PostFormEditor";
 import { AuthGuard } from "./guards/auth.guards";
+import UserPosts from "./pages/posts/UserPosts";
 
 function App() {
   return (
@@ -25,15 +27,19 @@ function App() {
         {/* <Register />
       <Posts/> */}
         <Routes>
+        <Route path="upload" element={<PostForm/> } />
+        <Route path="/userPosts" element={<UserPosts />} />
+        <Route path="postUpdate" element={<PostFormEditor />} />
+        
         <Route path="/login" element={<Login />} />
            <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/postRegister" element={< PostRegisterPage />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/*" element={<h2>NOT FOUND</h2>} />
           <Route path="/Test" element={<Test />} />
           <Route element={<AuthGuard/>} >
               <Route path="upload" element={<PostForm/> } />
+              <Route path="/userPosts" element={<UserPosts />} />
           </Route>
 
         </Routes>

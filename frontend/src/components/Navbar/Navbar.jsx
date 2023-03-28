@@ -44,6 +44,9 @@ const Nav = () => {
                 <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cuenta</a>
               </li>
               <li>
+                <a href="/userPosts" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mis Publicaciones</a>
+              </li>
+              <li>
                 <a onClick={cerrarSesion} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cerrar sesion</a>
               </li>
             </ul>
