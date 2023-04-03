@@ -1,8 +1,10 @@
 import React from "react";
 import Phone from "../../assets/Phone.svg";
 import Location from "../../assets/Location.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ModalCard from "../CardComponent/ModalCard";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Card(props) {
   const [showModal, setShowModal] = useState(false);
@@ -11,6 +13,11 @@ export default function Card(props) {
     setShowModal(true);
     console.log("se cambio");
   };
+
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
 
 
   const lista = [{
@@ -33,7 +40,7 @@ export default function Card(props) {
 
   return (
     <div>
-      <div className="h-[400px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800  text-center  w-[230px]   ">
+      <div className="h-[400px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800  text-center  w-[230px]"  data-aos="fade-up">
         <div className="h-12 text-left ml-2">
           <b>De:{props.nameUser} {props.lastnameUser}  </b>
           <p className="font-light text-sm">Publicado el {new Date (props.createdAt).toLocaleString()}</p>
@@ -63,16 +70,18 @@ export default function Card(props) {
       </div>
       {showModal &&
           <ModalCard 
-          nameUser={props.nameUser} 
+          nameUser={props.nameUser}
           lastnameUser={props.lastnameUser}
-          tituloPost={props.name} 
-          descripcionPost={props.description} 
-          imgPost={props.image} 
+          tituloPost={props.name}
+          descripcionPost={props.description}
+          imgPost={props.image}
           contacto={props.contact}
           ubicacionPost={props.location}
           fechaPost={new Date (props.createdAt).toLocaleDateString()}
-          latitudPost={props.latitudPost} 
-          longitudPost={props.longitudPost}          
+          latitudPost={props.latitudPost}
+          longitudPost={props.longitudPost}
+          type={props.type}
+          status={props.status}
           handleCloseModal={() => setShowModal(false)}
           />
       }
