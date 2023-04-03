@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { HomeContent } from "../../components/home/HomeContent";
 import { HomeHero } from "../../components/Home/HomeHero";
 import { useSelector } from "react-redux";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 import  MapComponent  from "../../components/MapComponent/MapComponent";
 import Card from "../../components/card/Card";
 import * as servicePosts from "../../services/postService"
@@ -27,20 +26,24 @@ export default function Home() {
       location: "Corrientes",
       createdAt: new Date("2023-03-1"),
       latitudPost: -27.474051,
-      longitudPost: -58.853709
+      longitudPost: -58.853709,
+      type: 'perro',
+      status: 'se busca'
     },
     {
       key: 2,
-      name: "Luna",
+      name: "desconocido",
       contact: "555-4321",
-      description: "Gata blanca con manchas negras, muy tímida y asustadiza. Tiene un chip identificativo y una placa con su nombre y mi número.",
+      description: "Gata blanca con manchas negras, muy tímida y asustadiza.",
       nameUser: "Juan",
       lastnameUser: "Martínez",
       image: modelo1,
       location: "Corrientes",
       createdAt:  new Date("2023-02-16"),  //funcion para pasar string a date 
       latitudPost: -27.463225,
-      longitudPost: -58.841295
+      longitudPost: -58.841295,
+      type: 'gato',
+      status: 'encontrado'
     },
     {
       key: 3,
@@ -53,7 +56,9 @@ export default function Home() {
       location: "Resistencia",
       createdAt: new Date("2023-01-10"),
       latitudPost: -27.432617,
-      longitudPost: -58.969629
+      longitudPost: -58.969629,
+      type: 'perro',
+      status: 'se busca'
     }
   ];
 
@@ -64,8 +69,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    AOS.init();
-    AOS.refresh();
+   
     const loadPosts = async ()=> {
       const res = await servicePosts.getPosts();
       try{
@@ -91,7 +95,7 @@ export default function Home() {
         <HomeHero />
       </div>
       <div className="mx-auto min-w-[80vw] min-h-[80vh] flex justify-between text-black mt-[25vh]  ">
-        <div data-aos="fade-up" className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+        <div  className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
           {posts.map((i)=>{
             return(
               <Card
@@ -106,6 +110,8 @@ export default function Home() {
               createdAt={i.createdAt}
               latitudPost={i.latitudPost}
               longitudPost={i.longitudPost}
+              type={i.type}
+              status={i.status}
               />
             )
           })}
