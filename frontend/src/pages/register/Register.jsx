@@ -146,7 +146,7 @@ function Register() {
           </h1>
 
           {/* Nombre */}
-          <div class="relative z-0 w-full mb-6 group">
+          <div className="relative z-0 w-full mb-6 group">
             <input 
               type="text"
               name="name"
@@ -170,7 +170,7 @@ function Register() {
           </div>
 
           {/* Apellido */}
-          <div class="relative z-0 w-full mb-6 group">
+          <div className="relative z-0 w-full mb-6 group">
             <input 
               type="text"
               name="lastname"
@@ -195,7 +195,7 @@ function Register() {
           </div>
       
           {/* Correo */}
-          <div class="relative z-0 w-full mb-6 group">
+          <div className="relative z-0 w-full mb-6 group">
             <input 
               type="email"
               name="email"
@@ -220,7 +220,7 @@ function Register() {
           </div>
 
           {/* Pass */}
-          <div class="relative z-0 w-full mb-6 group">
+          <div className="relative z-0 w-full mb-6 group">
             <input 
               type="password"
               name="password"
@@ -245,7 +245,7 @@ function Register() {
           </div>
 
           {/* Re-Pass */}
-          <div class="relative z-0 w-full mb-6 group">
+          <div className="relative z-0 w-full mb-6 group">
             <input 
               type="password"
               name="confirmPassword"

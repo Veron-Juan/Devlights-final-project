@@ -16,7 +16,7 @@ import { AuthGuard } from "./guards/auth.guards";
 
 function App() {
   return (
-    <div className="App bg-gradient-to-r from-yellow-100 via-white to-teal-200">
+    <div className="App bg-gradient-to-r from-yellow-100 via-white to-teal-200 min-h-screen grid grid-rows-[auto_1fr_auto]">
   
       <Provider store={store}>
      
