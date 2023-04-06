@@ -4,7 +4,6 @@ import postRepository from "../repositories/publications.js"
 
 export const getPublications = async (req, res) => {
   try {
-    console.log("holaaaa")
     const response = await postRepository.getAllPosts();
     res.send(response)
     res.json({response});
@@ -12,6 +11,16 @@ export const getPublications = async (req, res) => {
     console.error(error);
   }
 };
+
+export const getLocations = async (req, res) => {
+  try {
+    const response = await postRepository.getAllLocations();
+    res.json(response);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 
 export const getPublication = async (req, res) => {
   try{

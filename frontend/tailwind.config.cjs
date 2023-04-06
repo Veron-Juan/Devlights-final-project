@@ -23,9 +23,11 @@ module.exports = {
       white: "#FBFBFB",
       "white-black": "#F7F7F7",
     },
+    
   },
   plugins: [],
   variants: {
     borderColor: ["responsive", "hover", "focus", "focus-within"],
+    animation: ["motion-safe"],
   },
 };
