@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../../assets/logo.svg";
 import UserImg from "../../assets/user.svg";
-import { clearLocalStorageUser } from "../../redux/states.js/user";
+import { clearLocalStorageUser } from "../../redux/states/user";
 
 
 const Nav = () => {

@@ -50,7 +50,7 @@ const CardComponent = (props) => {
             <div>
                 <p className="font-bold text-black my-2 mx-1">{props.tituloPost}</p>
                 <p className="text-black my-2 mx-1 text-sm">{props.ubicacionPost}</p>
-                <button className="text-black bg-yellow-HomeButtton rounded-md p-1" onClick={handleOpenModal}>Ver mas</button>
+                <button className="text-black  rounded-md p-1" onClick={handleOpenModal}>Ver mas</button>
             </div>
         </div>
         {showModal &&

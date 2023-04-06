@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import backgFormLogo from "../../assets/backgLogin1.png";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addUser } from "../../redux/states.js/user";
+import { addUser } from "../../redux/states/user";
 import axios from "axios";
 
 //TODO: ARREGLAR VISUALMENTE, CAMBIAR FOTO POR UNA DE BUENA CALIDAD 
