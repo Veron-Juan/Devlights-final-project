@@ -16,7 +16,7 @@ function MapComponent(props) {
   }
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "",
+    googleMapsApiKey:process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
   });
 
   const onMarkerDragEnd = (coord) => {
