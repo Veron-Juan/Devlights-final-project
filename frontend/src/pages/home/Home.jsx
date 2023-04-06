@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { HomeContent } from "../../components/home/HomeContent";
+import React, { useState } from "react";
+import { HomeContent } from "../../components/Home/HomeContent";
 import { HomeHero } from "../../components/Home/HomeHero";
+import { HomeMap } from "../../components/Home/HomeMap";
 import { useSelector } from "react-redux";
 
 import  MapComponent  from "../../components/MapComponent/MapComponent";
@@ -62,40 +63,17 @@ export default function Home() {
     }
   ];
 
-
   const { name } = useSelector((state) => state.user);
-
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-   
-    const loadPosts = async ()=> {
-      const res = await servicePosts.getPosts();
-      try{
-        const data = res.data
-        setData(data)
-      } catch(error) {
-        console.log(error)
-      } 
-    };
-    loadPosts();
-  }, []);
-
-
-  const [marcadores, setMarcadores] = useState([])
-
-  const Center = {lat:-27.4546446,lng:-58.9011161}  
   
   return (
     <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
-      <p className="text-lg md:text-4xl text-center">Bienvenido {name} </p>
+      {/* <p className="text-lg md:text-4xl text-center">Bienvenido {name} </p> */}
       <div className="grid  grid-cols-1 md:grid-cols-2 gap-3 text-black ">
         <HomeContent />
         <HomeHero />
       </div>
-      <div className="mx-auto min-w-[80vw] min-h-[80vh] flex justify-between text-black mt-[25vh]  ">
-        <div  className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+      <div className="mx-auto min-w-[80vw] min-h-[50vh] flex justify-between text-black mt-[25vh]">
+        <div  className="mx-auto grid grid-cols-1 grid-row sm:grid-cols-2 md:grid-cols-3 gap-12">
           {posts.map((i)=>{
             return(
               <Card
@@ -116,6 +94,9 @@ export default function Home() {
             )
           })}
         </div>
+      </div>
+      <div className="mx-auto min-w-[80vw] min-h-[60vh] flex justify-between text-black mt-[25vh]" >
+            <HomeMap/>
       </div>
     </div>
   );

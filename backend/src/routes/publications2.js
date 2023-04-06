@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {deletePublication,getPublication,getPublications,postPublication,updatePublication } from "../controllers/publication.js"
+import {deletePublication,getPublication,getPublications,postPublication,updatePublication,getLocations } from "../controllers/publication.js"
 import multer from "multer";
 //aca estan todas las rutas menos la POST y get
 
@@ -8,7 +8,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 
-
+postRoutes.get("/locations",getLocations);
 postRoutes.get("/",getPublications);
 postRoutes.get("/:id", getPublication);
 postRoutes.post("/upload", upload.single("testImage") , postPublication);

@@ -57,7 +57,7 @@ const ModalCard = (props) => {
               </div>
               <div className="flex flex-col">
                 <div className="w-full h-40 rounded-md overflow-hidden sm:h-full">
-                  <MapComponent Marcadores={marcador} Center={center} selecionMarcador={false}/>
+                  <MapComponent Marcadores={marcador} Center={center} selecionMarcador={false} zoom={15}/>
                 </div>
                 <div className="h-auto px-2 py-1 flex flex-row justify-between mt-2 bg-pink-600 text-white rounded-md text-xs sm:text-sm">
                   <p>

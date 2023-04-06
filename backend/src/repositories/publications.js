@@ -13,6 +13,21 @@ const getAllPosts = async ()=> {
       }
 }
 
+const getAllLocations = async ()=> {
+    try{
+            const allLocations = await PostModel.find({}, { latitude: 1, longitude: 1 })
+            return allLocations.map((location, index) => ({
+              id: index + 1,
+              position: {
+                lat: Number(location.latitude),
+                lng: Number(location.longitude),
+              },
+            }));
+    } catch (err) {
+        res.status(500).json(err);
+    }
+  }
+
 // const storage = multer.memoryStorage();
 // const upload = multer({ storage: storage });
 // upload.single("testImage")
@@ -79,5 +94,6 @@ export default {
     updatePost,
     getPostById,
     getAllPosts,
-    newPost
+    newPost,
+    getAllLocations
 }
