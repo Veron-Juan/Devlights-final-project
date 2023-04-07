@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import CardUserPosts from "../../components/card/CardUserPosts";
 import CardComponent from "../../components/CardComponent/Card";
 import SearchInput from "../../components/searchInput/SearchInput";
@@ -7,15 +8,15 @@ import axios from "axios";
 import * as servicePosts from "../../services/postService"
 
 export default function UserPosts() {
-
+  const {_id } = useSelector((state) => state.user);
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const loadPosts = async ()=> {
-      const res = await servicePosts.getPosts();
+      const res = await servicePosts.getUserPosts(_id);
       try{
-        const data = res.data
+        const data = res.data.publication
         console.log(data)
         setData(data)
         setLoading(false)
@@ -45,8 +46,6 @@ export default function UserPosts() {
        arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
     );
  }
-
-
   return (
     <>
     {loading && <LoaderPosts/>}
@@ -60,6 +59,7 @@ export default function UserPosts() {
       return(
 
         <CardUserPosts
+        post_id={i._id}
         name={i.name}
         contact={i.contact}
         image={`data:image/png;base64,${toBase64(i.img.data.data)}`}

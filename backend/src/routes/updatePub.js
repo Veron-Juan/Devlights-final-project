@@ -2,15 +2,17 @@ import { Router } from "express";
 import PostModel from "../schema/publication/publication.js";
 import multer from "multer";
 /////////////////////////////////////////////////////////////////
-//acá se encuentran las rutas para hacer la petición POST de la publicació, a travez de multer
-//también se puede encontrar la de obtencion de post
-const router = Router()
+//acá se encuentran las rutas para hacer la petición PUT de la publicació, a travez de multer
+const updateRouter = Router()
 const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
+const update = multer({ storage: storage,
+  dest: 'uploads/',
+  storage: multer.memoryStorage()
+ });
 
-  router.post("/upload", upload.single("testImage"), async (req, res) => {
+  updateRouter.put("/update/:id", update.single("testImage"), async (req, res) => {
     console.log(req.file, req.body.name);
-    const saveImage =  PostModel({
+    const saveImage =  PostModel.updateOne({_id: req.params},{$set:{
       name: req.body.name,
       img: {
         data: req.file.buffer,
@@ -25,7 +27,7 @@ const upload = multer({ storage: storage });
       lastnameUser: req.body.lastnameUser,
       latitude: req.body.latitude,
       longitude: req.body.longitude,
-    });
+    }});
     
 
     await saveImage.save()
@@ -36,9 +38,4 @@ const upload = multer({ storage: storage });
     
   });
 
-router.get('/',async (req,res)=>{
-    const allData = await PostModel.find()
-    res.json(allData)
-})
-
-export default router
+export default updateRouter

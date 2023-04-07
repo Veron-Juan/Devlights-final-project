@@ -21,6 +21,10 @@ const postSchema = new Schema({
     petType:{
         type: String,
     },
+    user_id:
+    {
+        type: String,
+    },
     nameUser:
     {
         type: String,

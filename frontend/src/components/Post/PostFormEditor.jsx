@@ -1,21 +1,58 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import iconoFoto from "../../assets/iconoFoto.png";
-import imagenPrev from "../../assets/imgPreview.png";
 import { PostButton } from "./PostButton";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import * as servicePosts from "../../services/postService";
 import MapComponent from "../MapComponent/MapComponent";
-import { ModalForm } from "./ModalForm";
-import { PostDeleteButton } from "./PostDeleteButton";
 
-export function PostFormEditor() {
-  const { name, lastname, createdAt } = useSelector((state) => state.user);
 
+export function PostFormEditor(props) {
+  const { name, lastname, createdAt, _id } = useSelector((state) => state.user);
+  
+  const params = useParams()
+
+  const [datos, setDatos] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  
+  function toBase64(arr) {
+    //arr = new Uint8Array(arr) if it's an ArrayBuffer
+    return btoa(
+       arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
+    );
+ }
+
+  useEffect(() => {
+    const loadPost = async ()=> {
+      const res = await servicePosts.getPostById(params.postId);
+      try{
+        const data = res.data
+        console.log("loadPost res",data)
+        setDatos(data.publication)
+        //proceso de imagen
+        datos.map((i) => {
+          const base64String = btoa(
+            new Uint8Array(i.img.data.data).reduce(
+              (data, byte) => data + String.fromCharCode(byte),
+              ""
+            )
+          ); 
+      
+          
+        }) 
+      } catch(error) {
+        console.log(error)
+      } 
+    }
+    loadPost()
+  }, []);
+  console.log(" saliendo del loadPost Datos",datos)
   const [imgFile, setImgFile] = useState();
   const [imgPreview, setImgPreview] = useState(iconoFoto);
 
   const navigate = useNavigate();
+
 
   const initialState = {
     name: "",
@@ -23,6 +60,7 @@ export function PostFormEditor() {
     contact: "",
     location: "",
     description: "",
+    user_id: _id,
     nameUser: name,
     lastnameUser: lastname,
     createdAt: createdAt,
@@ -63,39 +101,53 @@ export function PostFormEditor() {
     formData.append("contact", inputs.contact);
     formData.append("location", inputs.location);
     formData.append("description", inputs.description);
+    formData.append("user_id", inputs.user_id);
     formData.append("nameUser", inputs.nameUser);
     formData.append("lastnameUser", inputs.lastnameUser);
     formData.append("createdAt", inputs.createdAt);
     formData.append("latitude", Center.lat);
     formData.append("longitude", Center.lng);
 
-    const uploadPost = async () => {
-      const res = await servicePosts.createPost(formData);
+    const updatePost = async () => {
+      const res = await servicePosts.updatePost(params.postId, formData);
       try {
         console.log(res.data);
-        //modal o page que desee suerte en su búsqueda
-        navigate(`/posts`, { replace: true });
+        navigate(`/userPosts`, { replace: true });
       } catch (error) {
         console.log(error);
       }
     };
-    uploadPost();
+    updatePost();
+  };
+
+  const handleDeletePost = (event) =>{
+    event.preventDefault();
+    const deletePost = async () =>{
+      const res = await servicePosts.deletePost(params.postId);
+      try {
+        console.log(res.data);
+        navigate(`/userPosts`, { replace: true });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    deletePost();
   };
 
   
   const [ubicState, setUbicState] = useState(true);
   
   const [Center , setCenter] = useState({ 
-    lat: -34.603722,
-    lng: -58.381592,
+    lat: Number(datos.latitude),
+    lng: Number(datos.longitude),
   })
   
   const [Marcadores, setMarcadores] = useState([
     {
       id: 1,
       position: {
-        lat: -34.603722,
-        lng: -58.381592,
+        lat: Number(datos.latitude),
+        lng: Number(datos.longitude),
       },
     },
   ]);
@@ -123,6 +175,8 @@ export function PostFormEditor() {
   
   if ("geolocation" in navigator) navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
+  
+
   return (
     <form
       className="mt-4 mx-2 sm:mt-10 flex-col font-['Montserrat'] not-italic "
@@ -136,7 +190,7 @@ export function PostFormEditor() {
     <div className="flex flex-col  sm:flex-row w-fit mx-auto">
       <div className="flex flex-col sm:w-1/2">
         <label className="mb-2 font-medium  text-2xl sm:text-3xl">
-          Nombre de la mascota
+          Nombre de la mascota {params.postId}
         </label>
         <div className="mb-2 w-fit border-b-4 border-b-yellow-200">
         <input
@@ -226,8 +280,19 @@ export function PostFormEditor() {
         </div>
 
         <div className="mx-auto w-fit ">
-          <PostDeleteButton/>
-          <PostButton/>
+        <button 
+          className=" mr-[40px] mt-[30px] rounded-md justify-between bg-red HomeButton 
+          w-48 h-16 left-495 top-687 font-[Roboto] not-italic text-black font-extrabold text-base " 
+          type="button" 
+          onClick={handleDeletePost}
+        >
+          Eliminar
+        </button>
+        <button className=" mt-[30px] rounded-md justify-between bg-yellow-HomeButtton HomeButton 
+        w-48 h-16 left-495 top-687 font-[Roboto] not-italic text-black font-extrabold text-base " 
+        type="submit" >
+        Actualizar
+    </button>
         </div>
       </div>
     </div>
