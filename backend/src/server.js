@@ -9,23 +9,20 @@ import bodyParser from "body-parser";
 //routes index user
 import routes from "./routes/index.js";
 
-
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
-app.use("/api", routes)
-
+app.use("/api", routes);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-
 mongoose
   .connect(process.env.MONGODB_URI)
-  .then(() => console.log("Conected to MongoDB Atlas"))
+  .then(() => console.log("Connected to MongoDB Atlas"))
   .catch((error) => console.error(error));
 
 app.listen(4000, () => console.log("server ok"));
