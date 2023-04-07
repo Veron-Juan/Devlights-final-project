@@ -30,7 +30,8 @@ function MapComponent(props) {
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         center={Center}
-        zoom={12}
+        zoom={props.zoom}
+        options={{ disableDefaultUI: true, zoomControl: true, draggable: false }}
       >
       {Marcadores.map(({ id,position }) => (
         <MarkerF

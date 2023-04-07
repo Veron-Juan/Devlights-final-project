@@ -40,4 +40,5 @@ router.get('/',async (req,res)=>{
     res.json(allData)
 })
 
+
 export default router

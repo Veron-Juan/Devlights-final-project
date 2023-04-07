@@ -11,6 +11,27 @@ const getAllPosts = async ()=> {
       }
 }
 
+const getAllLocations = async ()=> {
+    try{
+            const allLocations = await PostModel.find({}, { latitude: 1, longitude: 1 })
+            return allLocations.map((location, index) => ({
+              id: index + 1,
+              position: {
+                lat: Number(location.latitude),
+                lng: Number(location.longitude),
+              },
+            }));
+    } catch (err) {
+        res.status(500).json(err);
+    }
+  }
+
+
+
+
+
+
+
 const getPostById = async (id) => {
     const responsePost = await PostModel.findOne({ _id: id });
     return responsePost;
@@ -67,5 +88,5 @@ export default {
     updatePost,
     getPostById,
     getAllPosts,
-    
+    getAllLocations
 }

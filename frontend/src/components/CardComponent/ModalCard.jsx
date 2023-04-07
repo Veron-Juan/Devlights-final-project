@@ -24,71 +24,52 @@ const ModalCard = (props) => {
 
   return (
     <>
-      <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-        <div className="relative w-[80vw] sm:w-auto max-w-3xl">
-          {/*content*/}
-          <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none bg-white">
-            {/* Info del Post */}
-
-            <div className="flex flex-row h-auto justify-between my-2 mx-2.5 pb-2 border-b ">
-              <div className="flex flex-row h-auto  ">
-                <img src={user} className="h-8 w-8 rounded-full   " />
-                <p className="font-semibold text-xl text-black ml-2">
-                {props.nameUser} {props.lastnameUser}
-                </p>
+      <div className="fixed inset-0 flex justify-center items-center z-10 bg-black bg-opacity-50 overflow-x-auto">
+        <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-lg shadow-lg flex flex-col w-full bg-white py-2 px-2.5">
+            {/* row */}
+            <div className="flex flex-row h-auto justify-between pb-2">
+              <div className="flex flex-row items-center">
+                <span className={`px-2 py-1 text-white rounded-lg ${props.type === 'perro' ? "bg-yellow-500" : "bg-gray-dark"}`}>
+                  <i className={`${props.type === 'perro' ? "fa-dog" : "fa-cat"} fa-solid `}></i>
+                </span>
+                <p className="font-semibold text-xl text-black ml-2">{props.tituloPost}</p>
               </div>
-
-                <button
-                className="bg-white text-black  hover:shadow-lg outline-none focus:outline-none  ease-linear transition-all duration-150  "
-                type="button"
-                onClick={props.handleCloseModal}
-              >
-                <Icon icon={closeIcon} className="w-5 h-8 " />{" "}
+              <button className="bg-white text-black" type="button" onClick={props.handleCloseModal}>
+                <Icon icon={closeIcon} className="w-5 h-8" />
               </button>
             </div>
-            <div className=" flex flex-col mb-2 mx-2 sm:flex-row">
-              <div className="w-full sm:w-1/2 flex flex-col mr-1 justify-between">
-                  <div>
-                    <img src={props.imgPost} className="rounded-md" />
-                    {/* Posible idea cuando sea en mobile que aparezca un icono de telefono como contacto al lado del titulo */}
-                    <p className="font-bold text-black text-xl mt-2 mb-1">
-                    {props.tituloPost}
+            
+            {/* 2 columns */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="flex flex-col justify-between">
+                <div className="relative rounded-md overflow-hidden">
+                  <img src={props.imgPost} />
+                  <span className="absolute uppercase top-0 right-0 text-white text-xs px-2 py-1 bg-green-600">{props.status}</span>
+                </div>
+                <div className="flex justify-between items-center text-xs my-2 text-gray-600">
+                  <p>Publicado por: {props.nameUser} {props.lastnameUser}</p>
+                  <a href={"tel:" + props.contacto} className="flex items-center px-2 py-1 bg-orange-600 rounded-md text-white ">
+                    <i className="fa-solid fa-phone fa-xs mr-2.5"></i> {props.contacto}
+                  </a>
+                </div>
+                <p className="text-black text-sm mt-1 mb-2">{props.descripcionPost}</p>
+              </div>
+              <div className="flex flex-col">
+                <div className="w-full h-40 rounded-md overflow-hidden sm:h-full">
+                  <MapComponent Marcadores={marcador} Center={center} selecionMarcador={false} zoom={15}/>
+                </div>
+                <div className="h-auto px-2 py-1 flex flex-row justify-between mt-2 bg-pink-600 text-white rounded-md text-xs sm:text-sm">
+                  <p>
+                    <i className="fa-solid fa-location-dot mr-1"></i> {props.ubicacionPost}
                   </p>
-                   
-                    <p className="text-black text-sm mt-1 mb-2">
-                    {props.descripcionPost}
-                  </p>{" "}
-                  <button
-                    className="sm:block bg-white-black text-black  w-fit active:bg-orange font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150 self-end"
-                    type="button"
-                    // Falta accion de contacto
-                  >
-                    Contacto: {props.contacto}
-                  </button>
+                  <p>{props.fechaPost}</p>
                 </div>
-                  
-                </div>
-              {/* Mapa y contacto */}
-              <div className="w-full mx-0 sm:ml-1 sm:w-1/2 flex flex-col   ">
-                    <div className="w-full h-40 rounded-md sm:h-full">
-                      <MapComponent Marcadores={marcador} Center={center} selecionMarcador={false}/>
-                    </div>
-                    <div className="h-auto px-1  flex flex-row justify-between mt-2 bg-orange rounded-md text-xs sm:text-sm ">
-                      <p className="font-semibold text-black  ">
-                        Ultima vez visto en {props.ubicacionPost}  
-                      </p>
-                      <p className="font-semibold text-black  ">
-                        
-                        {props.fechaPost} 
-                        
-                      </p>     
-                    </div>
-                  </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
     </>
   );
 };

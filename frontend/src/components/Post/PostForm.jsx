@@ -1,12 +1,11 @@
 import { useState } from "react";
 import iconoFoto from "../../assets/iconoFoto.png";
-import imagenPrev from "../../assets/imgPreview.png";
 import { PostButton } from "./PostButton";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import * as servicePosts from "../../services/postService";
 import MapComponent from "../MapComponent/MapComponent";
-import { ModalForm } from "./ModalForm";
+
 
 export function PostForm() {
   const { name, lastname, createdAt } = useSelector((state) => state.user);
