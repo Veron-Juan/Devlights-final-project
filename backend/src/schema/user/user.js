@@ -2,53 +2,22 @@ import {Schema,  model} from "mongoose"
 
 const UserSchema = new Schema(
     {   
-        id: {
-            primaryKey: true,
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-          },
-
         name:{
             required:true,
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-            len: {
-            args: [3, 50],
-            msg: "No es un nombre valido",
-      },
-    },
+            type:String,
             
-    },
-
-
-        lname:{
-            required:true,
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-            len: {
-            args: [3, 50],
-            msg: "No es un apellido valido",
-            },
         },
-    },
+        lastname:{
+            required:true,
+            type:String,
+            
+        },
         email:{
             required:true,
             unique:true,
-            allowNull:false,
-            type:DataTypes.String,
-            validate:{
-                idEmail:{
-                    msg:"No es un email valido",
-                },
-            },
-        },
-        password:{
-            required:true,
             type:String,
         },
-        repassword:{
+        password:{
             required:true,
             type:String,
         },
@@ -58,7 +27,6 @@ const UserSchema = new Schema(
         timestamps:true,
         versionKey:false
     }
-   
 )
 
 const UserModel = model('users', UserSchema);
