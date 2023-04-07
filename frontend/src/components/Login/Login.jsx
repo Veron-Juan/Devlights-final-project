@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, {useEffect, useState } from "react";
 import backgFormLogo from "../../assets/backgLogin1.png";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../../redux/states/user";
+
 import axios from "axios";
 
 //TODO: ARREGLAR VISUALMENTE, CAMBIAR FOTO POR UNA DE BUENA CALIDAD 
@@ -19,13 +20,20 @@ export default function Login() {
   };
 
   const [input, setInput] = useState(initialState);
+  const [formErrosrs, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
 
-  const handleChange = (e) => {
-    setInput({ ...input, [e.target.name]: e.target.value });
-  };
+  function handleChange(e) {
+    console.log(e.target);
+    const{name,value}=e.target;
+    setInput({ ...input, [name]:value});
+     console.log(input);
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setFormErrors(validate(formErrosrs));
+    setIsSubmit (true);
     try {
       const res = await axios.post("http://localhost:4000/api/auth/login", input);
       const userData = res.data;
@@ -42,6 +50,35 @@ export default function Login() {
     setInput(initialState);
   };
 
+
+  useEffect(() => {
+    console.log(formErrosrs);
+     if (Object.keys(formErrosrs).length===0 && isSubmit){
+      console.log(input);
+     }
+   }, [formErrosrs]);
+  
+
+  const validate = (values)=> {
+   const errors={};
+   const regex= /^[^\s@]+@[^\s@]+\.[^\s@]{2, }$/i;
+  
+   if(!values.email){
+    errors.email="Email es required!";
+   }else if (!regex.test(values.email)) {
+    errors.email="This es not a valid email format!";
+   }  
+  if(!values.password){
+   errors.password="Password es required!";
+  }else if (values.password.length < 4){
+    errors.password="Password must be more than 4 characters!";
+  }else if (values.password.length > 10){
+    errors.password="Password can not exceed more than 4 characters!";
+  }
+ return errors;
+  };
+  
+
   return (
     <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
@@ -51,11 +88,11 @@ export default function Login() {
           className="hidden lg:block h-[90%]"
         />
         <form
+        className="container max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 bg-white border-none rounded-2xl shadow-xl py-5 lg:w-[32rem]"
           id=""
           action=""
           method=""
-          onSubmit={handleSubmit}
-          className="container max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 bg-white border-none rounded-2xl shadow-xl py-5 lg:w-[32rem]"
+          onSubmit={handleSubmit}          
         >
           <h1 className="flex flex-row justify-center items-center text-xl md:text-3xl font-bold text-center mb-[30px] w-auto">
             Únete a nosotros!
@@ -74,13 +111,12 @@ export default function Login() {
               name="email"
               id="email" 
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-yellow-200 appearance-none dark:text-dark dark:border-yellow-200 dark:focus:border-yellow-300 focus:outline-none focus:ring-0 focus:border-yellow-300 peer"
-              placeholder="" 
-              required 
-              onChange={handleChange}
+              placeholder=""              
               value={input.email}
+              onChange={handleChange}             
             />
           </div>
-
+          <p className="text-red-600 font-[Monserrat]">{formErrosrs.email}</p>
           {/* Pass */}
           <div class="relative z-0 w-full mb-6 group">
             <input 
@@ -89,8 +125,8 @@ export default function Login() {
               id="password" 
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-yellow-200 appearance-none dark:text-dark dark:border-yellow-200 dark:focus:border-yellow-300 focus:outline-none focus:ring-0 focus:border-yellow-300 peer" 
               placeholder="" 
-              onChange={handleChange}
               value={input.password}
+              onChange={handleChange}             
               required
             />
             <label 
@@ -100,7 +136,7 @@ export default function Login() {
                 Contraseña
             </label>
           </div>
-
+          <p className="text-red-600 font-[Monserrat]">{formErrosrs.email}</p>
 
           <div className="flex flex-col mt-12 justify-center items-center">
             <button
