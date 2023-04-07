@@ -3,8 +3,7 @@ import { HomeContent } from "../../components/home/HomeContent";
 import { HomeHero } from "../../components/Home/HomeHero";
 import { useSelector } from "react-redux";
 
-import  MapComponent  from "../../components/MapComponent/MapComponent";
-import Card from "../../components/card/Card";
+import Card from "../../components/Card/Card";
 import * as servicePosts from "../../services/postService"
 
 
@@ -32,7 +31,7 @@ export default function Home() {
       lastnameUser: "Martínez",
       image: "",
       location: "Corrientes",
-      createdAt:  new Date("2023-02-16"),  //funcion para pasar string a date 
+      createdAt: new Date("2023-02-16"),  //funcion para pasar string a date 
       latitudPost: "",
       longitudPost: ""
     },
@@ -57,14 +56,14 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const loadPosts = async ()=> {
+    const loadPosts = async () => {
       const res = await servicePosts.getPosts();
-      try{
+      try {
         const data = res.data
         setData(data)
-      } catch(error) {
+      } catch (error) {
         console.log(error)
-      } 
+      }
     }
     loadPosts()
   }, []);
@@ -72,8 +71,8 @@ export default function Home() {
 
   const [marcadores, setMarcadores] = useState([])
 
-  const Center = {lat:-27.4546446,lng:-58.9011161}  
-  
+  const Center = { lat: -27.4546446, lng: -58.9011161 }
+
   return (
     <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-[calc(100%_-_90px)]">
       <p className="text-lg md:text-4xl text-center">Bienvenido {name} </p>
@@ -83,19 +82,19 @@ export default function Home() {
       </div>
       <div className="mx-auto max-w-7xl flex justify-between text-black mt-20 bg-blue ">
         <div className="mr-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 ">
-          {posts.map((i)=>{
-            return(
+          {posts.map((i) => {
+            return (
               <Card
-              name={i.name}
-              contact={i.contact}
-              description={i.description}
-              nameUser={i.nameUser}
-              lastnameUser={i.lastnameUser}
-              image={i.image}
-              location={i.location}
-              createdAt={i.createdAt}
-              latitudPost={i.latitudPost}
-              longitudPost={i.longitudPost}
+                name={i.name}
+                contact={i.contact}
+                description={i.description}
+                nameUser={i.nameUser}
+                lastnameUser={i.lastnameUser}
+                image={i.image}
+                location={i.location}
+                createdAt={i.createdAt}
+                latitudPost={i.latitudPost}
+                longitudPost={i.longitudPost}
               />
             )
           })}
