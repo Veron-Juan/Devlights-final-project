@@ -27,9 +27,6 @@ function App() {
         {/* <Register />
       <Posts/> */}
         <Routes>
-        <Route path="upload" element={<PostForm/> } />
-        <Route path="/userPosts" element={<UserPosts />} />
-        <Route path="postUpdate/:postId" element={<PostFormEditor />} />
         
         <Route path="/login" element={<Login />} />
            <Route path="/" element={<Home />} />
@@ -40,7 +37,7 @@ function App() {
           <Route element={<AuthGuard/>} >
               <Route path="upload" element={<PostForm/> } />
               <Route path="/userPosts" element={<UserPosts />} />
-              {/* <Route path="postUpdate/:postId" element={<PostFormEditor />} /> */}
+              <Route path="postUpdate/:postId" element={<PostFormEditor />} />
           </Route>
 
         </Routes>

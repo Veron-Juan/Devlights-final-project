@@ -50,7 +50,7 @@ export default function CardUserPosts(props) {
             <h3>Ciudad: {props.location}</h3>
           </span>
           {props._id}
-          <a href={"/postUpdate/"+props.post_id} className="w-[95px] absolute bottom-[-20px] right-2 h-6 rounded-md cursor-pointer bg-yellow">  
+          <a href={`/postUpdate/${props.post_id}`} className="w-[95px] absolute bottom-[-20px] right-2 h-6 rounded-md cursor-pointer bg-yellow">  
             Editar
           </a>
         </div>
