@@ -19,27 +19,23 @@ function App() {
     <div className="App bg-gradient-to-r from-yellow-100 via-white to-teal-200 min-h-screen grid grid-rows-[auto_1fr_auto]">
   
       <Provider store={store}>
-     
         <Navbar />
-      
+
         {/* <Register />
       <Posts/> */}
         <Routes>
-        <Route path="/login" element={<Login />} />
-           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/*" element={<h2>NOT FOUND</h2>} />
           <Route path="/Test" element={<Test />} />
-          <Route element={<AuthGuard/>} >
-              <Route path="upload" element={<PostForm/> } />
+          <Route element={<AuthGuard />}>
+            <Route path="upload" element={<PostForm />} />
           </Route>
-
         </Routes>
-        
-      <Footer />
-      
-     
+
+        <Footer />
       </Provider>
     </div>
   );

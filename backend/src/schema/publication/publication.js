@@ -1,22 +1,25 @@
 import { Schema, model } from "mongoose";
-const postSchema = new Schema({
+const postSchema = new Schema(
+  {
     //nombre de mascota
-    name:{
-        type: String, 
+    name: {
+      type: String,
     },
-    contact:{
-        type:Number,
+    contact: {
+      type: Number,
     },
-    location:{
-        type:String,
+    location: {
+      type: String,
     },
-    description:{
-        type:String,
+    petType: {
+      type: String,
     },
-    img:
-    {
-        data: Buffer,
-        contentType: String
+    description: {
+      type: String,
+    },
+    img: {
+      data: Buffer,
+      contentType: String,
     },
     petType:{
         type: String,
@@ -25,24 +28,20 @@ const postSchema = new Schema({
     {
         type: String,
     },
-    lastnameUser:
-    {
-        type: String,
+    lastnameUser: {
+      type: String,
     },
-    latitude:{
-        type: Number,
+    latitude: {
+      type: Number,
     },
-    longitude:{
-        type: Number,
+    longitude: {
+      type: Number,
     },
-    
-
-},
-{
-    timestamps:true,
-    versionKey:false
-}
-)
-const PostModel = model('posts', postSchema);
-export default PostModel
-
+  },
+  {
+    timestamps: true,
+    versionKey: false,
+  }
+);
+const PostModel = model("posts", postSchema);
+export default PostModel;

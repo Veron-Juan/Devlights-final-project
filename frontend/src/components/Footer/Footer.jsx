@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import Face from "../../assets/face.png";
 import Insta from "../../assets/instam.png";
 import Tutter from "../../assets/twitter.png";
@@ -27,5 +27,3 @@ const Footer = () => {
   </footer>
   )
 }
-
-export default Footer
