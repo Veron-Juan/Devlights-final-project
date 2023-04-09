@@ -3,7 +3,6 @@ import { Icon } from "@iconify/react";
 import closeIcon from "@iconify/icons-mdi/close";
 import MapComponent from "../MapComponent/MapComponent";
 import user from "../../assets/User.svg";
-import phone from "../../assets/Phone.svg";
 
 // Componente modal que se muestra al seleccionar ver mas sobre una carta
 const ModalCard = (props) => {
@@ -30,8 +29,8 @@ const ModalCard = (props) => {
             {/* row */}
             <div className="flex flex-row h-auto justify-between pb-2">
               <div className="flex flex-row items-center">
-                <span className={`px-2 py-1 text-white rounded-lg ${props.type === 'perro' ? "bg-yellow-500" : "bg-gray-dark"}`}>
-                  <i className={`${props.type === 'perro' ? "fa-dog" : "fa-cat"} fa-solid `}></i>
+                <span className={`px-2 py-1 text-white rounded-lg ${props.petType === 'perro' ? "bg-yellow-500" : "bg-gray-dark"}`}>
+                  <i className={`${props.petType === 'perro' ? "fa-dog" : "fa-cat"} fa-solid `}></i>
                 </span>
                 <p className="font-semibold text-xl text-black ml-2">{props.tituloPost}</p>
               </div>
