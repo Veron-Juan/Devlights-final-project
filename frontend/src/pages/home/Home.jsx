@@ -67,11 +67,11 @@ export default function Home() {
   return (
     <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
       {/* <p className="text-lg md:text-4xl text-center">Bienvenido {name} </p> */}
-      <div className="grid  grid-cols-1 md:grid-cols-2 gap-3 text-black ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-black my-10 md:my-20">
         <HomeContent />
         <HomeHero />
       </div>
-      <div className="mx-auto min-w-[80vw] min-h-[50vh] flex justify-between text-black mt-[25vh]">
+      <div className="mx-auto flex justify-between text-black md:my-20">
         <div  className="mx-auto grid grid-cols-1 grid-row sm:grid-cols-2 md:grid-cols-3 gap-12">
           {posts.map((i)=>{
             return(
@@ -94,9 +94,9 @@ export default function Home() {
           })}
         </div>
       </div>
-      <div className="mx-auto min-w-[80vw] min-h-[60vh] flex justify-between text-black mt-[25vh]" >
-            <HomeMap/>
-      </div>
+      <>
+      <HomeMap/>
+      </>
     </div>
   );
 }
