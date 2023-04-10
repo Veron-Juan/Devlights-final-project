@@ -20,7 +20,9 @@ const registerNewUser = async({
         password: passHash
     })
 
-    return registerUser
+    const usuarioR = await UserModel.findOne({email});
+
+    return usuarioR;
 };
 
 const loginUser = async({email, password})=>{

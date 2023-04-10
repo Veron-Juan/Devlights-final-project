@@ -24,6 +24,7 @@ router.post("/upload", upload.single("testImage"), async (req, res) => {
     location: req.body.location,
     petType: req.body.petType,
     description: req.body.description,
+    user_id: req.body.user_id,
     nameUser: req.body.nameUser,
     lastnameUser: req.body.lastnameUser,
     latitude: req.body.latitude,

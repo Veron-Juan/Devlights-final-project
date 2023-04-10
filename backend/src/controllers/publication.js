@@ -31,6 +31,15 @@ export const getPublication = async (req, res) => {
   }
 };
 
+export const getAllPublicationByUserId = async (req, res) => {
+  try{
+    const publication = await postRepository.getAllPostByUserId(req.params.id);
+    res.json({ publication });
+  } catch(error){
+    console.log(error)
+  }
+};
+
 export const updatePublication = async (req, res) => {
   try {
     
