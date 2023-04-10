@@ -66,7 +66,7 @@ export default function Home() {
   
   return (
     <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
-      {/* <p className="text-lg md:text-4xl text-center">Bienvenido {name} </p> */}
+       <p className="text-lg md:text-4xl text-center">Bienvenido {name} </p> 
       <div className="grid  grid-cols-1 md:grid-cols-2 gap-3 text-black ">
         <HomeContent />
         <HomeHero />

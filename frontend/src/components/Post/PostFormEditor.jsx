@@ -43,6 +43,16 @@ export function PostFormEditor(props) {
         console.log("loadPost res",data)
         const {name, img, contact, location,  petType, description,latitude, longitude} = res.data.publication;
         setInputs({name, contact, location, petType, description,latitude, longitude});
+        setCenter ({lat: latitude, lng: longitude})
+        setMarcadores([
+          {
+            id: 1,
+            position: {
+              lat: latitude,
+              lng: longitude,
+            },
+          },
+        ]);
         //proceso de imagen
         datos.map((i) => {
           const base64String = btoa(
@@ -53,6 +63,7 @@ export function PostFormEditor(props) {
           );     
         })
         setImgPreview(`data:image/png;base64,${toBase64(data.publication.img.data.data)}`)
+        console.log(latitude, longitude)
       } catch(error) {
         console.log(error)
       } 
@@ -98,6 +109,9 @@ export function PostFormEditor(props) {
   };
 
   const handleSubmit = async (event) => {
+    inputs.latitude = Center.lat;
+    inputs.longitude = Center.lng;
+    console.log(inputs)
     event.preventDefault();
     const updatePost = async () => {
       const res = await servicePosts.updatePost(params.postId, inputs);
@@ -129,45 +143,24 @@ export function PostFormEditor(props) {
   };
 
   
-  const [ubicState, setUbicState] = useState(true);
+
   
   const [Center , setCenter] = useState({ 
-    lat: Number(inputs.latitude),
-    lng: Number(inputs.longitude),
+    lat: 0,
+    lng: 0,
   })
   
   const [Marcadores, setMarcadores] = useState([
     {
       id: 1,
       position: {
-        lat: Number(inputs.latitude),
-        lng: Number(inputs.longitude),
+        lat: 0,
+        lng: 0,
       },
     },
   ]);
 
-  const successCallback = (position) => {
-    if (ubicState) {
-    const { latitude, longitude } = position.coords;
-    setCenter({ lat: latitude, lng: longitude });
-    setMarcadores([
-      {
-        id: 1,
-        position: {
-          lat: latitude,
-          lng: longitude,
-        },
-      },
-    ]);
-    setUbicState(false);
-    } else {void(0)}  
-  };
 
-  const errorCallback = (error) => {
-    console.log(error);
-  };
-  
-  if ("geolocation" in navigator) navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
   
 
@@ -292,7 +285,12 @@ export function PostFormEditor(props) {
         </label>
 
         <div className="mx-auto w-[90vw] h-[90vw] sm:w-[60vh] sm:h-[60vh]">
-            <MapComponent Center={Center} Marcadores={Marcadores} selecionMarcador={true} setCenter={setCenter}/>
+            <MapComponent 
+            Center={Center} 
+            Marcadores={Marcadores} 
+            selecionMarcador={true} 
+            setCenter={setCenter} 
+            zoom={14}/>
         </div>
 
         <div className="mx-auto w-fit ">

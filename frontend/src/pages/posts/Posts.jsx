@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Card from "../../components/Card/Card";
+import Card from "../../components/card/Card";
 import LoaderPosts from "./LoaderPosts";
 import * as servicePosts from "../../services/postService";
 
