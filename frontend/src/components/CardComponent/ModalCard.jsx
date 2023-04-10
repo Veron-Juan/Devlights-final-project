@@ -29,9 +29,7 @@ const ModalCard = (props) => {
             {/* row */}
             <div className="flex flex-row h-auto justify-between pb-2">
               <div className="flex flex-row items-center">
-                <span className={`px-2 py-1 text-white rounded-lg ${props.petType === 'perro' ? "bg-yellow-500" : "bg-gray-dark"}`}>
-                  <i className={`${props.petType === 'perro' ? "fa-dog" : "fa-cat"} fa-solid `}></i>
-                </span>
+                <i className={`${props.petType === 'perro' ? "fa-dog bg-yellow-500" : "fa-cat bg-gray-dark"} fa-solid p-2 text-white rounded-full`}></i>
                 <p className="font-semibold text-xl text-black ml-2">{props.tituloPost}</p>
               </div>
               <button className="bg-white text-black" type="button" onClick={props.handleCloseModal}>
