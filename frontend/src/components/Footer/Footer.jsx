@@ -5,6 +5,7 @@ import Tutter from "../../assets/twitter.png";
 import Logo from "../../assets/logo.svg";
 import WhatsApp from "../../assets/map.png";
 import Mapa from "../../assets/whatsApp.png";
+
 const Footer = () => {
   return (
   <footer className="mt-[12vh]">
@@ -26,4 +27,6 @@ const Footer = () => {
     </div>
   </footer>
   )
-}
+};
+
+export default Footer;

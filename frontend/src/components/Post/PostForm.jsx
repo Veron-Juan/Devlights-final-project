@@ -264,6 +264,7 @@ export function PostForm() {
               Marcadores={Marcadores}
               selecionMarcador={true}
               setCenter={setCenter}
+              zoom={14}
             />
           </div>
 
