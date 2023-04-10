@@ -29,8 +29,13 @@ const ModalCard = (props) => {
             {/* row */}
             <div className="flex flex-row h-auto justify-between pb-2">
               <div className="flex flex-row items-center">
-                <i className={`${props.petType === 'perro' ? "fa-dog bg-yellow-500" : "fa-cat bg-gray-dark"} fa-solid p-2 text-white rounded-full`}></i>
-                <p className="font-semibold text-xl text-black ml-2">{props.tituloPost}</p>
+                <i className={`${props.petType === 'perro' ? "fa-dog bg-yellow-500" : "fa-cat bg-gray-dark"} fa-solid p-3 text-white rounded-full`}></i>
+                <div className="ml-2">
+                  <p className="font-semibold text-xl text-black">{props.tituloPost}</p>
+                  <p className="text-gray-600 text-sm">
+                    <i className="fa-solid fa-hashtag"></i>{props.ider}
+                  </p>
+                </div>
               </div>
               <button className="bg-white text-black" type="button" onClick={props.handleCloseModal}>
                 <Icon icon={closeIcon} className="w-5 h-8" />
@@ -44,11 +49,17 @@ const ModalCard = (props) => {
                   <img src={props.imgPost} />
                   <span className="absolute uppercase top-0 right-0 text-white text-xs px-2 py-1 bg-green-600">{props.status}</span>
                 </div>
-                <div className="flex justify-between items-center text-xs my-2 text-gray-600">
-                  <p>Publicado por: {props.nameUser} {props.lastnameUser}</p>
-                  <a href={"tel:" + props.contacto} className="flex items-center px-2 py-1 bg-orange-600 rounded-md text-white ">
-                    <i className="fa-solid fa-phone fa-xs mr-2.5"></i> {props.contacto}
-                  </a>
+                <div className="flex justify-between items-center text-xs mt-1 mb-2 text-gray-600">
+                  <p><i className="fa-solid fa-user mr-1"></i> {props.nameUser} {props.lastnameUser}</p>
+                  <div className="flex gap-2">
+                    <a href={"mailto:" + props.contacto} className="flex items-center px-2 py-1 bg-gray-600 rounded-md text-white">
+                      <i className="fa-solid fa-envelope"></i>
+                    </a>
+                    <a href={"tel:" + props.contacto} className="flex items-center px-2 py-1 bg-orange-600 rounded-md text-white ">
+                      <i className="fa-solid fa-phone mr-2.5"></i> {props.contacto}
+                    </a>
+                  </div>
+                
                 </div>
                 <p className="text-black text-sm mt-1 mb-2">{props.descripcionPost}</p>
               </div>
