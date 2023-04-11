@@ -1,7 +1,8 @@
 import { Router } from "express";
 import PostModel from "../schema/publication/publication.js";
 import multer from "multer";
-import fs from "fs";
+/////////////////////////////////////////////////////////////////this
+const router = Router();
 /////////////////////////////////////////////////////////////////
 //acá se encuentran las rutas para hacer la petición POST de la publicació, a travez de multer
 //también se puede encontrar la de obtencion de post

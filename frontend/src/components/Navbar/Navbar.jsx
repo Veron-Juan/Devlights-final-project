@@ -23,22 +23,22 @@ const Nav = () => {
   const { name } = useSelector((state) => state.user);
 
   return (
-  <div>
+  <>
     <nav className="px-2 sm:px-4 py-2.5">
       <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center">
-            <img src={Logo} className="h-[70px]" alt="Flowbite Logo" />
+            <img src={Logo} className="h-[70px]" alt="Mascostas Logo" />
         </a>
 
         <div className="flex items-center md:order-2 relative">
           {/* User profile */}
-          <button onClick={() => setUserOpen(!userOpen)} type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+          <button onClick={() => setUserOpen(!userOpen)} type="button" className="block mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
             <span className="sr-only">Open user menu</span>
-            <img className="w-8 h-8 rounded-full" src={UserImg} alt="user photo" />
+            <i className="fa-solid fa-circle-user fa-xl"></i>
           </button>
           {/* <!-- Dropdown User menu --> */}
-          <div id="user-dropdown" className={`${userOpen ? '' : 'hidden'} z-50 text-base list-none bg-gray-50 divide-y divide-gray-200 rounded-lg shadow`} style={{position:'absolute', top:0, right:0, marginTop: '3rem'}} >
+          <div id="user-dropdown" className={`${userOpen ? '' : 'hidden'} z-50 text-base list-none bg-gray-50 divide-y divide-gray-200 rounded-lg shadow absolute top-0 right-0 mt-8`} >
             <div className="px-4 py-3">
               <span className="block text-sm text-gray-900 truncate">{name}</span>
             </div>
@@ -47,10 +47,10 @@ const Nav = () => {
                 <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cuenta</a>
               </li>
               <li>
-                <a href="/userPosts" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mis Publicaciones</a>
+                <a href="/userPosts" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 truncate">Mis Publicaciones</a>
               </li>
               <li>
-                <a onClick={cerrarSesion} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cerrar sesion</a>
+                <a onClick={cerrarSesion} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Cerrar sesion</a>
               </li>
             </ul>
           </div>
@@ -79,8 +79,7 @@ const Nav = () => {
         </div>
       </div>
     </nav>
-
-  </div>
+  </>
   );
 };
 

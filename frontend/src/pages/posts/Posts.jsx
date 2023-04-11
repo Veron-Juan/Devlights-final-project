@@ -233,8 +233,8 @@ export default function Posts() {
   }
 
   return (
-    <>
-      <div className="flex flex-row items-center justify-evenly rounded-lg shadow-lg  h-16 mx-auto bg-yellowButton w-full max-w-[650px]  ">
+    <div className="max-w-7xl mx-auto my-10 px-4 sm:px-6 lg:px-8 flex flex-col w-full">
+      <div className="flex flex-row items-center justify-evenly rounded-lg shadow-lg  h-16 mx-auto bg-yellowButton w-full max-w-2xl">
         <div className="justify-around space-x-4">
           <h2 className="ml-4">
             <b>Filtrar por:</b>
@@ -276,11 +276,9 @@ export default function Posts() {
 
 
       {loading && <LoaderPosts />}
-      <div className="flex  py-20  justify-center  ">
-        <div className="mr-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 lg:grid-cols-4">
-          {datosFiltrados()}
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 mt-10">
+        {datosFiltrados()}
       </div>
-    </>
+    </div>
   );
 }
