@@ -21,6 +21,9 @@ const postSchema = new Schema(
       data: Buffer,
       contentType: String,
     },
+    user_id: {
+      type: String,
+    },
     nameUser: {
       type: String,
     },

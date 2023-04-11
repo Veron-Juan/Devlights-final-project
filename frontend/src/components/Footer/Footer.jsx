@@ -6,6 +6,7 @@ import Logo from "../../assets/logo.svg";
 import WhatsApp from "../../assets/map.png";
 import Mapa from "../../assets/whatsApp.png";
 
+
 const Footer = () => {
   return (
   <footer>
@@ -27,6 +28,8 @@ const Footer = () => {
     </div>
   </footer>
   )
-}
+};
+
+export default Footer;
 
 export default Footer

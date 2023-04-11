@@ -4,7 +4,7 @@ import { HomeHero } from "../../components/Home/HomeHero";
 import { HomeMap } from "../../components/Home/HomeMap";
 import { useSelector } from "react-redux";
 
-import Card from "../../components/Card/Card";
+import Card from "../../components/card/Card";
 import * as servicePosts from "../../services/postService"
 import modelo1 from "../../assets/modelo1.jpg";
 import modelo2 from "../../assets/modelo2.jpg";

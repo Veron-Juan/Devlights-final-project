@@ -62,6 +62,12 @@ const getPostById = async (id) => {
   return responsePost;
 };
 
+const getAllPostByUserId = async (id) => {
+  const responsePost = await PostModel.find({user_id:id});
+  return responsePost;
+
+};
+
 const updatePost = async (id, data) => {
   try {
     const responsePost = await PostModel.findOneAndUpdate({ _id: id }, data, {
@@ -117,9 +123,10 @@ const deletePost = async (req, res) => {
 // };
 
 export default {
-  deletePost,
-  updatePost,
-  getPostById,
-  getAllPosts,
+    deletePost,
+    updatePost,
+    getPostById,
+    getAllPosts,
+    getAllPostByUserId,
   getAllLocations,
 };

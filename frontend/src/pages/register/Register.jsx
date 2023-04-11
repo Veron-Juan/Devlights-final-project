@@ -105,7 +105,7 @@ function Register() {
       try{
         console.log(res.data);
         dispatch(addUser({ ...inputValues }));
-        navigate(`/`, { replace: true });
+        navigate(`/login`, { replace: true });
       } catch(error){
         console.log(error)
       }

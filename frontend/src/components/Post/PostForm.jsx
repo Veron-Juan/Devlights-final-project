@@ -7,7 +7,7 @@ import * as servicePosts from "../../services/postService";
 import MapComponent from "../MapComponent/MapComponent";
 
 export function PostForm() {
-  const { name, lastname, createdAt } = useSelector((state) => state.user);
+  const { name, lastname, createdAt, _id } = useSelector((state) => state.user);
   const [selectedOption, setSelectedOption] = useState('');
   const [selectedOptionLoc, setSelectedOptionLoc] = useState('');
   const [imgFile, setImgFile] = useState();
@@ -22,12 +22,15 @@ export function PostForm() {
     location: "",
     petType: "",
     description: "",
+    user_id: _id,
     nameUser: name,
     lastnameUser: lastname,
     createdAt: createdAt,
     latitude: 0,
     longitude: 0,
   };
+  console.log("userID: ",_id)
+  console.log("name: ", name)
 
   const [inputs, setInputs] = useState(initialState);
 
@@ -71,6 +74,7 @@ export function PostForm() {
     formData.append("petType", selectedOption);
     formData.append("location", selectedOptionLoc);
     formData.append("description", inputs.description);
+    formData.append("user_id", inputs.user_id);
     formData.append("nameUser", inputs.nameUser);
     formData.append("lastnameUser", inputs.lastnameUser);
     formData.append("createdAt", inputs.createdAt);
@@ -140,6 +144,8 @@ export function PostForm() {
       <h1 className="mb-2 font-extrabold text-3xl sm:text-3xl min-w-full sm:mx-[10vw]">
         Publicar un aviso
       </h1>
+      {name}
+      {_id}
       <hr className="mb-8 sm:mx-[10vw]"></hr>
 
       <div className="flex flex-col  sm:flex-row w-fit mx-auto">

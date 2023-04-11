@@ -5,7 +5,7 @@ import fs from "fs";
 /////////////////////////////////////////////////////////////////
 //acá se encuentran las rutas para hacer la petición POST de la publicació, a travez de multer
 //también se puede encontrar la de obtencion de post
-const router = Router()
+
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
@@ -21,6 +21,7 @@ router.post("/upload", upload.single("testImage"), async (req, res) => {
     location: req.body.location,
     petType: req.body.petType,
     description: req.body.description,
+    user_id: req.body.user_id,
     nameUser: req.body.nameUser,
     lastnameUser: req.body.lastnameUser,
     latitude: req.body.latitude,
