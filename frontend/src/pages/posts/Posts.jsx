@@ -16,7 +16,7 @@ export default function Posts() {
   const probandoFiltro = () => {
     return data.map((i) => {
       return (
-        <Card
+        <Card key={i._id}
           name={i.name}
           contact={i.contact}
           image={`data:image/png;base64,${toBase64(i.img.data.data)}`}
@@ -41,7 +41,7 @@ export default function Posts() {
         if (checkedValues.includes(i.petType) && !checkedValues.includes(i.location)) {
           if (i.petType === "perro") {
             return (
-              <Card
+              <Card key={i._id}
                 name={i.name}
                 contact={i.contact}
                 image={`data:image/png;base64,${toBase64(i.img.data.data)}`}
@@ -57,7 +57,7 @@ export default function Posts() {
             );
           } else {
             return (
-              <Card
+              <Card key={i._id}
                 name={i.name}
                 contact={i.contact}
                 image={`data:image/png;base64,${toBase64(i.img.data.data)}`}
@@ -75,7 +75,7 @@ export default function Posts() {
         } else {
           if (checkedValues.includes(i.location) && !checkedValues.includes(i.petType)) {
             if (i.location === "Corrientes") {
-              return (<Card
+              return (<Card key={i._id}
                 name={i.name}
                 contact={i.contact}
                 image={`data:image/png;base64,${toBase64(i.img.data.data)}`}
@@ -90,7 +90,7 @@ export default function Posts() {
               />)
             } else {
               return (
-                <Card
+                <Card key={i._id}
                   name={i.name}
                   contact={i.contact}
                   image={`data:image/png;base64,${toBase64(i.img.data.data)}`}
@@ -109,7 +109,7 @@ export default function Posts() {
           } else {
             if (checkedValues.includes(i.petType === "gato")) {
               if (i.location === "Resistencia") {
-                return (<Card
+                return (<Card key={i._id}
                   name={i.name}
                   contact={i.contact}
                   image={`data:image/png;base64,${toBase64(i.img.data.data)}`}
@@ -123,7 +123,7 @@ export default function Posts() {
                   longitudPost={i.longitude}
                 />)
               } else {
-                return (<Card
+                return (<Card key={i._id}
                   name={i.name}
                   contact={i.contact}
                   image={`data:image/png;base64,${toBase64(i.img.data.data)}`}
