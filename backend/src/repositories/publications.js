@@ -1,15 +1,14 @@
 import PostModel from "../schema/publication/publication.js";
 
-const getAllPosts = async ()=> {
-    try{
-            const allData = await PostModel.find({})
-            return allData
-            // res.json(allData)
-        
-    } catch (err) {
-        res.status(500).json(err);
-      }
-}
+const getAllPosts = async () => {
+  try {
+    const allData = await PostModel.find({});
+    return allData;
+    // res.json(allData)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
 
 const getAllLocations = async ()=> {
     try{
@@ -31,25 +30,65 @@ const getAllLocations = async ()=> {
 
 
 
+// const storage = multer.memoryStorage();
+// const upload = multer({ storage: storage });
+// upload.single("testImage")
+const newPost = async (req, res) => {
+  // upload.single("testImage")
+
+  const saveImage = PostModel({
+    name: req.body.name,
+    img: {
+      data: req.file.buffer,
+      contentType: req.file.mimetype,
+    },
+    contact: req.body.contact,
+    location: req.body.location,
+    petType: req.body.petType,
+    description: req.body.description,
+    nameUser: req.body.nameUser,
+    lastnameUser: req.body.lastnameUser,
+  });
+
+  await saveImage.save();
+  // const image = saveImage.img.data.toString('base64');
+  const image = saveImage.img.data.toString("base64");
+  const contentType = saveImage.contentType;
+  res.json({ image, contentType });
+};
 
 const getPostById = async (id) => {
-    const responsePost = await PostModel.findOne({ _id: id });
-    return responsePost;
-  
+  const responsePost = await PostModel.findOne({ _id: id });
+  return responsePost;
+};
+
+const getAllPostByUserId = async (id) => {
+  const responsePost = await PostModel.find({user_id:id});
+  return responsePost;
+
 };
 
 const updatePost = async (id, data) => {
+  try {
     const responsePost = await PostModel.findOneAndUpdate({ _id: id }, data, {
       new: true,
     });
-    return responsePost
-  };
+    return responsePost;
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
 
-const deletePost = async (id) => {
-  const responsePost= await PostModel.findByIdAndDelete({_id: id})
-  return responsePost;
-    
-  };
+const deletePost = async (req, res) => {
+  if (req.body.userId === req.params.id) {
+    try {
+      await PostModel.findByIdAndDelete(req.params.id);
+      res.status(200).json("Post has been deleted...");
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
+};
 
 //acá iria la logica para publicar los post con multer
 
@@ -88,5 +127,6 @@ export default {
     updatePost,
     getPostById,
     getAllPosts,
-    getAllLocations
-}
+    getAllPostByUserId,
+  getAllLocations,
+};

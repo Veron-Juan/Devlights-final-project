@@ -28,10 +28,11 @@ function MapComponent(props) {
   return isLoaded ? (
     
       <GoogleMap
+        resetBoundsOnResize={true}
         mapContainerStyle={mapContainerStyle}
         center={Center}
         zoom={props.zoom}
-        options={{ disableDefaultUI: true, zoomControl: true, draggable: false }}
+        options={{ disableDefaultUI: true, zoomControl: true }}
       >
       {Marcadores.map(({ id,position }) => (
         <MarkerF
@@ -42,7 +43,7 @@ function MapComponent(props) {
           /> ))}
       </GoogleMap>
     
-  ) : ( <div>cargando</div>)
+  ) : ( <div className="text-black text-lg">HOLAAAAA</div>)
 }
 
 export default MapComponent;

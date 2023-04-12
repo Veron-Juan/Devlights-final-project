@@ -1,10 +1,11 @@
-import React from 'react'
+import React from "react";
 import Face from "../../assets/face.png";
 import Insta from "../../assets/instam.png";
 import Tutter from "../../assets/twitter.png";
 import Logo from "../../assets/logo.svg";
 import WhatsApp from "../../assets/map.png";
 import Mapa from "../../assets/whatsApp.png";
+
 const Footer = () => {
   return (
   <footer className="mt-[12vh]">
@@ -26,6 +27,6 @@ const Footer = () => {
     </div>
   </footer>
   )
-}
+};
 
-export default Footer
+export default Footer;

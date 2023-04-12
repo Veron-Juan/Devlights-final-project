@@ -61,13 +61,13 @@ export default function Login() {
 
   const validate = (values)=> {
    const errors={};
-   const regex= /^[^\s@]+@[^\s@]+\.[^\s@]{2, }$/i;
+  //  const regex= "/^[^\s@]+@[^\s@]+\.[^\s@]{2, }$/i";
   
    if(!values.email){
     errors.email="Email es required!";
-   }else if (!regex.test(values.email)) {
-    errors.email="This es not a valid email format!";
-   }  
+  //  }else if (!regex.email) {
+  //   errors.email="This es not a valid email format!";
+    }  
   if(!values.password){
    errors.password="Password es required!";
   }else if (values.password.length < 4){

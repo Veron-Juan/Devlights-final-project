@@ -4,7 +4,6 @@ import { HomeHero } from "../../components/Home/HomeHero";
 import { HomeMap } from "../../components/Home/HomeMap";
 import { useSelector } from "react-redux";
 
-import  MapComponent  from "../../components/MapComponent/MapComponent";
 import Card from "../../components/card/Card";
 import * as servicePosts from "../../services/postService"
 import modelo1 from "../../assets/modelo1.jpg";
@@ -67,7 +66,7 @@ export default function Home() {
   
   return (
     <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
-      {/* <p className="text-lg md:text-4xl text-center">Bienvenido {name} </p> */}
+       <p className="text-lg md:text-4xl text-center">Bienvenido {name} </p> 
       <div className="grid  grid-cols-1 md:grid-cols-2 gap-3 text-black ">
         <HomeContent />
         <HomeHero />
@@ -88,7 +87,7 @@ export default function Home() {
               createdAt={i.createdAt}
               latitudPost={i.latitudPost}
               longitudPost={i.longitudPost}
-              type={i.type}
+              petType={i.type}
               status={i.status}
               />
             )

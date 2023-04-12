@@ -1,5 +1,11 @@
 {
   "devDependencies": {
     "@vitejs/plugin-react-swc": "^3.2.0"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "sweetalert2": "^11.7.3"
   }
 }

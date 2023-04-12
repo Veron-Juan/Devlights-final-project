@@ -1,44 +1,46 @@
 import { Router } from "express";
 import PostModel from "../schema/publication/publication.js";
 import multer from "multer";
+import fs from "fs";
+/////////////////////////////////////////////////////////////////this
+const router = Router();
+
 /////////////////////////////////////////////////////////////////
 //acá se encuentran las rutas para hacer la petición POST de la publicació, a travez de multer
 //también se puede encontrar la de obtencion de post
-const router = Router()
+
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-  router.post("/upload", upload.single("testImage"), async (req, res) => {
-    console.log(req.file, req.body.name);
-    const saveImage =  PostModel({
-      name: req.body.name,
-      img: {
-        data: req.file.buffer,
-        contentType: req.file.mimetype
-      },
-      contact: req.body.contact,
-      location: req.body.location,
-      description: req.body.description,
-      petType: req.body.petType,
-      nameUser: req.body.nameUser,
-      lastnameUser: req.body.lastnameUser,
-      latitude: req.body.latitude,
-      longitude: req.body.longitude,
-    });
-    
-
-    await saveImage.save()
-    // const image = saveImage.img.data.toString('base64');
-    const image = saveImage.img.data.toString("base64")
-    const contentType = saveImage.contentType;
-    res.json({ image, contentType });
-    
+router.post("/upload", upload.single("testImage"), async (req, res) => {
+  console.log(req.file, req.body.name);
+  const saveImage = PostModel({
+    name: req.body.name,
+    img: {
+      data: req.file.buffer,
+      contentType: req.file.mimetype,
+    },
+    contact: req.body.contact,
+    location: req.body.location,
+    petType: req.body.petType,
+    description: req.body.description,
+    user_id: req.body.user_id,
+    nameUser: req.body.nameUser,
+    lastnameUser: req.body.lastnameUser,
+    latitude: req.body.latitude,
+    longitude: req.body.longitude,
   });
 
-router.get('/',async (req,res)=>{
-    const allData = await PostModel.find()
-    res.json(allData)
-})
+  await saveImage.save();
+  // const image = saveImage.img.data.toString('base64');
+  const image = saveImage.img.data.toString("base64");
+  const contentType = saveImage.contentType;
+  res.json({ image, contentType });
+});
 
+router.get("/", async (req, res) => {
+  const allData = await PostModel.find();
+  res.json(allData);
+});
 
-export default router
+export default router;

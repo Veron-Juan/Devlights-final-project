@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Logo from "../../assets/logo.svg";
 import UserImg from "../../assets/user.svg";
 import { clearLocalStorageUser } from "../../redux/states/user";
+import { useSelector } from "react-redux";
 
 
 const Nav = () => {
@@ -18,6 +19,8 @@ const Nav = () => {
     { name: "CUIDADOS", link: "/" },
     { name: "DONACIONES", link: "/" },
   ];
+
+  const { name } = useSelector((state) => state.user);
 
   return (
   <div>
@@ -37,11 +40,14 @@ const Nav = () => {
           {/* <!-- Dropdown User menu --> */}
           <div id="user-dropdown" className={`${userOpen ? '' : 'hidden'} z-50 text-base list-none bg-gray-50 divide-y divide-gray-200 rounded-lg shadow`} style={{position:'absolute', top:0, right:0, marginTop: '3rem'}} >
             <div className="px-4 py-3">
-              <span className="block text-sm text-gray-900 truncate">Pepito Gomez</span>
+              <span className="block text-sm text-gray-900 truncate">{name}</span>
             </div>
             <ul className="py-2" aria-labelledby="user-menu-button">
               <li>
                 <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cuenta</a>
+              </li>
+              <li>
+                <a href="/userPosts" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mis Publicaciones</a>
               </li>
               <li>
                 <a onClick={cerrarSesion} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cerrar sesion</a>

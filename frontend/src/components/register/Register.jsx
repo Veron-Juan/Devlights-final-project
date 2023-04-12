@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import  Swal from 'sweetalert2';
 import { addUser } from "../../redux/states/user";
 import backgFormLogo from "../../assets/backgRegister.png";
 import * as servicePosts from "../../services/postService";
@@ -8,7 +9,7 @@ import * as servicePosts from "../../services/postService";
 // Formulario de registro que solicita: Nombre y apellido, email y contraseña
 
 function Register() {
-  const initialState = {
+  const initialValues = {
     name: "",
     lastname: "",
     email: "",
@@ -16,64 +17,64 @@ function Register() {
   };
 
   //seteamos los valores iniciales de los form's inputs
-  const [inputValues, setInputValue] = useState(initialState);
-  const [formErrosrs, setFormErrors] = useState({});
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   
-
-  //handle submit updates
-  function handleChange(e) {
-    console.log(e.target);
-    const{name,value}=e.target;
-    setInputValue({ ...inputValues, [name]:value});
-     console.log(inputValues);
-  }
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  //handle submit updates
+  const handleChange=(e)=> {
+    const {name,value}=e.target;
+    setFormValues({ ...formValues, [name]:value});
+  };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormErrors(validate(formErrosrs));
+    setFormErrors(validate(formValues));
     setIsSubmit (true);
-    //  const res = await fetch("http://localhost:4000/api/auth/register", {
-    //   method: "POST",
-    //    headers: {
-    //      "Content-Type": "application/json",
-    //    },
-    //    body: JSON.stringify(inputValues),
-    //  });
-    //  try {
-    //    console.log(res);
-    //    dispatch(addUser({ ...inputValues }));
-    //    navigate(`/`, { replace: true });
-    //  } catch (error) {
-    //    console.log(error);
-    //  };
+
+    //    const res = await fetch("http://localhost:4000/api/auth/register", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(formValues),
+    //   });
+    //   try {
+    //     console.log(res);
+    //     dispatch(addUser({ ...formValues }));
+    //     navigate(`/`, { replace: true });
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
     // };
-     const register = async () => {
-       const res = await servicePosts.registerUser(inputValues);
+  
+      const register = async () => {
+        const res = await servicePosts.registerUser(formValues);
        try{
-         console.log(res.data);
-         dispatch(addUser({ ...inputValues }));
-         navigate(`/`, { replace: true });
-       } catch(error){
-         console.log(error)
-       }
-     }
-     register()
-    };
+          console.log(res.data);
+          dispatch(addUser({ ...formValues }));
+          navigate(`/`, { replace: true });
+        } catch(error){
+          console.log(error)
+        }
+      }
+      register()
+     };
     
     useEffect(() => {
-      console.log(formErrosrs);
-       if (Object.keys(formErrosrs).length===0 && isSubmit){
-        console.log(inputValues);
+      console.log(formErrors);
+       if (Object.keys(formErrors).length===0 && isSubmit){
+        console.log(formValues);
        }
-     }, [formErrosrs]);
+     }, [formErrors]);
     
   
     const validate = (values)=> {
      const errors={};
-     const regex= /^[^\s@]+@[^\s@]+\.[^\s@]{2, }$/i;
+     const regex= "/^[^\s@]+@[^\s@]+\.[^\s@]{2, }$/i";
      if(!values.name){
       errors.name="Name es required!";
      }
@@ -82,9 +83,7 @@ function Register() {
      }
      if(!values.email){
       errors.email="Email es required!";
-     }else if (!regex.test(values.email)) {
-      errors.email="This es not a valid email format!";
-     }  
+     }
     if(!values.password){
      errors.password="Password es required!";
     }else if (values.password.length < 4){
@@ -100,24 +99,28 @@ function Register() {
    return errors;
     };
     
+    const Alert =()=> {
+      Swal.fire ("Signed in successfully!!" )
+   }
   
 
   // Return del componente main Registro
 
   return (
     <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* {Object.keys(formErrosrs).length===0 && isSubmit ? (
-            <div className="ui massage success">REGISTER IN SUCCESSFULLY </div>) :(
-              <pre>{JSON.stringify(input,undefined,2)}</pre>
-            )} */}
+    {Object.keys(formErrors).length === 0 && isSubmit ? (
+        Alert()
+      ) : (
+        <pre>{JSON.stringify(formValues, undefined, 5)}</pre>
+      )}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
       
-       <form
+       <form onSubmit={handleSubmit}
         className="container max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 bg-white border-none rounded-2xl shadow-xl py-5 lg:w-[32rem]"
-          id="registrationForm"
-          action="/"
-          method="POST"
-          onSubmit={handleSubmit}>
+          //  id="registrationForm"
+          //  action="/"
+            method="POST"
+          >
           <h1 className="flex flex-row justify-center items-center text-xl md:text-3xl font-bold text-center mb-[30px] w-auto">
             Únete a nosotros!
           </h1>
@@ -130,7 +133,7 @@ function Register() {
               name="name"
               id="name" 
               placeholder=""              
-              value={inputValues.name}
+              value={formValues.name}
               onChange={handleChange}/>
             <label 
               htmlFor="name" 
@@ -138,7 +141,7 @@ function Register() {
               >Nombre
             </label>        
           </div>
-          <p className="text-red-600 font-[Monserrat]">{formErrosrs.name}</p>
+          <p className="text-red-600 font-[Monserrat]">{formErrors.name}</p>
           {/* Apellido */}
           <div class="relative z-0 w-full mb-6 group">
             <input 
@@ -148,7 +151,7 @@ function Register() {
               id="lName"              
               placeholder="" 
               required 
-              value={inputValues.lastname}
+              value={formValues.lastname}
               onChange={handleChange}/>
             <label 
               htmlFor="lName" 
@@ -156,7 +159,7 @@ function Register() {
               > Apellido
             </label>           
           </div>
-          <p className="text-red-600 font-[Monserrat]">{formErrosrs.lastname}</p>
+          <p className="text-red-600 font-[Monserrat]">{formErrors.lastname}</p>
           {/* Correo */}
           <div class="relative z-0 w-full mb-6 group">
             <input 
@@ -166,7 +169,7 @@ function Register() {
               id="email"              
               placeholder="" 
               required 
-              value={inputValues.email}
+              value={formValues.email}
               onChange={handleChange}/>
             <label 
               htmlFor="email" 
@@ -174,7 +177,7 @@ function Register() {
               >Correo electrónico
             </label>           
           </div>
-          <p className="text-red-600 font-[Monserrat]">{formErrosrs.email}</p>
+          <p className="text-red-600 font-[Monserrat]">{formErrors.email}</p>
           {/* Pass */}
           <div class="relative z-0 w-full mb-6 group">
             <input 
@@ -183,7 +186,7 @@ function Register() {
               name="password"
               id="password"              
               placeholder="" 
-              value={inputValues.password}
+              value={formValues.password}
               onChange={handleChange} />
             <label 
               htmlFor="password" 
@@ -191,7 +194,7 @@ function Register() {
               >Contraseña
             </label>           
           </div>
-          <p className="text-red-600 font-[Monserrat]">{formErrosrs.password}</p>
+          <p className="text-red-600 font-[Monserrat]">{formErrors.password}</p>
           {/* Re-Pass */}
           <div class="relative z-0 w-full mb-6 group">
             <input 
@@ -200,7 +203,7 @@ function Register() {
               name="confirmPassword"
               id="confirmPassword"              
               placeholder="" 
-              value={inputValues.confirmPassword}
+              value={formValues.confirmPassword}
               onChange={(e) => handleChange(e)}/>
             <label 
               htmlFor="confirmPassword" 
@@ -208,7 +211,7 @@ function Register() {
               >Repetir Contraseña
             </label>           
           </div>
-          <p className="text-red-600 font-[Monserrat]">{formErrosrs.confirmPassword}</p>
+          <p className="text-red-600 font-[Monserrat]">{formErrors.confirmPassword}</p>
           <div className="flex flex-col mt-12 justify-center items-center">
             <button
               type="submit"

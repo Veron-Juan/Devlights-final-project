@@ -30,26 +30,26 @@ export default function Card(props) {
     fechaPost: '12/12/2021'}]
     
   const Marcadores = [
-    {id:1,position: {lat: -28.465038847067884, lng: -58.84456631035704}},
-    {id:2,position: {lat: -27.460374137170163, lng: -58.828945125378276}},
-    {id:3,position: {lat: -26.460374137170163, lng: -58.828945125378276}},
-    ]   
-
-
-
+    { id: 1, position: { lat: -28.465038847067884, lng: -58.84456631035704 } },
+    { id: 2, position: { lat: -27.460374137170163, lng: -58.828945125378276 } },
+    { id: 3, position: { lat: -26.460374137170163, lng: -58.828945125378276 } },
+  ];
 
   return (
     <div>
       <div className="h-[410px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800  text-center  w-[240px] " data-aos="fade-up">
         <div className="h-12 text-left ml-2">
-          <b>De:{props.nameUser} {props.lastnameUser}  </b>
-          <p className="font-light text-sm">Publicado el {new Date (props.createdAt).toLocaleString()}</p>
-          {/* new Date (props.date).toDateString() */}
+          <b>
+            De:{props.nameUser} {props.lastnameUser}{" "}
+          </b>
+          <p className="font-light text-sm">
+            Publicado el {new Date(props.createdAt).toLocaleString()}
+          </p>
         </div>
         <img
           className="w-full  h-[225px] object-cover"
           src={props.image}
-          alt=""
+          alt="Pet's image"
         />
 
         <div className=" flex flex-col align-middle relative">
@@ -62,8 +62,10 @@ export default function Card(props) {
             <img width="30px" src={Location} />
             <h3>Ciudad: {props.location}</h3>
           </span>
-          <a onClick={handleOpenModal} className="w-[95px] absolute bottom-[-20px] right-2 h-6 rounded-md cursor-pointer bg-yellow">
-            
+          <a
+            onClick={handleOpenModal}
+            className="w-[95px] absolute bottom-[-20px] right-2 h-6 rounded-md cursor-pointer bg-yellow"
+          >
             Ver más
           </a>
         </div>
@@ -76,14 +78,15 @@ export default function Card(props) {
           descripcionPost={props.description}
           imgPost={props.image}
           contacto={props.contact}
+          petType={props.petType}
+          //
           ubicacionPost={props.location}
-          fechaPost={new Date (props.createdAt).toLocaleDateString()}
+          fechaPost={new Date(props.createdAt).toLocaleDateString()}
           latitudPost={props.latitudPost}
           longitudPost={props.longitudPost}
-          type={props.type}
           status={props.status}
           handleCloseModal={() => setShowModal(false)}
-          />
+        />
       }
     </div>
   );
