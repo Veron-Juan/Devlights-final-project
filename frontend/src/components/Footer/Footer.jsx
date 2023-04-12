@@ -6,9 +6,10 @@ import Logo from "../../assets/logo.svg";
 import WhatsApp from "../../assets/map.png";
 import Mapa from "../../assets/whatsApp.png";
 
+
 const Footer = () => {
   return (
-  <footer className="mt-[12vh]">
+  <footer>
     <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
       <div className="text-gray-600 mb-5 md:mb-0">
         <img className="h-[80px]" src={Logo} />
