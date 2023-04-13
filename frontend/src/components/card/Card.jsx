@@ -37,7 +37,7 @@ export default function Card(props) {
         </div>
       </div>
       {showModal &&
-          <ModalCard 
+          <ModalCard key={props.key}
           id={props.key}
           nameUser={props.nameUser}
           lastnameUser={props.lastnameUser}

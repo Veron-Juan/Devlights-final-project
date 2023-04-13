@@ -28,6 +28,7 @@ export default function Posts() {
           createdAt={i.createdAt}
           latitudPost={i.latitude}
           longitudPost={i.longitude}
+          status={i.status}
         />
       );
     }
@@ -53,6 +54,7 @@ export default function Posts() {
                 createdAt={i.createdAt}
                 latitudPost={i.latitude}
                 longitudPost={i.longitude}
+                status={i.status}
               />
             );
           } else {
@@ -69,6 +71,7 @@ export default function Posts() {
                 createdAt={i.createdAt}
                 latitudPost={i.latitude}
                 longitudPost={i.longitude}
+                status={i.status}
               />
             )
           }
@@ -87,6 +90,7 @@ export default function Posts() {
                 createdAt={i.createdAt}
                 latitudPost={i.latitude}
                 longitudPost={i.longitude}
+                status={i.status}
               />)
             } else {
               return (
@@ -102,6 +106,7 @@ export default function Posts() {
                   createdAt={i.createdAt}
                   latitudPost={i.latitude}
                   longitudPost={i.longitude}
+                  status={i.status}
                 />
               )
             }
@@ -121,6 +126,7 @@ export default function Posts() {
                   createdAt={i.createdAt}
                   latitudPost={i.latitude}
                   longitudPost={i.longitude}
+                  status={i.status}
                 />)
               } else {
                 return (<Card key={i._id}
@@ -135,6 +141,7 @@ export default function Posts() {
                   createdAt={i.createdAt}
                   latitudPost={i.latitude}
                   longitudPost={i.longitude}
+                  status={i.status}
                 />)
               }
             }
