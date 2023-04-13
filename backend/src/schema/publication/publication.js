@@ -21,7 +21,7 @@ const postSchema = new Schema(
       data: Buffer,
       contentType: String,
     },
-    petType:{
+    status:{
         type: String,
     },
     user_id:

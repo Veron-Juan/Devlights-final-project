@@ -37,7 +37,7 @@ export default function Card(props) {
 
   return (
     <div>
-      <div className="h-[410px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800  text-center  w-[240px] " data-aos="fade-up">
+      <div className="h-[410px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800  text-center  w-[240px] "  data-aos={`${props.fade ? 'fade-up' : ''}`}>
         <div className="h-12 text-left ml-2">
           <b>
             De:{props.nameUser} {props.lastnameUser}{" "}

@@ -24,6 +24,10 @@ body {
   border-radius: 22% 48% 37% 63% / 20% 41% 59% 80%;
 }
 
+.hero-work {
+  border-radius: 22% 22% 22% 22% / 20% 41% 59% 80%;
+}
+
 .logo_footer {
   width: 120px;
   height: 120px;
