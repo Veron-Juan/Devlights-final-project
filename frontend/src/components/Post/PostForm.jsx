@@ -144,8 +144,7 @@ export function PostForm() {
       <h1 className="mb-2 font-extrabold text-3xl sm:text-3xl min-w-full sm:mx-[10vw]">
         Publicar un aviso
       </h1>
-      {name}
-      {_id}
+      
       <hr className="mb-8 sm:mx-[10vw]"></hr>
 
       <div className="flex flex-col  sm:flex-row w-fit mx-auto">
