@@ -277,12 +277,11 @@ function Register() {
             >
               Registrarse
             </button>
-            <span className="flex justify-center">
-              Ya tienes una cuenta?{" "}
-              <a href="/login" className="hover:text-amber-300">
-                Ingresar
-              </a>
-            </span>
+            <div className="flex">
+              <p>Ya tienes una cuenta?</p>
+              <a href="/login" className="ml-3 hover:text-amber-300"> Ingresar</a>
+            </div>
+            
 
           </div>
         </form>

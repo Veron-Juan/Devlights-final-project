@@ -66,7 +66,7 @@ export default function UserPosts() {
             createdAt={i.createdAt}
             latitudPost={i.latitude}
             longitudPost={i.longitude}
-            
+            status={i.status}
             />
           )
         })}
