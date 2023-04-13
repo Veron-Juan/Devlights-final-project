@@ -264,7 +264,7 @@ export function PostForm() {
                 <img
                   src={imgPreview}
                   alt="img-button"
-                  className="mb-3 mt-2 mx-auto aspect-square"
+                  className="mb-3 mt-2 mx-auto aspect-square sm:h-[300px]"
                   title=""
                 />
               </label>
@@ -310,7 +310,7 @@ export function PostForm() {
             <p className="text-sm text-gray-600 mb-4">
               Arrastre en el mapa a la ubicación donde fue visto por ultima vez:
             </p>
-            <div className="w-full aspect-video">
+            <div className="w-full aspect-video mb-4">
               <MapComponent
                 Center={Center}
                 Marcadores={Marcadores}
