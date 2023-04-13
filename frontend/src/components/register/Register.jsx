@@ -30,52 +30,42 @@ function Register() {
     setFormValues({ ...formValues, [name]:value});
   };
   
+  const Alert =()=> {
+    Swal.fire ("Password does not match confirmation password!!" )
+ }
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
-    setIsSubmit (true);
 
-    //    const res = await fetch("http://localhost:4000/api/auth/register", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(formValues),
-    //   });
-    //   try {
-    //     console.log(res);
-    //     dispatch(addUser({ ...formValues }));
-    //     navigate(`/`, { replace: true });
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // };
-  
+      setIsSubmit (true);
       const register = async () => {
         const res = await servicePosts.registerUser(formValues);
-       try{
-          console.log(res.data);
-          dispatch(addUser({ ...formValues }));
-          navigate(`/`, { replace: true });
-        } catch(error){
-          console.log(error)
+         try{
+            console.log(res.data);
+            dispatch(addUser({ ...formValues }));
+            navigate(`/`, { replace: true });
+          } catch(error){
+            console.log(error)
+          }
         }
-      }
-      register()
-     };
+        register();
+    };
     
-    useEffect(() => {
-      console.log(formErrors);
-       if (Object.keys(formErrors).length===0 && isSubmit){
-        console.log(formValues);
-       }
-     }, [formErrors]);
-    
-  
+
+
+  useEffect(() => {
+  console.log(formErrors);
+   if (Object.keys(formErrors).length===0 && isSubmit){
+    console.log(formValues);
+   }
+   
+ }, [formErrors]);
+   
+          
     const validate = (values)=> {
      const errors={};
-     const regex= "/^[^\s@]+@[^\s@]+\.[^\s@]{2, }$/i";
-     if(!values.name){
+    if(!values.name){
       errors.name="Name es required!";
      }
      if(!values.lastname){
@@ -83,36 +73,27 @@ function Register() {
      }
      if(!values.email){
       errors.email="Email es required!";
-     }
+    } 
     if(!values.password){
      errors.password="Password es required!";
-    }else if (values.password.length < 4){
-      errors.password="Password must be more than 4 characters!";
-    }else if (values.password.length > 10){
-      errors.password="Password must be more than 4 characters!";
-    }
+    }else if (values.password.length < 6){
+      errors.password="Password must be more than 6 characters!";
+    }else if (values.password.length >=10){
+      errors.password="Password must be more than 10 characters!";
+  }
     if(!values.confirmPassword){
       errors.confirmPassword="Password cannot exceed more than 10 characters!";
      } else if (values.password!== values.confirmPassword ) {
       errors.confirmPassword = "Password does not match confirmation password";
      }
    return errors;
-    };
-    
-    const Alert =()=> {
-      Swal.fire ("Signed in successfully!!" )
-   }
-  
+  };
 
   // Return del componente main Registro
 
   return (
     <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 py-8">
-    {Object.keys(formErrors).length === 0 && isSubmit ? (
-        Alert()
-      ) : (
-        <pre>{JSON.stringify(formValues, undefined, 5)}</pre>
-      )}
+    
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
       
        <form onSubmit={handleSubmit}
@@ -134,7 +115,8 @@ function Register() {
               id="name" 
               placeholder=""              
               value={formValues.name}
-              onChange={handleChange}/>
+              onChange={handleChange}
+              required />
             <label 
               htmlFor="name" 
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
@@ -150,9 +132,9 @@ function Register() {
               name="lastname"
               id="lName"              
               placeholder="" 
-              required 
               value={formValues.lastname}
-              onChange={handleChange}/>
+              onChange={handleChange}
+              required />
             <label 
               htmlFor="lName" 
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
@@ -168,9 +150,9 @@ function Register() {
               name="email"
               id="email"              
               placeholder="" 
-              required 
               value={formValues.email}
-              onChange={handleChange}/>
+              onChange={handleChange}
+              required />
             <label 
               htmlFor="email" 
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
@@ -187,7 +169,8 @@ function Register() {
               id="password"              
               placeholder="" 
               value={formValues.password}
-              onChange={handleChange} />
+              onChange={handleChange} 
+              required />
             <label 
               htmlFor="password" 
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
@@ -204,7 +187,8 @@ function Register() {
               id="confirmPassword"              
               placeholder="" 
               value={formValues.confirmPassword}
-              onChange={(e) => handleChange(e)}/>
+              onChange={(e) => handleChange(e)}
+              required />
             <label 
               htmlFor="confirmPassword" 
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"

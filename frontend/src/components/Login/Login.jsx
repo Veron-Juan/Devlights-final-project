@@ -2,6 +2,7 @@ import React, {useEffect, useState } from "react";
 import backgFormLogo from "../../assets/backgLogin1.png";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import  Swal from 'sweetalert2';
 import { addUser } from "../../redux/states/user";
 
 import axios from "axios";
@@ -29,6 +30,11 @@ export default function Login() {
     setInput({ ...input, [name]:value});
      console.log(input);
   }
+  const Alert_msn =()=> {
+    Swal.fire ("Cuenta no iniciada..!!" )
+    // Swal.fire ("Error de email y/o contraseña!!" )
+ }
+ 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -44,7 +50,7 @@ export default function Login() {
       dispatch(addUser({ ...user }));
       navigate(`/`, { replace: true });
     } catch (error) {
-      console.log(error);
+       console.log(error);
     }
 
     setInput(initialState);
@@ -56,18 +62,14 @@ export default function Login() {
      if (Object.keys(formErrosrs).length===0 && isSubmit){
       console.log(input);
      }
+     
    }, [formErrosrs]);
   
 
   const validate = (values)=> {
    const errors={};
   //  const regex= "/^[^\s@]+@[^\s@]+\.[^\s@]{2, }$/i";
-  
-   if(!values.email){
-    errors.email="Email es required!";
-  //  }else if (!regex.email) {
-  //   errors.email="This es not a valid email format!";
-    }  
+   
   if(!values.password){
    errors.password="Password es required!";
   }else if (values.password.length < 4){
@@ -113,7 +115,8 @@ export default function Login() {
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-yellow-200 appearance-none dark:text-dark dark:border-yellow-200 dark:focus:border-yellow-300 focus:outline-none focus:ring-0 focus:border-yellow-300 peer"
               placeholder=""              
               value={input.email}
-              onChange={handleChange}             
+              onChange={handleChange} 
+              required            
             />
           </div>
           <p className="text-red-600 font-[Monserrat]">{formErrosrs.email}</p>
