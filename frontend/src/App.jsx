@@ -19,7 +19,7 @@ import  WorkingOnIt  from "./pages/workingOnIt/WorkingOnIt";
 
 function App() {
   return (
-    <div className="App min-h-[100vh] bg-gradient-to-r from-yellow-100 via-white to-teal-200">
+    <div className="App bg-gradient-to-r from-yellow-100 via-white to-teal-200 min-h-screen grid grid-rows-[auto_1fr_auto]">
   
       <Provider store={store}>
         <Navbar />

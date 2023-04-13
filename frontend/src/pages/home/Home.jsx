@@ -27,7 +27,7 @@ export default function Home() {
       createdAt: new Date("2023-03-1"),
       latitudPost: -27.474051,
       longitudPost: -58.853709,
-      type: 'perro',
+      petType: 'perro',
       status: 'se busca'
     },
     {
@@ -42,8 +42,8 @@ export default function Home() {
       createdAt:  new Date("2023-02-16"),  //funcion para pasar string a date 
       latitudPost: -27.463225,
       longitudPost: -58.841295,
-      type: 'gato',
-      status: 'encontrado'
+      petType: 'gato',
+      status: 'se encontro'
     },
     {
       key: 3,
@@ -57,7 +57,7 @@ export default function Home() {
       createdAt: new Date("2023-01-10"),
       latitudPost: -27.432617,
       longitudPost: -58.969629,
-      type: 'perro',
+      petType: 'perro',
       status: 'se busca'
     }
   ];
@@ -66,37 +66,39 @@ export default function Home() {
   
   return (
     <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
-       <p className="text-lg md:text-4xl text-center">Bienvenido {name} </p> 
-      <div className="grid  grid-cols-1 md:grid-cols-2 gap-3 text-black ">
+      {/* <p className="text-lg md:text-4xl text-center">Bienvenido {name} </p> */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-black my-10">
         <HomeContent />
         <HomeHero />
       </div>
-      <div className="mx-auto min-w-[80vw] min-h-[50vh] flex justify-between text-black mt-[25vh]">
-        <div  className="mx-auto grid grid-cols-1 grid-row sm:grid-cols-2 md:grid-cols-3 gap-12">
-          {posts.map((i)=>{
-            return(
-              <Card
-              key={i.key}
-              name={i.name}
-              contact={i.contact}
-              description={i.description}
-              nameUser={i.nameUser}
-              lastnameUser={i.lastnameUser}
-              image={i.image}
-              location={i.location}
-              createdAt={i.createdAt}
-              latitudPost={i.latitudPost}
-              longitudPost={i.longitudPost}
-              petType={i.type}
-              status={i.status}
-              />
-            )
-          })}
-        </div>
+      <div className="flex justify-between items-center mt-10 mb-5">
+        <h1 className="text-xl md:text-2xl font-bold">Ultimas Novedades</h1>
+        <a href="/posts" className="px-5 py-2 bg-blue-900 hover:bg-blue-800 text-white rounded-md">Ver más</a>
       </div>
-      <div className="mx-auto min-w-[80vw] min-h-[60vh] flex justify-between text-black mt-[25vh]" >
-            <HomeMap/>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+        {posts.map((i)=>{
+          return(
+            <Card
+            key={i.key}
+            name={i.name}
+            contact={i.contact}
+            description={i.description}
+            nameUser={i.nameUser}
+            lastnameUser={i.lastnameUser}
+            image={i.image}
+            location={i.location}
+            createdAt={i.createdAt}
+            latitudPost={i.latitudPost}
+            longitudPost={i.longitudPost}
+            petType={i.petType}
+            status={i.status}
+            />
+          )
+        })}
       </div>
+      <>
+        <HomeMap/>
+      </>
     </div>
   );
 }

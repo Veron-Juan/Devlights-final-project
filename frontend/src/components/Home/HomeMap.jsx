@@ -32,19 +32,18 @@ export function HomeMap() {
       
    
     return (
-        <div className="flex flex-col  items-center mx-auto" data-aos="fade-up">
-            <div className="w-[80vw] h-[30vw] rounded-md overflow-hidden  ">
+        <div className="flex flex-col justify-between text-black items-center my-20" data-aos="fade-up">
+            <div className="w-full aspect-video md:h-96 rounded-md overflow-hidden">
              <MapComponent Center={Center} Marcadores={Marcadores} zoom={12}/> 
              
             </div>
-            <div className="mt-2 flex flex-row text-center text-base font-extrabold text-black sm:text-md md:text-lg lg:text-xl ">
-                <p className="flex justify-center items-center px-8">
-                  Actualmente contamos con {Cantidad} busquedas activas.<br/> Ayudanos a encontrar a estas mascotas!
+            <div className="mt-10 flex flex-col md:flex-row items-center justify-center text-center text-sm font-extrabold text-black sm:text-md md:text-lg lg:text-xl">
+                <p className="mb-4 md:mb-0 md:px-8">
+                  Actualmente contamos con <br className="md:hidden"/> {Cantidad} busqueda{Cantidad !== 1 ? 's' : ''} activa{Cantidad !== 1 ? 's' : ''}.<br /> Ayudanos a encontrar a estas mascotas!
                 </p>
-                <a href=""><button className="rounded-md justify-between bg-yellow-HomeButtton HomeButton 
-    w-48 h-16 left-495 top-687 not-italic text-black font-extrabold text-base" type="button">
-        Explorar más
-    </button></a>
+                <a href="#" className="rounded-md bg-yellow-HomeButtton w-48 h-16 not-italic text-black font-extrabold text-base flex flex-col justify-center">
+                  Explorar más
+                </a>
             </div>   
         </div>
     )

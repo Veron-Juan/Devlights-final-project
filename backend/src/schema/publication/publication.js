@@ -24,13 +24,8 @@ const postSchema = new Schema(
     status:{
         type: String,
     },
-    user_id:
-    {
-        type: String,
-    },
-    nameUser:
-    {
-        type: String,
+    nameUser: {
+      type: String,
     },
     lastnameUser: {
       type: String,
