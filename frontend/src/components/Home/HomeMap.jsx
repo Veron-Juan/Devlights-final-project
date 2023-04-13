@@ -23,6 +23,7 @@ export function HomeMap() {
             const data = res.data
             setMarcadores(data)
             setCantidad(data.length)
+            console.log(data)
           } catch(error) {
             console.log(error)
           } 
