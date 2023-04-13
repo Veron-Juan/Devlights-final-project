@@ -26,33 +26,15 @@ export default function CardUserPosts(props) {
   };
  
   return (
-    <div>
-      <div className="h-[400px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800  text-center  w-[230px]   ">
-        <div className="h-12 text-left ml-2">
-          <b>De:{props.nameUser} {props.lastnameUser}  </b>
-          <p className="font-light text-sm">Publicado el {new Date (props.createdAt).toLocaleString()}</p>
-          {/* new Date (props.date).toDateString() */}
-        </div>
-        <img
-          className="w-full  h-[225px] object-cover"
-          src={props.image}
-          alt=""
-        />
-
-        <div className=" flex flex-col align-middle relative">
-          <b>Nombre: {props.name}</b>
-          <span className="flex justify-start align-middle p-1 gap-3">
-            <img width="30px" src={Phone} />
-            <h3>Contacto: {props.contact}</h3>
-          </span>
-          <span className="flex justify-start align-middle p-1 gap-3">
-            <img width="30px" src={Location} />
-            <h3>Ciudad: {props.location}</h3>
-          </span>
-          {props._id}
-          <a href={`/postUpdate/${props.post_id}`} className="w-[95px] absolute bottom-[-20px] right-2 h-6 rounded-md cursor-pointer bg-yellow">  
-            Editar
-          </a>
+    <>
+      <div className="w-full bg-black rounded-lg overflow-hidden relative">
+        <img className="min-h-[260px] object-cover" src={props.image} alt={props.name}/>
+        <p className={`${props.status === 'se busca' ? "bg-pink-700" : "bg-orange-800"} right-0 top-0 absolute rounded-lg text-white px-2 py-1`}>{props.status}</p>
+        <div className="flex flex-col flex-wrap justify-between p-3 text-white text-sm">
+          <p className="truncate w-[90%]"><i className="bg-gray-700 fa-hashtag fa-solid p-2 mr-2 rounded-full"></i>{props.post_id}</p>
+          <p className="my-3"><i className="bg-gray-700 fa-calendar fa-solid p-2 mr-2 rounded-full"></i>{new Date (props.createdAt).toLocaleString()}</p>
+          <p><i className="bg-gray-700 fa-location-dot fa-solid p-2 mr-2 rounded-full"></i>{props.location}</p>
+          <a href={`/postUpdate/${props.post_id}`} className="py-1 px-3 bg-yellow-600 hover:bg-yellow-700 shadow-lg shadow-green-700/50 rounded-md cursor-pointer text-sm ml-auto uppercase">Editar</a>
         </div>
       </div>
       {/* {showPostFormEditor &&
@@ -70,6 +52,6 @@ export default function CardUserPosts(props) {
             longitudPost={props.longitude}     
           />
       } */}
-    </div>
+    </>
   );
 }

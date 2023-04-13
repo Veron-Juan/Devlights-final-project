@@ -21,16 +21,11 @@ const postSchema = new Schema(
       data: Buffer,
       contentType: String,
     },
-    petType:{
-        type: String,
+    user_id: {
+      type: String,
     },
-    user_id:
-    {
-        type: String,
-    },
-    nameUser:
-    {
-        type: String,
+    nameUser: {
+      type: String,
     },
     lastnameUser: {
       type: String,

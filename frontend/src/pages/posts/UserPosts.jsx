@@ -49,32 +49,28 @@ export default function UserPosts() {
   return (
     <>
     {loading && <LoaderPosts/>}
-    <div  
-    className="flex  py-20  justify-center  ">
+    <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+        {data.map((i)=>{
+          return(
 
-    <div className="mr-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 lg:grid-cols-4">
-    
-    
-    {data.map((i)=>{
-      return(
-
-        <CardUserPosts
-        post_id={i._id}
-        name={i.name}
-        contact={i.contact}
-        image={`data:image/png;base64,${toBase64(i.img.data.data)}`}
-        location={i.location}
-        description={i.description}
-        nameUser={i.nameUser}
-        lastnameUser={i.lastnameUser}
-        createdAt={i.createdAt}
-        latitudPost={i.latitude}
-        longitudPost={i.longitude}
-        
-        />
-      )
-    })}
-    </div>
+            <CardUserPosts key={i._id}
+            post_id={i._id}
+            name={i.name}
+            contact={i.contact}
+            image={`data:image/png;base64,${toBase64(i.img.data.data)}`}
+            location={i.location}
+            description={i.description}
+            nameUser={i.nameUser}
+            lastnameUser={i.lastnameUser}
+            createdAt={i.createdAt}
+            latitudPost={i.latitude}
+            longitudPost={i.longitude}
+            
+            />
+          )
+        })}
+      </div>
     
     </div>
     
