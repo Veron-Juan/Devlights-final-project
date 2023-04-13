@@ -31,14 +31,14 @@ function Register() {
   };
   
   const Alert =()=> {
-    Swal.fire ("Password does not match confirmation password!!" )
+    Swal.fire ("No coinciden las cotraseñas!!" )
  }
  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
-
-      setIsSubmit (true);
+       setIsSubmit (true);
+    if(password.value === confirmPassword.value){
       const register = async () => {
         const res = await servicePosts.registerUser(formValues);
          try{
@@ -50,9 +50,10 @@ function Register() {
           }
         }
         register();
-    };
-    
-
+    } else{
+    Alert()
+    }
+  };
 
   useEffect(() => {
   console.log(formErrors);
