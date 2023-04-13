@@ -10,6 +10,7 @@ export function PostForm() {
   const { name, lastname, createdAt, _id } = useSelector((state) => state.user);
   const [selectedOption, setSelectedOption] = useState('');
   const [selectedOptionLoc, setSelectedOptionLoc] = useState('');
+  const [selectedOptionStatus, setSelectedOptionStatus] = useState('');
   const [imgFile, setImgFile] = useState();
   const [imgPreview, setImgPreview] = useState(iconoFoto);
 
@@ -28,6 +29,7 @@ export function PostForm() {
     createdAt: createdAt,
     latitude: 0,
     longitude: 0,
+    status: "",
   };
   console.log("userID: ",_id)
   console.log("name: ", name)
@@ -47,6 +49,9 @@ export function PostForm() {
     setSelectedOptionLoc(event.target.value);
   };
 
+  const handleSelectChangeStatus = (event) => {
+    setSelectedOptionStatus(event.target.value);
+  };
 
   const OnImgChange = (event) => {
     event.preventDefault();
@@ -80,6 +85,7 @@ export function PostForm() {
     formData.append("createdAt", inputs.createdAt);
     formData.append("latitude", Center.lat);
     formData.append("longitude", Center.lng);
+    formData.append("status", selectedOptionStatus);
 
     const uploadPost = async () => {
       const res = await servicePosts.createPost(formData);
@@ -313,6 +319,41 @@ export function PostForm() {
                 zoom={14}
               />
             </div>
+
+            {/* Status */}
+            <p className="text-sm text-gray-600 mb-4">Estado:</p>
+            <ul className="grid w-full gap-6 md:grid-cols-2 mb-8">
+              <li>
+                <input type="radio" id="se busca" name="status" value="se busca" className="hidden peer" 
+                onChange={handleSelectChangeStatus}
+               />
+                <label htmlFor="se busca" className="flex items-center justify-center w-full p-5 
+                border rounded-lg cursor-pointer 
+                hover:text-gray-300
+                border-gray-700
+                peer-checked:text-yellow-500 peer-checked:bg-gray-800
+                text-gray-400
+              bg-white 
+                hover:bg-gray-700 text-lg font-semibold">
+                  Se busca
+                </label>
+              </li>
+              <li>
+                <input type="radio" id="se encontro" name="status" value="se encontro" className="hidden peer"
+                onChange={handleSelectChangeStatus}
+               />
+                <label htmlFor="se encontro" className="flex items-center justify-center w-full p-5 
+                border rounded-lg cursor-pointer 
+                hover:text-gray-300
+                border-gray-700
+                peer-checked:text-yellow-500 peer-checked:bg-gray-800
+                text-gray-400
+              bg-white 
+                hover:bg-gray-700 text-lg font-semibold">
+                  Se encontro
+                </label>
+              </li>
+            </ul>
           </div>
           <div className="md:col-span-2 mx-auto w-full text-center">
             <PostButton />

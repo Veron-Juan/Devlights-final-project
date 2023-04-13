@@ -11,6 +11,8 @@ export function PostFormEditor(props) {
   const { name, lastname, createdAt, _id } = useSelector((state) => state.user);
   const [selectedOption, setSelectedOption] = useState('');
   const [selectedOptionLoc, setSelectedOptionLoc] = useState('');
+  const [selectedOptionStatus, setSelectedOptionStatus] = useState('');
+
   const params = useParams()
 
   const initialState = {
@@ -21,6 +23,7 @@ export function PostFormEditor(props) {
     description: "",
     latitude: 0,
     longitude: 0,
+    status: "",
   };
 
   const [inputs, setInputs] = useState(initialState);
@@ -41,8 +44,8 @@ export function PostFormEditor(props) {
       try{
         const data = res.data
         console.log("loadPost res",data)
-        const {name, img, contact, location,  petType, description,latitude, longitude} = res.data.publication;
-        setInputs({name, contact, location, petType, description,latitude, longitude});
+        const {name, img, contact, location,  petType, description,latitude, longitude, status} = res.data.publication;
+        setInputs({name, contact, location, petType, description,latitude, longitude, status});
         setCenter ({lat: latitude, lng: longitude})
         setMarcadores([
           {
@@ -54,6 +57,8 @@ export function PostFormEditor(props) {
           },
         ]);
         setSelectedOption({petType});
+        setSelectedOptionStatus({status});
+
         //proceso de imagen
         datos.map((i) => {
           const base64String = btoa(
@@ -82,13 +87,17 @@ export function PostFormEditor(props) {
   };
 
   const handleSelectChange = (event) => {
-    console.log(event);
     setSelectedOption(event.target.value);
     inputs.petType = event.target.value;
   };
 
   const handleSelectChangeLoc = (event) => {
     setSelectedOptionLoc(event.target.value);
+    inputs.location = event.target.value;
+  };
+
+  const handleSelectChangeStatus = (event) => {
+    setSelectedOptionStatus(event.target.value);
     inputs.location = event.target.value;
   };
 
@@ -351,7 +360,40 @@ export function PostFormEditor(props) {
                 zoom={14}/>
             </div>
 
-            
+            {/* Status */}
+            <p className="text-sm text-gray-600 mb-4">Estado:</p>
+            <ul className="grid w-full gap-6 md:grid-cols-2 mb-8">
+              <li>
+                <input type="radio" id="se busca" name="status" value="se busca" className="hidden peer" 
+                checked={inputs.status === "se busca"} onChange={handleSelectChangeStatus}
+               />
+                <label htmlFor="se busca" className="flex items-center justify-center w-full p-5 
+                border rounded-lg cursor-pointer 
+                hover:text-gray-300
+                border-gray-700
+                peer-checked:text-yellow-500 peer-checked:bg-gray-800
+                text-gray-400
+              bg-white 
+                hover:bg-gray-700 text-lg font-semibold">
+                  Se busca
+                </label>
+              </li>
+              <li>
+                <input type="radio" id="se encontro" name="status" value="se encontro" className="hidden peer"
+                checked={inputs.status === "se encontro"} onChange={handleSelectChangeStatus}
+               />
+                <label htmlFor="se encontro" className="flex items-center justify-center w-full p-5 
+                border rounded-lg cursor-pointer 
+                hover:text-gray-300
+                border-gray-700
+                peer-checked:text-yellow-500 peer-checked:bg-gray-800
+                text-gray-400
+              bg-white 
+                hover:bg-gray-700 text-lg font-semibold">
+                  Se encontro
+                </label>
+              </li>
+            </ul>
           </div>
           <div className="md:col-start-2 flex justify-end flex-col sm:flex-row gap-6">
             <button className="rounded-md bg-green text-white font-extrabold px-8 py-5 uppercase tracking-wider" 
@@ -365,7 +407,7 @@ export function PostFormEditor(props) {
               Eliminar
             </button>
               
-            </div>
+          </div>
         </div>
       </form>
     </div>

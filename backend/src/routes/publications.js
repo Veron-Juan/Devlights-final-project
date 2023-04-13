@@ -27,6 +27,7 @@ router.post("/upload", upload.single("testImage"), async (req, res) => {
     lastnameUser: req.body.lastnameUser,
     latitude: req.body.latitude,
     longitude: req.body.longitude,
+    status: req.body.status,
   });
 
   await saveImage.save();
