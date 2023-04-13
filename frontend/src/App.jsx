@@ -16,6 +16,7 @@ import { PostFormEditor } from "./components/Post/PostFormEditor";
 import { AuthGuard } from "./guards/auth.guards";
 import UserPosts from "./pages/posts/UserPosts";
 import  WorkingOnIt  from "./pages/workingOnIt/WorkingOnIt";
+import AboutUs from "./components/About us/AboutUs";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/*" element={<WorkingOnIt/>} />
           <Route path="/Test" element={<Test />} />
+          <Route path="/aboutUs" element={<AboutUs />} />
           <Route element={<AuthGuard/>} >
               <Route path="upload" element={<PostForm/> } />
               <Route path="/userPosts" element={<UserPosts />} />
