@@ -13,6 +13,7 @@ const ModalCard = (props) => {
         lat: Number(props.latitudPost),
         lng: Number(props.longitudPost),
       },
+      perro: props.petType === "perro" ? true : false,
     },
   ];
 

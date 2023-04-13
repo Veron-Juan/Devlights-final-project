@@ -1,6 +1,8 @@
 import React from 'react'
 import {GoogleMap,useJsApiLoader,MarkerF} from '@react-google-maps/api'
-
+import mGato from '../../assets/mGato.png'
+import mPerro from '../../assets/mPerro.png'
+import mDefault from '../../assets/mDefault.png'
 
 
 
@@ -34,12 +36,13 @@ function MapComponent(props) {
         zoom={props.zoom}
         options={{ disableDefaultUI: true, zoomControl: true }}
       >
-      {Marcadores.map(({ id,position }) => (
+      {Marcadores.map(({ id,position,perro }) => (
         <MarkerF
           draggable={props.selecionMarcador}
           key={id}
           position={position}
           onDragEnd={(coord) => onMarkerDragEnd(coord)}
+          icon={`${props.form ? mDefault : (perro ? mPerro : mGato)}`}
           /> ))}
       </GoogleMap>
     

@@ -13,13 +13,18 @@ const Nav = () => {
     location.reload();
   };
 
-  let Links = [
-    { name: "MASCOTAS CERCANAS", link: "/posts" },
-    { name: "CUIDADOS", link: "/" },
-    { name: "DONACIONES", link: "/" },
-  ];
+  const userState = useSelector((store)=> store.user);
 
-  const { name } = useSelector((state) => state.user);
+  let Links = userState.name ? [
+    { name: "MASCOTAS CERCANAS", link: "/posts" },
+    { name: "CUIDADOS", link: "/cuidados" },
+    { name: "DONACIONES", link: "/donaciones" },
+    { name: "PUBLICAR AVISO", link: "/upload"}
+  ] : [
+    { name: "MASCOTAS CERCANAS", link: "/posts" },
+    { name: "CUIDADOS", link: "/cuidados" },
+    { name: "DONACIONES", link: "/donaciones" },
+  ];
 
   return (
   <>
@@ -38,7 +43,7 @@ const Nav = () => {
           </button>
           {/* <!-- Dropdown User menu --> */}
           <div id="user-dropdown" className={`${userOpen ? '' : 'hidden'} z-50 text-base list-none bg-gray-50 divide-y divide-gray-200 rounded-lg shadow absolute top-0 right-0 mt-10`}>
-            {name == "" 
+            {userState.name == "" 
             ?
             <ul className="py-2 truncate" aria-labelledby="user-menu-button">
               <li>
@@ -51,7 +56,7 @@ const Nav = () => {
             :
             <>
               <div className="px-4 py-3">
-                <span className="block text-sm text-gray-900 truncate">{name}</span>
+                <span className="block text-sm text-gray-900 truncate">{userState.name}</span>
               </div>
               <ul className="py-2" aria-labelledby="user-menu-button">
                 <li>

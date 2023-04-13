@@ -80,6 +80,7 @@ export default function Home() {
           return(
             <Card
             key={i.key}
+            id={i.key}
             name={i.name}
             contact={i.contact}
             description={i.description}

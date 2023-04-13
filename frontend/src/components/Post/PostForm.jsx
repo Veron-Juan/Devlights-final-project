@@ -28,6 +28,7 @@ export function PostForm() {
     createdAt: createdAt,
     latitude: 0,
     longitude: 0,
+    status: "se busca",
   };
   console.log("userID: ",_id)
   console.log("name: ", name)
@@ -80,6 +81,7 @@ export function PostForm() {
     formData.append("createdAt", inputs.createdAt);
     formData.append("latitude", Center.lat);
     formData.append("longitude", Center.lng);
+    formData.append("status",inputs.status);
 
     const uploadPost = async () => {
       const res = await servicePosts.createPost(formData);
@@ -271,6 +273,7 @@ export function PostForm() {
               selecionMarcador={true}
               setCenter={setCenter}
               zoom={14}
+              form={true}
             />
           </div>
 

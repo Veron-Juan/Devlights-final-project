@@ -12,14 +12,17 @@ const getAllPosts = async () => {
 
 const getAllLocations = async ()=> {
     try{
-            const allLocations = await PostModel.find({}, { latitude: 1, longitude: 1 })
+            const allLocations = await PostModel.find({}, { latitude: 1, longitude: 1, petType: 1 })
+            console.log(allLocations)
             return allLocations.map((location, index) => ({
               id: index + 1,
               position: {
                 lat: Number(location.latitude),
                 lng: Number(location.longitude),
               },
+              perro: location.petType === "perro" ? true : false,
             }));
+            
     } catch (err) {
         res.status(500).json(err);
     }
