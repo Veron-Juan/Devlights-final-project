@@ -15,6 +15,7 @@ postRoutes.get("/:id", getPublication);
 postRoutes.get("/userPosts/:id", getAllPublicationByUserId);
 // postRoutes.post("/upload", upload.single("testImage") , postPublication);
 postRoutes.put("/:id",updatePublication);
-postRoutes.delete("/deletePost/:id", deletePublication);
+postRoutes.delete("/deletePost:id", deletePublication);
+// postRoutes.delete("/:id", deletePublication);
 
 export default postRoutes
