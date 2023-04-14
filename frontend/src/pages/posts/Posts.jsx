@@ -241,7 +241,7 @@ export default function Posts() {
 
   return (
     <div className="max-w-7xl mx-auto my-10 px-4 sm:px-6 lg:px-8 flex flex-col w-full">
-      <div className="flex flex-row items-center justify-evenly rounded-lg shadow-lg  h-16 mx-auto bg-yellowButton w-full max-w-2xl">
+      <div className="flex flex-row items-center justify-evenly rounded-lg shadow-lg  h-20 sm:h-16 mx-auto bg-yellowButton w-full max-w-xl">
         <div className="justify-around space-x-4">
           <h2 className="ml-4">
             <b>Filtrar por:</b>
@@ -262,6 +262,7 @@ export default function Posts() {
             value="gato"
           ></input>
           <label htmlFor="gato">Gato</label>
+          <br className="sm:hidden"/>
           <input
             checked={!isChecked3}
             onChange={handleOnCheckbox3}

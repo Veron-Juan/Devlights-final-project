@@ -1,14 +1,6 @@
 import React from "react";
 
 
-import CardComponent from "../../components/Card/Card";
-import ModalCard from "../../components/CardComponent/ModalCard";
-import MapComponent from "../../components/MapComponent/MapComponent";
-import { PostForm } from "../../components/Post/PostForm";
-
-
-
-
 
 
 
@@ -34,19 +26,8 @@ export default function Test() {
 
 
   return (
-    <div className="mt-[90px] w-full">
-      <div className='min-h-full max-w-ful flex  justify-center'>
-        <CardComponent
-          nombreUser={lista[0].nombreUser}
-          tituloPost={lista[0].tituloPost}
-          ubicacionPost={lista[0].ubicacionPost}
-          descripcionPost={lista[0].descripcionPost}
-          latitudPost={lista[0].latitudPost}
-          longitudPost={lista[0].longitudPost}
-          fechaPost={lista[0].fechaPost}
-        />
-      </div>
-    </div>
+    
+    <><p>hola</p></>
 
   );
 }
