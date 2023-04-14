@@ -16,11 +16,11 @@ export default function CardAboutUs(props) {
 
           <div className="mt-auto">
             <div className="md:translate-y-8 transform md:opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex flex-col justify-between gap-3 md:gap-2 text-sm text-white bg-gray-900/75 p-3 sm:p-0 sm:bg-transparent rounded-lg">
-              <a href={`https://www.linkedin.com/in/${props.linkedin}`}>
+              <a href={`https://www.linkedin.com/in/${props.linkedin}`} target="_blank" >
                 <i className="fa-brands fa-linkedin fa-xl mr-2"></i>
                 {props.linkedin}
               </a>
-              <a href={`https://github.com/${props.github}`}>
+              <a href={`https://github.com/${props.github}`} target="_blank" >
                 <i className="fa-brands fa-github fa-xl mr-2"></i>
                 {props.github}
               </a>
