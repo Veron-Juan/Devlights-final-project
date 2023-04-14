@@ -33,9 +33,9 @@ const Nav = () => {
 
         <div className="flex items-center md:order-2 relative">
           {/* User profile */}
-          <button onClick={() => setUserOpen(!userOpen)} type="button" className="block mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:bg-white" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+          <button onClick={() => setUserOpen(!userOpen)} type="button" className="bg-transparent block mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:bg-white" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
             <span className="sr-only">Open user menu</span>
-            <i className="fa-solid fa-circle-user fa-2xl"></i>
+            <i className="fa-solid fa-circle-user fa-2xl bg-inherit"></i>
           </button>
           {/* <!-- Dropdown User menu --> */}
           <div id="user-dropdown" className={`${userOpen ? '' : 'hidden'} z-50 text-base list-none bg-gray-50 divide-y divide-gray-200 rounded-lg shadow absolute top-0 right-0 mt-10`}>
@@ -71,7 +71,7 @@ const Nav = () => {
           </div>
 
           {/* Button Menu Mobile */}
-          <div onClick={() => setOpen(!open)} data-collapse-toggle="mobile-menu-2"  className="cursor-pointer inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none" aria-controls="mobile-menu-2" aria-expanded="false">
+          <div onClick={() => setOpen(!open)} data-collapse-toggle="mobile-menu-2"  className="cursor-pointer inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-white focus:outline-none" aria-controls="mobile-menu-2" aria-expanded="false">
             <span className="sr-only">Open main menu</span>
             <svg className="w-6 h-6" aria-hidden="true" fill="black" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
           </div>
