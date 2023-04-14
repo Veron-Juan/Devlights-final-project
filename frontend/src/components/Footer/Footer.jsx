@@ -24,6 +24,7 @@ const Footer = () => {
         <img className="pl-2" src={Tutter}  />  
         <img className="pl-2" src={Insta} />
         <img className="pl-2" src={WhatsApp} />
+        <a href="https://github.com/Veron-Juan/Devlights-final-project" target="_blank"><i className="pl-2 fa-brands fa-github fa-xl"></i></a>
       </div>
     </div>
   </footer>

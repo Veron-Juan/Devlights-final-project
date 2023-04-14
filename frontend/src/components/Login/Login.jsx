@@ -103,15 +103,15 @@ export default function Login() {
 
 
           <div className="flex flex-col mt-12 justify-center items-center">
-            <div
+            <input
+            type="submit"
+            value="Iniciar Sesión"
               onClick={handleSubmit}
-              className="bg-yellow h-[40px] rounded-xl w-[50%] mb-6 font-bold cursor-pointer mx-auto my-auto flex justify-center pt-2"
-            >
-              Iniciar Sesión
-            </div>
+              className="bg-yellow h-[40px] rounded-xl w-[50%] mb-2 font-bold cursor-pointer mx-auto my-auto flex justify-center "
+            /> 
             <span className="flex justify-center">
               Aun no tienes una cuenta?{" "}
-              <Link to="/registrarse" className="hover:text-amber-300">
+              <Link to="/registrarse" className="ml-1 hover:text-amber-300">
                 Registrate
               </Link>
             </span>

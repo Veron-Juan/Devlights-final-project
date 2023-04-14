@@ -51,7 +51,7 @@ function Register() {
         }
         register();
     } else{
-      Alert();
+      
     }
   };
 
@@ -67,25 +67,25 @@ function Register() {
     const validate = (values)=> {
      const errors={};
     if(!values.name){
-      errors.name="Name es required!";
+      errors.name="Complete este campo";
      }
      if(!values.lastname){
-      errors.lastname="Lastname es required!";
+      errors.lastname="Complete este campo";
      }
      if(!values.email){
-      errors.email="Email es required!";
+      errors.email="Complete este campo";
     } 
     if(!values.password){
-     errors.password="Password es required!";
+     errors.password="Complete este campo";
     }else if (values.password.length < 6){
-      errors.password="Password must be more than 6 characters!";
+      errors.password="La contraseña debe tener al menos 6 caracteres";
     }else if (values.password.length >=10){
-      errors.password="Password must be more than 10 characters!";
+      errors.password="La contraseña no puede exceder los 10 caracteres";
   }
     if(!values.confirmPassword){
-      errors.confirmPassword="Password cannot exceed more than 10 characters!";
+      errors.confirmPassword="Complete este campo";
      } else if (values.password!== values.confirmPassword ) {
-      errors.confirmPassword = "Password does not match confirmation password";
+      errors.confirmPassword = "Las contraseñas no coinciden";
      }
    return errors;
   };
@@ -122,9 +122,10 @@ function Register() {
               htmlFor="name" 
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
               >Nombre
-            </label>        
+            </label> 
+            <p className="mb-2 text-red-600 font-[Monserrat]">{formErrors.name}</p>       
           </div>
-          <p className="text-red-600 font-[Monserrat]">{formErrors.name}</p>
+          
           {/* Apellido */}
           <div class="relative z-0 w-full mb-6 group">
             <input 
@@ -140,9 +141,10 @@ function Register() {
               htmlFor="lName" 
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
               > Apellido
-            </label>           
+            </label>
+            <p className="mb-2 text-red-600 font-[Monserrat]">{formErrors.lastname}</p>           
           </div>
-          <p className="text-red-600 font-[Monserrat]">{formErrors.lastname}</p>
+          
           {/* Correo */}
           <div class="relative z-0 w-full mb-6 group">
             <input 
@@ -158,9 +160,10 @@ function Register() {
               htmlFor="email" 
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
               >Correo electrónico
-            </label>           
+            </label>
+            <p className="mb-2 text-red-600 font-[Monserrat]">{formErrors.email}</p>           
           </div>
-          <p className="text-red-600 font-[Monserrat]">{formErrors.email}</p>
+          
           {/* Pass */}
           <div class="relative z-0 w-full mb-6 group">
             <input 
@@ -176,9 +179,10 @@ function Register() {
               htmlFor="password" 
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
               >Contraseña
-            </label>           
+            </label>
+            <p className="mb-2 text-red-600 font-[Monserrat]">{formErrors.password}</p>           
           </div>
-          <p className="text-red-600 font-[Monserrat]">{formErrors.password}</p>
+          
           {/* Re-Pass */}
           <div class="relative z-0 w-full mb-6 group">
             <input 
@@ -194,18 +198,20 @@ function Register() {
               htmlFor="confirmPassword" 
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
               >Repetir Contraseña
-            </label>           
+            </label>     
+            <p className="mb-2 text-red-600 font-[Monserrat]">{formErrors.confirmPassword}</p>      
           </div>
-          <p className="text-red-600 font-[Monserrat]">{formErrors.confirmPassword}</p>
+          
           <div className="flex flex-col mt-12 justify-center items-center">
-          <div
+          <input
+              type="submit"
+              value="Registrarse"
               onClick={handleSubmit}
-              className="bg-yellow h-[40px] rounded-xl w-[50%] mb-6 font-bold cursor-pointer mx-auto my-auto flex justify-center pt-2"
-            >Registrarse
-            </div>
+              className="bg-yellow h-[40px] rounded-xl w-[50%] mb-2 font-bold cursor-pointer mx-auto my-auto flex justify-center "
+            />
             <span className="flex justify-center">
-              Ya tienes una cuenta?{" "}
-              <Link to="/login" className="hover:text-amber-300">
+              Ya tienes una cuenta?{" "} 
+              <Link to="/login" className="hover:text-amber-300 ml-1">
                 Ingresar
               </Link>
             </span>
