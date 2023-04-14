@@ -2,8 +2,9 @@ import React from "react";
 import gaston from "../../assets/gaston.jpeg";
 import lucas from "../../assets/lucas.jpg";
 import matias from "../../assets/matias.jpg";
-
+import santiago from "../../assets/santiago.jpg";
 import juan from "../../assets/juan.jpg";
+import roxana from "../../assets/roxana.jpg";
 
 import CardAboutUs from "../card/CardAboutUs";
 
@@ -14,15 +15,15 @@ export default function AboutUs() {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       <CardAboutUs 
       name={"Juan"}
-      petName={"Tobby"}
+      petName={"Simon"}
       image={juan}
       linkedin={"juanvp7"}
       github={"Veron-Juan"}
       />
       <CardAboutUs 
       name={"Santiago"}
-      petName={"Rocco"}
-      image={gaston}
+      petName={"Tom"}
+      image={santiago}
       linkedin={"santiagotoledo"}
       github={"santi-san"}
       />
@@ -42,14 +43,14 @@ export default function AboutUs() {
       />
       <CardAboutUs 
       name={"Roxana"}
-      petName={"Oli"}
-      image={gaston}
+      petName={"Chubby"}
+      image={roxana}
       linkedin={"roxanaegarcia"}
       github={"RoxanaGarcia"}
       />
       <CardAboutUs 
       name={"Gastón"}
-      petName={"Tom"}
+      petName={"Wilson"}
       image={gaston}
       linkedin={"gastón-alegre-88b094256"}
       github={"GastoNahuel"}
