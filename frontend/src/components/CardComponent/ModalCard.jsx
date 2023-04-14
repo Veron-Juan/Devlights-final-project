@@ -24,9 +24,9 @@ const ModalCard = (props) => {
 
   return (
     <>
-      <div className="fixed inset-0 flex justify-center items-center z-10 bg-black bg-opacity-50 overflow-x-auto ">
+      <div className="fixed inset-0 flex justify-center items-center z-10 bg-black bg-opacity-50 overflow-x-auto py-6 md:py-0">
         <div className="max-w-7xl mx-auto my-auto px-4  sm:px-6 lg:px-8">
-          <div className="rounded-lg shadow-lg flex flex-col w-full bg-white py-2 px-2.5 sm:max-h-[790px]">
+          <div className="rounded-lg shadow-lg flex flex-col w-full bg-white py-2 px-2.5">
             {/* row */}
             <div className="flex flex-row h-auto justify-between pb-2">
               <div className="flex flex-row items-center">
@@ -41,10 +41,10 @@ const ModalCard = (props) => {
             </div>
             
             {/* 2 columns */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 ">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
               <div className="flex flex-col justify-between sm:w-[25.5rem]">
                 <div className="relative rounded-md overflow-hidden sm:max-h-[30rem]">
-                  <img src={props.imgPost} className="object-contain"/>
+                  <img className="object-cover w-full h-full" src={props.imgPost}/>
                   <span className="absolute uppercase top-0 right-0 text-white text-xs px-2 py-1 bg-green-600">{props.status}</span>
                 </div>
                 <div className="flex justify-between items-center text-xs mt-1 mb-2 text-gray-600">
