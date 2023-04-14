@@ -16,15 +16,10 @@ const Nav = () => {
 
   const userState = useSelector((store)=> store.user);
 
-  let Links = userState.name ? [
+  let Links = [
     { name: "MASCOTAS CERCANAS", link: "/posts" },
-    { name: "CUIDADOS", link: "/cuidados" },
     { name: "DONACIONES", link: "/donaciones" },
-    { name: "PUBLICAR AVISO", link: "/upload"}
-  ] : [
-    { name: "MASCOTAS CERCANAS", link: "/posts" },
-    { name: "CUIDADOS", link: "/cuidados" },
-    { name: "DONACIONES", link: "/donaciones" },
+    { name: "SOBRE NOSOTROS", link: "/nosotros" },
   ];
 
   return (
@@ -51,7 +46,7 @@ const Nav = () => {
                 <Link to="/login" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Iniciar Sesión</Link>
               </li>
               <li>
-                <Link to="/register" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Registrarse</Link>
+                <Link to="/registrarse" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Registrarse</Link>
               </li>
             </ul>
             :
@@ -61,7 +56,10 @@ const Nav = () => {
               </div>
               <ul className="py-2" aria-labelledby="user-menu-button">
                 <li>
-                  <Link to="/userPosts" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 truncate">Mis Publicaciones</Link>
+                  <Link to="/subirPost" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 truncate">Publicar Aviso</Link>
+                </li>
+                <li>
+                  <Link to="/postUsuario" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 truncate">Mis Publicaciones</Link>
                 </li>
                 <li>
                   <a onClick={cerrarSesion} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Cerrar sesión</a>

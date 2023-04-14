@@ -128,7 +128,7 @@ export function PostFormEditor(props) {
       const res = await servicePosts.updatePost(params.postId, inputs);
       try {
         console.log(res.data);
-        navigate(`/userPosts`, { replace: true });
+        navigate(`/postUsuario`, { replace: true });
       } catch (error) {
         console.log(error);
       }

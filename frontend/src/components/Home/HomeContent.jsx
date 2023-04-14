@@ -15,7 +15,7 @@ Sabemos lo importante que son las mascotas para sus dueños y lo angustiante que
                 <p className="flex justify-center items-center">
                     ¿Perdiste tu mascota?
                 </p>
-                <Link to="/upload" className="rounded-md bg-yellow-HomeButtton w-48 h-16 not-italic text-black font-extrabold text-base flex flex-col justify-center">
+                <Link to="/subirPost" className="rounded-md bg-yellow-HomeButtton w-48 h-16 not-italic text-black font-extrabold text-base flex flex-col justify-center">
                   Publicar un Aviso
                 </Link>
             </div>

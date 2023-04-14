@@ -6,8 +6,6 @@ import Home from "./pages/home/Home";
 
 import Footer from "../src/components/Footer/Footer";
 
-import Test from "./pages/test/Test";
-
 import { Route, Routes } from "react-router-dom";
 import store from "./redux/store";
 import { Provider } from "react-redux";
@@ -16,7 +14,7 @@ import { PostFormEditor } from "./components/Post/PostFormEditor";
 import { AuthGuard } from "./guards/auth.guards";
 import UserPosts from "./pages/posts/UserPosts";
 import  WorkingOnIt  from "./pages/workingOnIt/WorkingOnIt";
-import AboutUs from "./components/About us/AboutUs";
+import AboutUs from "./components/AboutUs/AboutUs";
 
 function App() {
   return (
@@ -30,14 +28,13 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/registrarse" element={<Register />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/*" element={<WorkingOnIt/>} />
-          <Route path="/Test" element={<Test />} />
-          <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="/nosotros" element={<AboutUs />} />
           <Route element={<AuthGuard/>} >
-              <Route path="upload" element={<PostForm/> } />
-              <Route path="/userPosts" element={<UserPosts />} />
+              <Route path="/subirPost" element={<PostForm/> } />
+              <Route path="/postUsuario" element={<UserPosts />} />
               <Route path="postUpdate/:postId" element={<PostFormEditor />} />
           </Route>
         </Routes>
