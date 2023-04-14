@@ -1,5 +1,5 @@
 import { useState } from "react";
-import iconoFoto from "../../assets/iconoFoto.png";
+import iconoFoto from "../../assets/IconoFoto.png";
 import { PostButton } from "./PostButton";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
