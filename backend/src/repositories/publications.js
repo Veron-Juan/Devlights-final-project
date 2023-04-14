@@ -12,14 +12,17 @@ const getAllPosts = async () => {
 
 const getAllLocations = async ()=> {
     try{
-            const allLocations = await PostModel.find({}, { latitude: 1, longitude: 1 })
+            const allLocations = await PostModel.find({}, { latitude: 1, longitude: 1, petType: 1 })
+            console.log(allLocations)
             return allLocations.map((location, index) => ({
               id: index + 1,
               position: {
                 lat: Number(location.latitude),
                 lng: Number(location.longitude),
               },
+              perro: location.petType === "perro" ? true : false,
             }));
+            
     } catch (err) {
         res.status(500).json(err);
     }
@@ -79,15 +82,17 @@ const updatePost = async (id, data) => {
   }
 };
 
-const deletePost = async (req, res) => {
-  if (req.body.userId === req.params.id) {
-    try {
-      await PostModel.findByIdAndDelete(req.params.id);
-      res.status(200).json("Post has been deleted...");
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  }
+const deletePost = async (id) => {
+  const responsePost = await PostModel.findByIdAndDelete({_id: id})
+  return responsePost;
+    
+    // try {
+    //   await PostModel.findByIdAndDelete({_id: id});
+    //   res.status(200).json("Post has been deleted...");
+    // } catch (err) {
+    //   res.status(500).json(err);
+    // }
+  
 };
 
 //acá iria la logica para publicar los post con multer

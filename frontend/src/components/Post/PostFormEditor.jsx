@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import iconoFoto from "../../assets/iconoFoto.png";
+import iconoFoto from "../../assets/IconoFoto.png";
 import { PostButton } from "./PostButton";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -128,7 +128,7 @@ export function PostFormEditor(props) {
       const res = await servicePosts.updatePost(params.postId, inputs);
       try {
         console.log(res.data);
-        navigate(`/userPosts`, { replace: true });
+        navigate(`/postUsuario`, { replace: true });
       } catch (error) {
         console.log(error);
       }
@@ -199,7 +199,7 @@ export function PostFormEditor(props) {
               />
               <label 
                 htmlFor="name" 
-                className="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
+                className="peer-focus:font-medium absolute text-sm text-gray-600 duration-300 transform -translate-y-7  top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
                 >
                 Nombre de la mascota
               </label>
@@ -220,9 +220,9 @@ export function PostFormEditor(props) {
               />
               <label 
                 htmlFor="contact" 
-                className="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
+                className="peer-focus:font-medium absolute text-sm text-gray-600 duration-300 transform -translate-y-7  top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
                 >
-                Numero de contacto
+                Número de contacto
               </label>
             </div>
 
@@ -277,9 +277,9 @@ export function PostFormEditor(props) {
               />
               <label 
                 htmlFor="description" 
-                className="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
+                className="peer-focus:font-medium absolute text-sm text-gray-600 duration-300 transform -translate-y-7  top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
                 >
-                  Descripcion del animal
+                  Descripción del animal
               </label>
             </div>
 
@@ -292,7 +292,7 @@ export function PostFormEditor(props) {
                 name="testImage"
                 onChange={OnImgChange}
               />
-              <label htmlFor="img" className="peer-focus:font-medium text-sm text-gray-400">
+              <label htmlFor="img" className="peer-focus:font-medium text-sm text-gray-600">
                 Foto de la mascota:
                 <img
                   src={imgPreview}
@@ -351,7 +351,7 @@ export function PostFormEditor(props) {
               Arrastre en el mapa a la ubicación donde fue visto por ultima vez:
             </p>
 
-            <div className="w-full aspect-video">
+            <div className="w-full aspect-video mb-4">
                 <MapComponent 
                 Center={Center} 
                 Marcadores={Marcadores} 
@@ -390,22 +390,22 @@ export function PostFormEditor(props) {
                 text-gray-400
               bg-white 
                 hover:bg-gray-700 text-lg font-semibold">
-                  Se encontro
+                  Se encontró
                 </label>
               </li>
             </ul>
           </div>
           <div className="md:col-start-2 flex justify-end flex-col sm:flex-row gap-6">
-            <button className="rounded-md bg-green text-white font-extrabold px-8 py-5 uppercase tracking-wider" 
-            type="submit">
+            <div className="rounded-md bg-green text-white font-extrabold px-8 py-5 uppercase tracking-wider cursor-pointer" 
+              onClick={handleSubmit}
+            >
               Actualizar
-            </button>
-            <button className="rounded-md bg-red text-white font-extrabold px-8 py-5 uppercase tracking-wider" 
-              type="button" 
+            </div>
+            <div className="rounded-md bg-red text-white font-extrabold px-8 py-5 uppercase tracking-wider cursor-pointer" 
               onClick={handleDeletePost}
             >
               Eliminar
-            </button>
+            </div>
               
           </div>
         </div>

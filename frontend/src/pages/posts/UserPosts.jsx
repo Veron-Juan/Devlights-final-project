@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import CardUserPosts from "../../components/card/CardUserPosts";
-import CardComponent from "../../components/card/Card";
-import SearchInput from "../../components/searchInput/SearchInput.jsx";
 import LoaderPosts from "./LoaderPosts";
-import axios from "axios";
 import * as servicePosts from "../../services/postService"
 
 export default function UserPosts() {

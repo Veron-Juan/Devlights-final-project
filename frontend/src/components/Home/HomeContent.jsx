@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 export function HomeContent(){
     return(
         <div className="flex flex-col justify-around">
@@ -15,10 +15,9 @@ Sabemos lo importante que son las mascotas para sus dueños y lo angustiante que
                 <p className="flex justify-center items-center">
                     ¿Perdiste tu mascota?
                 </p>
-                <button className="rounded-md justify-between bg-yellow-HomeButtton HomeButton 
-    w-48 h-16 left-495 top-687 not-italic text-black font-extrabold text-base" type="button">
-        Publicar un aviso
-    </button>
+                <Link to="/subirPost" className="rounded-md bg-yellow-HomeButtton w-48 h-16 not-italic text-black font-extrabold text-base flex flex-col justify-center">
+                  Publicar un Aviso
+                </Link>
             </div>
         </div>
     );

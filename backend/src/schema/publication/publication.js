@@ -25,9 +25,12 @@ const postSchema = new Schema({
     {
         type: String,
     },
-    nameUser:
+    user_id:
     {
         type: String,
+    },
+    nameUser: {
+      type: String,
     },
     lastnameUser:
     {
