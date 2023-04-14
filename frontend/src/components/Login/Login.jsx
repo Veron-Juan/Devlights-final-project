@@ -107,7 +107,7 @@ export default function Login() {
             type="submit"
             value="Iniciar Sesión"
               onClick={handleSubmit}
-              className="bg-yellow h-[40px] rounded-xl w-[50%] mb-2 font-bold cursor-pointer mx-auto my-auto flex justify-center "
+              className="bg-yellow-HomeButtton h-[40px] rounded-xl w-[50%] mb-2 font-bold cursor-pointer mx-auto my-auto flex justify-center "
             /> 
             <span className="flex justify-center">
               Aun no tienes una cuenta?{" "}
