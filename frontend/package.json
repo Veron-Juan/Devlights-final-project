@@ -19,7 +19,8 @@
     "react-geocode": "^0.2.3",
     "react-redux": "^8.0.5",
     "react-router-dom": "6.8.2",
-    "redux": "^4.2.1"
+    "redux": "^4.2.1",
+    "sweetalert2": "^11.7.3"
   },
   "devDependencies": {
     "@iconify/icons-mdi": "^1.2.43",
