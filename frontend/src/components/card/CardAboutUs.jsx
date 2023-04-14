@@ -1,20 +1,31 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-import link from "../../assets/linkedin.svg";
-import git from "../../assets/github.svg";
-import { useState } from "react";
-import { PostFormEditor } from "../Post/PostFormEditor";
 
 export default function CardAboutUs(props) {
  
   return (
     <>
-      <div className="w-full bg-black rounded-lg overflow-hidden relative">
-        <img className="min-h-[260px] object-cover" src={props.image} alt={props.name}/>
-        {/* <p className={`${props.status === 'se busca' ? "bg-pink-700" : "bg-orange-800"} right-0 top-0 absolute rounded-lg text-white px-2 py-1`}>{props.status}</p> */}
-        <div className="flex flex-col flex-wrap justify-between p-3 text-white text-sm">
-          <a  href={`${props.git}`} className="truncate w-[90%]"><img className=" max-w-[30px] bg-gray-700  fa-solid p-2 mr-2 rounded-full" src={git}></img>Github</a>
-          <a href={`${props.link}`} className="my-3"><img className=" max-w-[30px] bg-gray-700 fa-solid p-2 mr-2 rounded-full" src={link}></img>Linkedin</a>
+      <div className="group relative block bg-black min-h-[420px] rounded-lg overflow-hidden">
+        <img alt={props.name} src={props.image} className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"/>
+        <div className="relative p-4 sm:p-6 md:p-8 flex flex-col h-full bg-gradient-to-t from-transparent from-0% via-transparent via-85% to-black to-100%">
+          <p className="text-sm font-medium uppercase tracking-widest text-pink-500">
+            <i className="fa-solid fa-paw fa-xl mr-2"></i>{props.petName}
+          </p>
+          <p className="text-xl font-bold text-white sm:text-2xl">
+            <i className="fa-solid fa-fingerprint mr-2"></i>{props.name}
+          </p>
+
+          <div className="mt-auto">
+            <div className="md:translate-y-8 transform md:opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex flex-col justify-between gap-3 md:gap-2 text-sm text-white bg-gray-900/75 p-3 sm:p-0 sm:bg-transparent rounded-lg">
+              <a href={`https://www.linkedin.com/in/${props.linkedin}`}>
+                <i className="fa-brands fa-linkedin fa-xl mr-2"></i>
+                {props.linkedin}
+              </a>
+              <a href={`https://github.com/${props.github}`}>
+                <i className="fa-brands fa-github fa-xl mr-2"></i>
+                {props.github}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </>
