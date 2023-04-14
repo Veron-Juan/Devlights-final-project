@@ -20,7 +20,7 @@ export default function Card(props) {
   return (
     <>
       <div className="bg-black home-card relative w-full min-h-[360px] overflow-hidden rounded-lg" data-aos="fade-up">
-        <img className="absolute inset-0 overflow-hidden rounded-lg min-w-[24.5rem]  h-full block object-cover transition-all duration-300 ease-in delay-0 " src={props.image} alt="Pet's image"/>
+        <img className="absolute inset-0 overflow-hidden rounded-lg w-full h-full block object-cover transition-all duration-300 ease-in delay-0" src={props.image} alt="Pet's image"/>
         
         <div className="flex flex-col h-full justify-between isolate p-2 text-white ">
           <div className="flex items-center justify-between text-sm select-none">

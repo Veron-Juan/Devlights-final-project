@@ -90,7 +90,7 @@ export default function Home() {
         <h1 className="text-xl md:text-2xl font-bold">Ultimas Novedades</h1>
         <Link to="/posts" className="px-5 py-2 bg-blue-900 hover:bg-blue-800 text-white rounded-md">Ver más</Link>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-12">
         {posts.map((i)=>{
           return(
             <Card
