@@ -22,7 +22,7 @@ export default function Card(props) {
       <div className="home-card relative w-full min-h-[360px] overflow-hidden rounded-lg" data-aos="fade-up">
         <img className="absolute inset-0 overflow-hidden rounded-lg h-full block object-cover transition-all duration-300 ease-in delay-0" src={props.image} alt="Pet's image"/>
         
-        <div className="flex flex-col h-full justify-between isolate p-2 text-white">
+        <div className="flex flex-col h-full justify-between isolate p-2 text-white ">
           <div className="flex items-center justify-between text-sm select-none">
             <div className="flex items-center text-white">
               <i className={`${props.petType === 'perro' ? "bg-yellow-500 fa-dog" : "bg-gray-dark fa-cat"} fa-solid p-2 mr-2 rounded-full`}></i>

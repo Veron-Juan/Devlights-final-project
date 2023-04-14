@@ -26,7 +26,7 @@ const ModalCard = (props) => {
     <>
       <div className="fixed inset-0 flex justify-center items-center z-10 bg-black bg-opacity-50 overflow-x-auto">
         <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-lg shadow-lg flex flex-col w-full bg-white py-2 px-2.5">
+          <div className="rounded-lg shadow-lg flex flex-col w-full  bg-white py-2 px-2.5">
             {/* row */}
             <div className="flex flex-row h-auto justify-between pb-2">
               <div className="flex flex-row items-center">

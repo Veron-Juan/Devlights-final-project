@@ -251,7 +251,7 @@ export function PostForm() {
             </div>
 
             {/* image */}
-            <div className="relative z-0 w-full mb-8 group">
+            <div className="relative z-0 w-full mb-8 group ">
               <input
                 className="hidden peer"
                 type="file"
