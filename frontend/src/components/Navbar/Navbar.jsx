@@ -48,7 +48,7 @@ const Nav = () => {
             ?
             <ul className="py-2 truncate" aria-labelledby="user-menu-button">
               <li>
-                <Link to="/login" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Iniciar Sesion</Link>
+                <Link to="/login" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Iniciar Sesión</Link>
               </li>
               <li>
                 <Link to="/register" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Registrarse</Link>
@@ -64,7 +64,7 @@ const Nav = () => {
                   <Link to="/userPosts" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 truncate">Mis Publicaciones</Link>
                 </li>
                 <li>
-                  <a onClick={cerrarSesion} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Cerrar sesion</a>
+                  <a onClick={cerrarSesion} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Cerrar sesión</a>
                 </li>
               </ul>
             </>
@@ -73,10 +73,10 @@ const Nav = () => {
           </div>
 
           {/* Button Menu Mobile */}
-          <button onClick={() => setOpen(!open)} data-collapse-toggle="mobile-menu-2" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none" aria-controls="mobile-menu-2" aria-expanded="false">
+          <div onClick={() => setOpen(!open)} data-collapse-toggle="mobile-menu-2"  className="cursor-pointer inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none" aria-controls="mobile-menu-2" aria-expanded="false">
             <span className="sr-only">Open main menu</span>
             <svg className="w-6 h-6" aria-hidden="true" fill="black" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
-          </button>
+          </div>
         </div>
 
         {/* Menu links */}

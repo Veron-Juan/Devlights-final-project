@@ -166,7 +166,7 @@ export function PostForm() {
               />
               <label 
                 htmlFor="name" 
-                className="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
+                className="peer-focus:font-medium absolute text-sm text-gray-600 duration-300 transform -translate-y-7  top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
                 >
                 Nombre de la mascota
               </label>
@@ -187,9 +187,9 @@ export function PostForm() {
               />
               <label 
                 htmlFor="contact" 
-                className="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
+                className="peer-focus:font-medium absolute text-sm text-gray-600 duration-300 transform -translate-y-7  top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
                 >
-                Numero de contacto
+                Número de contacto
               </label>
             </div>
 
@@ -244,9 +244,9 @@ export function PostForm() {
               />
               <label 
                 htmlFor="description" 
-                className="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
+                className="peer-focus:font-medium absolute text-sm text-gray-600 duration-300 transform -translate-y-7  top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
                 >
-                  Descripcion del animal
+                  Descripción del animal
               </label>
             </div>
 
@@ -259,12 +259,12 @@ export function PostForm() {
                 name="testImage"
                 onChange={OnImgChange}
               />
-              <label htmlFor="img" className="peer-focus:font-medium text-sm text-gray-400">
+              <label htmlFor="img" className="peer-focus:font-medium text-sm text-gray-600 mb-1">
                 Foto de la mascota:
                 <img
                   src={imgPreview}
                   alt="img-button"
-                  className="mb-3 mt-2 mx-auto aspect-square cursor-pointer object-cover sm:h-[300px]"
+                  className="mb-3 mt-5 mx-auto aspect-square cursor-pointer object-cover sm:h-[300px]"
                   title=""
                 />
               </label>
@@ -340,7 +340,7 @@ export function PostForm() {
                 </label>
               </li>
               <li>
-                <input type="radio" id="se encontro" name="status" value="se encontro" className="hidden peer"
+                <input type="radio" id="se encontro" name="status" value="se encontró" className="hidden peer"
                 onChange={handleSelectChangeStatus}
                />
                 <label htmlFor="se encontro" className="flex items-center justify-center w-full p-5 
@@ -357,7 +357,11 @@ export function PostForm() {
             </ul>
           </div>
           <div className="md:col-span-2 mx-auto w-full text-center">
-            <PostButton />
+          <div className="rounded-md mx-auto bg-yellow-HomeButtton text-black font-extrabold py-5 w-full sm:w-1/2 uppercase tracking-wider cursor-pointer" 
+              onClick={handleSubmit}
+            >
+              PUBLICAR
+            </div>
           </div>
         </div>
       </form>

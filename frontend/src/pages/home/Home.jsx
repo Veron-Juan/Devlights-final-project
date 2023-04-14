@@ -42,7 +42,7 @@ export default function Home() {
       latitudPost: -27.463225,
       longitudPost: -58.841295,
       petType: 'gato',
-      status: 'se encontro'
+      status: 'se encontró'
     },
     {
       key: 3,
