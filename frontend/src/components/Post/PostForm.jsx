@@ -251,7 +251,7 @@ export function PostForm() {
             </div>
 
             {/* image */}
-            <div className="relative z-0 w-full mb-8 group">
+            <div className="relative z-0 w-full mb-8 group ">
               <input
                 className="hidden peer"
                 type="file"
@@ -264,7 +264,7 @@ export function PostForm() {
                 <img
                   src={imgPreview}
                   alt="img-button"
-                  className="mb-3 mt-2 mx-auto aspect-square sm:h-[300px]"
+                  className="mb-3 mt-2 mx-auto aspect-square cursor-pointer object-cover sm:h-[300px]"
                   title=""
                 />
               </label>
@@ -351,7 +351,7 @@ export function PostForm() {
                 text-gray-400
               bg-white 
                 hover:bg-gray-700 text-lg font-semibold">
-                  Se encontro
+                  Se encontró
                 </label>
               </li>
             </ul>

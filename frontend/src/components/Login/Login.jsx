@@ -27,7 +27,7 @@ export default function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const res = await axios.post("http://localhost:4000/api/auth/login", input);
+      const res = await axios.post("https://devlights-final-project-production.up.railway.app/api/auth/login", input);
       const userData = res.data;
       const { user, token } = userData;
 

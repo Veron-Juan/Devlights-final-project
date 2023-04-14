@@ -3,6 +3,7 @@ import MapComponent from '../MapComponent/MapComponent';
 import * as servicePosts from "../../services/postService"
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from 'react-router-dom';
 
 export function HomeMap() {
 
@@ -42,9 +43,9 @@ export function HomeMap() {
                 <p className="mb-4 md:mb-0 md:px-8">
                   Actualmente contamos con <br className="md:hidden"/> {Cantidad} busqueda{Cantidad !== 1 ? 's' : ''} activa{Cantidad !== 1 ? 's' : ''}.<br /> Ayudanos a encontrar a estas mascotas!
                 </p>
-                <a href="#" className="rounded-md bg-yellow-HomeButtton w-48 h-16 not-italic text-black font-extrabold text-base flex flex-col justify-center">
+                <Link to="/posts" className="rounded-md bg-yellow-HomeButtton w-48 h-16 not-italic text-black font-extrabold text-base flex flex-col justify-center">
                   Explorar más
-                </a>
+                </Link>
             </div>   
         </div>
     )

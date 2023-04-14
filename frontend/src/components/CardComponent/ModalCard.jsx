@@ -24,18 +24,15 @@ const ModalCard = (props) => {
 
   return (
     <>
-      <div className="fixed inset-0 flex justify-center items-center z-10 bg-black bg-opacity-50 overflow-x-auto">
-        <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-lg shadow-lg flex flex-col w-full bg-white py-2 px-2.5">
+      <div className="fixed inset-0 flex justify-center items-center z-10 bg-black bg-opacity-50 overflow-x-auto ">
+        <div className="max-w-7xl mx-auto my-auto px-4  sm:px-6 lg:px-8">
+          <div className="rounded-lg shadow-lg flex flex-col w-full bg-white py-2 px-2.5 sm:max-h-[790px]">
             {/* row */}
             <div className="flex flex-row h-auto justify-between pb-2">
               <div className="flex flex-row items-center">
                 <i className={`${props.petType === 'perro' ? "fa-dog bg-yellow-500" : "fa-cat bg-gray-dark"} fa-solid p-3 text-white rounded-full`}></i>
                 <div className="ml-2">
                   <p className="font-semibold text-xl text-black">{props.tituloPost}</p>
-                  <p className="text-gray-600 text-sm">
-                    <i className="fa-solid fa-hashtag"></i>{props.ider}
-                  </p>
                 </div>
               </div>
               <button className="bg-white text-black" type="button" onClick={props.handleCloseModal}>
@@ -44,10 +41,10 @@ const ModalCard = (props) => {
             </div>
             
             {/* 2 columns */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex flex-col justify-between">
-                <div className="relative rounded-md overflow-hidden">
-                  <img src={props.imgPost} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 ">
+              <div className="flex flex-col justify-between sm:w-[25.5rem]">
+                <div className="relative rounded-md overflow-hidden sm:max-h-[30rem]">
+                  <img src={props.imgPost} className="object-contain"/>
                   <span className="absolute uppercase top-0 right-0 text-white text-xs px-2 py-1 bg-green-600">{props.status}</span>
                 </div>
                 <div className="flex justify-between items-center text-xs mt-1 mb-2 text-gray-600">

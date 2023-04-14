@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Logo from "../../assets/logo.svg";
 import { clearLocalStorageUser } from "../../redux/states/user";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 const Nav = () => {
@@ -31,9 +32,9 @@ const Nav = () => {
     <nav className="px-2 sm:px-4 py-2.5">
       <div className="max-w-7xl mx-auto my-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex items-center">
+        <Link to="/" className="flex items-center">
             <img src={Logo} className="h-[70px]" alt="Mascostas Logo" />
-        </a>
+        </Link>
 
         <div className="flex items-center md:order-2 relative">
           {/* User profile */}
@@ -47,10 +48,10 @@ const Nav = () => {
             ?
             <ul className="py-2 truncate" aria-labelledby="user-menu-button">
               <li>
-                <a href="/login" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Iniciar Sesion</a>
+                <Link to="/login" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Iniciar Sesion</Link>
               </li>
               <li>
-                <a href="/register" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Registrarse</a>
+                <Link to="/register" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Registrarse</Link>
               </li>
             </ul>
             :
@@ -60,10 +61,7 @@ const Nav = () => {
               </div>
               <ul className="py-2" aria-labelledby="user-menu-button">
                 <li>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cuenta</a>
-                </li>
-                <li>
-                  <a href="/userPosts" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 truncate">Mis Publicaciones</a>
+                  <Link to="/userPosts" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 truncate">Mis Publicaciones</Link>
                 </li>
                 <li>
                   <a onClick={cerrarSesion} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Cerrar sesion</a>
@@ -86,12 +84,12 @@ const Nav = () => {
           <ul className="flex flex-col p-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
             {Links.map((link) => (
               <li key={link.name} className="md:ml-3 text-sm md:my-0 my-3">
-                <a
-                  href={link.link}
+                <Link
+                  to={link.link}
                   className="hover:border-b-4 border-b-yellow-200 p-[2px] duration-200"
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
