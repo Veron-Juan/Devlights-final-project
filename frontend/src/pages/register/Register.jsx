@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import  Swal from 'sweetalert2';
 import { addUser } from "../../redux/states/user";
 import backgFormLogo from "../../assets/backgRegister.png";
@@ -198,17 +198,16 @@ function Register() {
           </div>
           <p className="text-red-600 font-[Monserrat]">{formErrors.confirmPassword}</p>
           <div className="flex flex-col mt-12 justify-center items-center">
-            <button
-              type="submit"
-              id="submit-button"
-              className="bg-yellow h-[40px] rounded-xl w-[50%] mb-6 font-bold"
+          <div
+              onClick={handleSubmit}
+              className="bg-yellow h-[40px] rounded-xl w-[50%] mb-6 font-bold cursor-pointer mx-auto my-auto flex justify-center pt-2"
             >Registrarse
-            </button>
+            </div>
             <span className="flex justify-center">
               Ya tienes una cuenta?{" "}
-              <a href="/login" className="hover:text-amber-300">
+              <Link to="/login" className="hover:text-amber-300">
                 Ingresar
-              </a>
+              </Link>
             </span>
 
           </div>

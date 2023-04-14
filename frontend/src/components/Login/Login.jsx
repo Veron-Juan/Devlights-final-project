@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import backgFormLogo from "../../assets/backgLogin1.png";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addUser } from "../../redux/states/user";
 import axios from "axios";
 
@@ -103,18 +103,17 @@ export default function Login() {
 
 
           <div className="flex flex-col mt-12 justify-center items-center">
-            <button
-              type="submit"
-              id="submit-button"
-              className="bg-yellow h-[40px] rounded-xl w-[50%] mb-6 font-bold"
+            <div
+              onClick={handleSubmit}
+              className="bg-yellow h-[40px] rounded-xl w-[50%] mb-6 font-bold cursor-pointer mx-auto my-auto flex justify-center pt-2"
             >
               Iniciar Sesión
-            </button>
+            </div>
             <span className="flex justify-center">
               Aun no tienes una cuenta?{" "}
-              <a href="/register" className="hover:text-amber-300">
+              <Link to="/registrarse" className="hover:text-amber-300">
                 Registrate
-              </a>
+              </Link>
             </span>
 
           </div>

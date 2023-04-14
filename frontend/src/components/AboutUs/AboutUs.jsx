@@ -1,5 +1,10 @@
 import React from "react";
 import gaston from "../../assets/gaston.jpeg";
+import lucas from "../../assets/lucas.jpg";
+import matias from "../../assets/matias.jpg";
+
+import juan from "../../assets/juan.jpg";
+
 import CardAboutUs from "../card/CardAboutUs";
 
 export default function AboutUs() {
@@ -10,7 +15,7 @@ export default function AboutUs() {
       <CardAboutUs 
       name={"Juan"}
       petName={"Tobby"}
-      image={gaston}
+      image={juan}
       linkedin={"juanvp7"}
       github={"Veron-Juan"}
       />
@@ -23,15 +28,15 @@ export default function AboutUs() {
       />
       <CardAboutUs 
       name={"Lucas"}
-      petName={"Luna"}
-      image={gaston}
+      petName={"Coco"}
+      image={lucas}
       linkedin={"lucas-gauna-lesteyme-919ba2232"}
       github={"Luc4sG"}
       />
       <CardAboutUs 
       name={"Matias"}
       petName={"Mia"}
-      image={gaston}
+      image={matias}
       linkedin={"matias-benites"}
       github={"Matiasbenites"}
       />
