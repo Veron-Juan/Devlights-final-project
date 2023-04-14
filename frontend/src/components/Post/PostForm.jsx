@@ -264,7 +264,7 @@ export function PostForm() {
                 <img
                   src={imgPreview}
                   alt="img-button"
-                  className="mb-3 mt-5 mx-auto aspect-square cursor-pointer object-cover sm:h-[300px]"
+                  className="mb-3 mt-5 mx-auto aspect-square cursor-pointer object-cover"
                   title=""
                 />
               </label>

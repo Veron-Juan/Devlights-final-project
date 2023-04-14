@@ -98,7 +98,7 @@ export function PostFormEditor(props) {
 
   const handleSelectChangeStatus = (event) => {
     setSelectedOptionStatus(event.target.value);
-    inputs.location = event.target.value;
+    inputs.status = event.target.value;
   };
 
   const OnImgChange = (event) => {
