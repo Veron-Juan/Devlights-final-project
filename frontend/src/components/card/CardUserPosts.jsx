@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Phone from "../../assets/Phone.svg";
 import Location from "../../assets/Location.svg";
 import { useState } from "react";
@@ -34,7 +34,7 @@ export default function CardUserPosts(props) {
           <p className="truncate w-[90%]"><i className="bg-gray-700 fa-hashtag fa-solid p-2 mr-2 rounded-full"></i>{props.post_id}</p>
           <p className="my-3"><i className="bg-gray-700 fa-calendar fa-solid p-2 mr-2 rounded-full"></i>{new Date (props.createdAt).toLocaleString()}</p>
           <p><i className="bg-gray-700 fa-location-dot fa-solid p-2 mr-2 rounded-full"></i>{props.location}</p>
-          <a href={`/postUpdate/${props.post_id}`} className="py-1 px-3 bg-yellow-600 hover:bg-yellow-700 shadow-lg shadow-green-700/50 rounded-md cursor-pointer text-sm ml-auto uppercase">Editar</a>
+          <Link to={`/postUpdate/${props.post_id}`} className="py-1 px-3 bg-yellow-600 hover:bg-yellow-700 shadow-lg shadow-green-700/50 rounded-md cursor-pointer text-sm ml-auto uppercase">Editar</Link>
         </div>
       </div>
       {/* {showPostFormEditor &&
