@@ -28,5 +28,5 @@ export const updatePost = async (postId, data) => {
 }
 
 export const deletePost = async (postId) => {
-    return await axios.delete(`https://devlights-final-project-production.up.railway.app/api/posts2/deletePost/${postId}` )
+    return await axios.delete(`https://devlights-final-project-production.up.railway.app/api/posts2/${postId}` )
 }
